@@ -156,10 +156,6 @@ table {
     border-radius: 0.25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     cursor: pointer;
-<<<<<<< HEAD
-    user-select: none;
-=======
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 }
 
 .btn-info {
@@ -188,10 +184,6 @@ table {
     -webkit-transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86), border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     cursor: pointer;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 }
 
 .button:before {
@@ -608,8 +600,6 @@ table {
     transform: scale(1.05);
 }
 
-<<<<<<< HEAD
-=======
 /* Drag List product */
 .slide-stage-outer {
     transition: all 0.6s ease 0s;
@@ -662,7 +652,6 @@ table {
     right: 2px;
 }
 
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 /* Slide */
 .InfiniteSlide__wrapper {
     position: relative;

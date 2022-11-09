@@ -66,48 +66,10 @@ function ViewCart() {
 
          for (let index = 0; index < btnRemoveCart.length; index++) {
             inputQty[index].value = ListCart.getCarts[index].qty;
-<<<<<<< HEAD
-
-            // const totalProductCart = numberMoney(
-            //    (
-            //       Number(ListCart.getCarts[index].product.price.replaceAll(',', '')) *
-            //       inputQty[index].value
-            //    ).toString(),
-            // );
-            // priceProduc[index].innerHTML = `${
-            //    totalProductCart[0] === ',' ? totalProductCart.replace(',', '') : totalProductCart
-            // } ₫`;
-
-=======
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
             btnQtyMinus[index].onclick = function () {
                ListCart.minusQty(index);
                if (ListCart.getCarts[index]) {
                   inputQty[index].value = Number(ListCart.getCarts[index].qty);
-<<<<<<< HEAD
-                  // const totalProductCart = numberMoney(
-                  //    (
-                  //       Number(ListCart.getCarts[index].product.price.replaceAll(',', '')) *
-                  //       inputQty[index].value
-                  //    ).toString(),
-                  // );
-
-                  // priceProduc[index].innerHTML = `${
-                  //    totalProductCart[0] === ','
-                  //       ? totalProductCart.replace(',', '')
-                  //       : totalProductCart
-                  // } ₫`;
-               } else {
-                  cartViewScroll.innerHTML = ListCart.getCarts
-                     .map((element) => {
-                        console.log(element.product.price);
-                        return CartView({
-                           namePro: element.product.name,
-                           linkTo: '/',
-                           img: element.product.imgs.firstImg,
-                           color: element.product.colors.list[0],
-                           size: element.product.colors.detail[0].detail.size,
-=======
                } else {
                   cartViewScroll.innerHTML = ListCart.getCarts
                      .map((element) => {
@@ -126,7 +88,6 @@ function ViewCart() {
                            img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
                            color: element.detail.option1,
                            size: element.detail.option2,
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
                            price: element.product.price,
                         });
                      })
@@ -147,21 +108,6 @@ function ViewCart() {
                ListCart.plusQty(index);
                if (ListCart.getCarts[index]) {
                   inputQty[index].value = Number(ListCart.getCarts[index].qty);
-<<<<<<< HEAD
-                  // const totalProductCart = numberMoney(
-                  //    (
-                  //       Number(ListCart.getCarts[index].product.price.replaceAll(',', '')) *
-                  //       inputQty[index].value
-                  //    ).toString(),
-                  // );
-
-                  // priceProduc[index].innerHTML = `${
-                  //    totalProductCart[0] === ','
-                  //       ? totalProductCart.replace(',', '')
-                  //       : totalProductCart
-                  // } ₫`;
-=======
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
                }
                totalCarts();
             };
@@ -170,14 +116,6 @@ function ViewCart() {
                ListCart.delete(index);
                cartViewScroll.innerHTML = ListCart.getCarts
                   .map((element) => {
-<<<<<<< HEAD
-                     return CartView({
-                        namePro: element.product.name,
-                        linkTo: '/',
-                        img: element.product.imgs.firstImg,
-                        color: element.product.colors.list[0],
-                        size: element.product.colors.detail[0].detail.size,
-=======
                      let tempColorIndex = 0;
                      element.product.colors.detail.find((element1, index) => {
                         tempColorIndex = index;
@@ -193,7 +131,6 @@ function ViewCart() {
                         img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
                         color: element.detail.option1,
                         size: element.detail.option2,
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
                         price: element.product.price,
                      });
                   })
@@ -259,14 +196,6 @@ function ViewCart() {
 
    cartViewScroll.innerHTML = ListCart.getCarts
       .map((element) => {
-<<<<<<< HEAD
-         return CartView({
-            namePro: element.product.name,
-            linkTo: '/',
-            img: element.product.imgs.firstImg,
-            color: element.product.colors.list[0],
-            size: element.product.colors.detail[0].detail.size,
-=======
          let tempColorIndex = 0;
          element.product.colors.detail.find((element1, index) => {
             tempColorIndex = index;
@@ -279,7 +208,6 @@ function ViewCart() {
             img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
             color: element.detail.option1,
             size: element.detail.option2,
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
             price: element.product.price,
          });
       })

@@ -26,10 +26,6 @@ function InfiniteSlide(id = $('.InfiniteSlide__wrapper').length) {
             getWidthSlide = $(`#InfiniteSlide__${id} .InfiniteSlide__list`).getBoundingClientRect()
                .width;
             moveToNextSlide();
-<<<<<<< HEAD
-            console.log('ok');
-=======
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
          }, interval);
       };
 
