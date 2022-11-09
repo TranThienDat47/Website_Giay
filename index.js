@@ -148,24 +148,14 @@ window.onload = () => {
             for (let k = 0; k < lengthChildren; k++) {
                if (j != k) productSwatch[i].children[k].classList.remove('active');
             }
-<<<<<<< HEAD
-            firstImg[i].src = 'http:' + productSwatch[i].children[j].getAttribute('data-img-first');
-            secondeImg[i].src =
-               'http:' + productSwatch[i].children[j].getAttribute('data-img-second');
-=======
             firstImg[i].src = productSwatch[i].children[j].getAttribute('data-img-first');
             secondeImg[i].src = productSwatch[i].children[j].getAttribute('data-img-second');
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
          };
       }
    }
 };
 
-<<<<<<< HEAD
-//cart
-=======
 //handle wish list
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 
 // test product
 
@@ -174,11 +164,7 @@ import Product from './app/models/Product.js';
 
 // ListProduct.add(
 //    new Product(
-<<<<<<< HEAD
-//       6,
-=======
 //       7,
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 //       'Giày nam',
 //       'Không có gì',
 //       '999,999',
@@ -247,8 +233,6 @@ import Product from './app/models/Product.js';
 //       5,
 //    ),
 // );
-<<<<<<< HEAD
-=======
 
 //cách gọi thử sản phẩm
 import Products from '../components/Product/index.js';
@@ -342,4 +326,3 @@ import Products from '../components/Product/index.js';
 // };
 
 // $('.main').innerHTML = Products(tempkkk);
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd

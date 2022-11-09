@@ -2,18 +2,6 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 import Product from '../components/Product/index.js';
-<<<<<<< HEAD
-
-const listSearchResults = $('.searchPage__listProduct-row');
-
-let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-listSearchResults.innerHTML = data
-   .map((element) => Product(element))
-   .join(',,,,')
-   .toString()
-   .replaceAll(',,,,', '');
-=======
 import ListProduct from '../app/controllers/ProductController.js';
 
 const listSearchResults = $('.searchPage__listProduct-row');
@@ -103,4 +91,3 @@ if (urlParams.get('value').trim() !== '') {
 } else {
    txtNoSearch.innerHTML = 'Không thấy kết quả cần tìm kiếm!';
 }
->>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd

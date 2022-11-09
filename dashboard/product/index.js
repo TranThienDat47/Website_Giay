@@ -590,10 +590,9 @@ btnAddProcForm.onclick = function () {
          detail: detailNew,
       };
    });
-
    ListProduct.add(
       new Product(
-         dataDetail.id_product,
+         $('#id_product').value,
          dataDetail.name_product,
          dataDetail.description_product,
          numberMoney(dataDetail.price_product.toString())[0] !== ','
