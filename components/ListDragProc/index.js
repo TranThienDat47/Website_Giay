@@ -30,7 +30,7 @@ function ListDragProc(id = 'ListDragProc_0', data = []) {
          e.preventDefault();
          e.stopPropagation();
       };
-
+   //ok
       btnDragRight.onclick = function (e) {
          if (listDrag.children.length > 5) {
             listDrag.style.transition = 'all 0.6s ease 0s';
