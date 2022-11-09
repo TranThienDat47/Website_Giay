@@ -148,15 +148,24 @@ window.onload = () => {
             for (let k = 0; k < lengthChildren; k++) {
                if (j != k) productSwatch[i].children[k].classList.remove('active');
             }
+<<<<<<< HEAD
             firstImg[i].src = 'http:' + productSwatch[i].children[j].getAttribute('data-img-first');
             secondeImg[i].src =
                'http:' + productSwatch[i].children[j].getAttribute('data-img-second');
+=======
+            firstImg[i].src = productSwatch[i].children[j].getAttribute('data-img-first');
+            secondeImg[i].src = productSwatch[i].children[j].getAttribute('data-img-second');
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
          };
       }
    }
 };
 
+<<<<<<< HEAD
 //cart
+=======
+//handle wish list
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 
 // test product
 
@@ -165,7 +174,11 @@ import Product from './app/models/Product.js';
 
 // ListProduct.add(
 //    new Product(
+<<<<<<< HEAD
 //       6,
+=======
+//       7,
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 //       'Giày nam',
 //       'Không có gì',
 //       '999,999',
@@ -234,3 +247,99 @@ import Product from './app/models/Product.js';
 //       5,
 //    ),
 // );
+<<<<<<< HEAD
+=======
+
+//cách gọi thử sản phẩm
+import Products from '../components/Product/index.js';
+
+// const tempkkk = {
+//    _id: '2',
+//    name: 'Khong co gi',
+//    price: '999,999,999',
+//    color: {
+//       list: ['Red', 'Blue'],
+//       detail: [
+//          {
+//             color: 'Red',
+//             imgs: {
+//                firstImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                secondeImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                orthers: [
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                ],
+//             },
+//             qty: 4,
+//             detail: [
+//                {
+//                   size: 39,
+//                   qty: 4,
+//                },
+//                {
+//                   size: 40,
+//                   qty: 2,
+//                },
+//                {
+//                   size: 44,
+//                   qty: 1,
+//                },
+//                {
+//                   size: 43,
+//                   qty: 8,
+//                },
+//             ],
+//          },
+//          {
+//             color: 'Blue',
+//             imgs: {
+//                firstImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                secondeImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                orthers: [
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                ],
+//             },
+//             qty: 2,
+//             detail: [
+//                {
+//                   size: 35,
+//                   qty: 2,
+//                },
+//             ],
+//          },
+//          {
+//             color: 'Blue',
+//             imgs: {
+//                firstImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                secondeImg:
+//                   'http://vn.blog.kkday.com/wp-content/uploads/chup-anh-dep-bang-dien-thoai-25.jpg',
+//                orthers: [
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                   'https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg',
+//                ],
+//             },
+//             qty: 2,
+//             detail: [
+//                {
+//                   size: 35,
+//                   qty: 2,
+//                },
+//             ],
+//          },
+//       ],
+//    },
+//    sizes: ['39', '40'],
+//    promotional_price: '',
+//    promotion_percentage: '',
+// };
+
+// $('.main').innerHTML = Products(tempkkk);
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd

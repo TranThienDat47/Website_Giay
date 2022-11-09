@@ -1,4 +1,5 @@
 const data = {
+<<<<<<< HEAD
    CartsDB: {
       data: [
          {
@@ -81,6 +82,9 @@ const data = {
       ],
       
    },
+=======
+   CartsDB: {},
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 };
 
 export default data;

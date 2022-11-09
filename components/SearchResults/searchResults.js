@@ -21,6 +21,24 @@ const checkNode = (parent, children) => {
 let dataSearchResult = [];
 let searchValue = '';
 
+<<<<<<< HEAD
+=======
+inputSearch.onclick = () => {
+   setTimeout(() => {
+      searchValue = inputSearch.value;
+      if (searchValue.trim().length > 0) {
+         dataSearchResult = ListProduct.findAll(searchValue.trim());
+         searhresult.innerHTML = SearchResults(dataSearchResult);
+         searhresult.style.display = 'block';
+         if ($('.search-results__more>a'))
+            $('.search-results__more>a').href = `/search/index.html?value=${searchValue.trim()}`;
+      } else {
+         searhresult.style.display = 'none';
+      }
+   }, 0);
+};
+
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 inputSearch.onkeydown = () => {
    setTimeout(() => {
       searchValue = inputSearch.value;
@@ -28,6 +46,11 @@ inputSearch.onkeydown = () => {
          dataSearchResult = ListProduct.findAll(searchValue.trim());
          searhresult.innerHTML = SearchResults(dataSearchResult);
          searhresult.style.display = 'block';
+<<<<<<< HEAD
+=======
+         if ($('.search-results__more>a'))
+            $('.search-results__more>a').href = `/search/index.html?value=${searchValue.trim()}`;
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
       } else {
          searhresult.style.display = 'none';
       }

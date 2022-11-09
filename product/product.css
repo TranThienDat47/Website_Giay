@@ -764,6 +764,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+<<<<<<< HEAD
 .slide-stage-outer {
     position: relative;
     overflow: hidden;
@@ -790,6 +791,8 @@
     user-select: none;
     -webkit-user-drag: none;
 }
+=======
+>>>>>>> 1a67ddf1adbed66c6b0ca7191be57e996fa08ecd
 
 /* modal view product */
 
