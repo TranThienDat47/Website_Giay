@@ -1542,9 +1542,7 @@
 }
 
 .collection-list {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
-   margin: 30px -2px 0 0;
+   margin: 0 -5px;
 }
 
 .collection-list .product-container{   
