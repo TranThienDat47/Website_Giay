@@ -1528,6 +1528,19 @@
 }
 
 /* Product List */
+.listProduct-row {
+   margin: 0 -5px;
+}
+
+.collection-alert-no {
+   font-size: 14px;
+   padding: 10px 0;
+}
+
+.collection-alert-no p {
+   margin: 0;
+}
+
 .collection-list {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));

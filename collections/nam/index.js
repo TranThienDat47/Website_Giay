@@ -206,85 +206,298 @@ window.addEventListener('click', function (e) {
 });
 
 //Filter Desktop li
+var filterColors = document.querySelectorAll('.filter-color li label');
+var filterSizes = document.querySelectorAll('.filter-size li label');
+
 var filterLis = document.querySelectorAll('.checkbox-list li label');
 var filterDesc = document.querySelector('.active-filter');
 var filterLisLength = filterLis.length;
 var valueOfLi = [];
-var btnClosefilterDescs;
-for (let i = 0; i < filterLis.length; i++) {
-   let filterLi = filterLis[i];
-   filterLi.addEventListener('click', function (e) {
-      if (filterLi.parentElement.classList.contains('active')) {
-         filterLi.parentElement.classList.remove('active');
-         let valueLength = valueOfLi.length;
-         for (let i = 0; i < valueLength; i++) {
-            if (valueOfLi[i] == filterLi.innerText) {
-               valueOfLi.splice(i, 1);
+var valueColors = [];
+var valueSizes = [];
+var htmlLi = [];
+
+function searchProductColor(productList, arrayColor) {
+   var productFilterList = []
+   for(let i = 0; i < productList.length; i++) {
+      for(let j = 0; j < arrayColor.length; j++) {
+         for(let m = 0; m < productList[i].colors.list.length; m++) {
+            if(productList[i].colors.list[m] == arrayColor[j] && checkId(productList[i],productFilterList)) {
+               productFilterList.push(productList[i]) 
             }
          }
-         filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
-      } else {
-         filterLi.parentElement.classList.add('active');
-
-         valueOfLi.push(filterLi.innerText);
-
-         filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
       }
-   });
-   filterLi.addEventListener('mouseup', function (e) {
-      for(let filterItem of filterItems) {
-         if(filterItem.classList.contains('active')) {
-            filterItem.classList.remove('active');
+   }
+   return productFilterList;
+}
+
+function searchProductSize(productList, arraySize) {
+   var productFilterList = []
+   for(let i = 0; i < productList.length; i++) {
+      for(let j = 0; j < arraySize.length; j++) {
+         for(let m = 0; m < productList[i].size.length; m++) {
+            if(productList[i].size[m] == arraySize[j] && checkId(productList[i],productFilterList)) {
+               productFilterList.push(productList[i]) 
+            }
          }
+      }
+   }
+   return productFilterList;
+}
+
+function searchProductPrice(productList, price) {
+   var productFilterList = []
+   for(let i = 0; i < productList.length; i++) {
+      const productPrice = Number(productList[i].price.split(',').join(''));
+      if(productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
+         productFilterList.push(productList[i]);
+      }
+   }
+   return productFilterList;
+}
+
+for (let i = 0; i < filterColors.length; i++) {
+   let filterColor = filterColors[i];
+   filterColor.addEventListener('click', function (e) {
+      if(filterColor.parentElement.classList.contains('active')) {
+         filterColor.parentElement.classList.remove('active');
+         let valueColorLength = valueColors.length;
+         for (let i = 0; i < valueColorLength; i++) {
+            if (valueColors[i] == filterColor.innerText) {
+               valueColors.splice(i, 1);
+            }
+         }
+
+      } else {
+         filterColor.parentElement.classList.add('active');
+         valueColors.push(filterColor.innerText);
+      }
+      // valueOfLi.splice(0,1,valueColors);
+      valueOfLi[0] = valueColors;
+      let valueOfColor = getHTMLtoFilterDesc(valueOfLi[0]);
+      htmlLi[0] = valueOfColor.join("");
+      filterDesc.innerHTML = htmlLi.join("");
+      console.log(productFilterList);
+      // for(let i = 0; i < productList.length; i++) {
+      //    for(let j = 0; j < valueOfLi[0].length; j++) {
+      //       for(let m = 0; m < productList[i].colors.list.length; m++) {
+      //          if(productList[i].colors.list[m] == valueOfLi[0][j] && checkId(productList[i],productFilterList)) {
+      //             productFilterList.push(productList[i]) 
+      //          }
+      //       }
+      //    }
+      // }
+      if(valueOfLi[0].length > 0) {
+         productFilterList = searchProductColor(productList, valueOfLi[0]);
+      } else {
+         productFilterList = productList;
+      }
+      console.log(productFilterList);
+      var dataProduct = htmlProduct(productFilterList);
+      if(productFilterList.length > 0) {
+         for (let i = 0; i < dataProduct.length; i++) {
+            wrapList.innerHTML = dataProduct.join("");
+         }
+      }
+      else {
+         wrapList.innerHTML = dataProduct;
       }
    })
 }
 
+for (let i = 0; i < filterSizes.length; i++) {
+   let filterSize = filterSizes[i];
+   filterSize.addEventListener('click', function (e) {
+      if(filterSize.parentElement.classList.contains('active')) {
+         filterSize.parentElement.classList.remove('active');
+         let valueSizeLength = valueSizes.length;
+
+         for (let i = 0; i < valueSizeLength; i++) {
+            if (valueSizes[i] == filterSize.innerText) {
+               valueSizes.splice(i, 1);
+            }
+         }
+      } else {
+         filterSize.parentElement.classList.add('active');
+         valueSizes.push(filterSize.innerText);
+      }
+      valueOfLi[1] = valueSizes;
+      let valueOfSize = getHTMLtoFilterDesc(valueOfLi[1]);
+      htmlLi[1] = valueOfSize.join("");
+      filterDesc.innerHTML = htmlLi.join("");
+      // for(let i = 0; i < productList.length; i++) {
+      //    for(let j = 0; j < valueOfLi[1].length; j++) {
+      //       for(let n = 0; n < productList[i].size.length; n++) {
+      //          if(productList[i].size[n] == valueOfLi[1][j] && checkId(productList[i],productFilterList)) {
+      //             productFilterList.push(productList[i]) 
+      //          }
+      //       }
+      //    }
+      // }
+      if(valueOfLi[1].length > 0) {
+         productFilterList = searchProductSize(productList, valueOfLi[1]);
+      } else {
+         productFilterList = productList;
+      }
+      console.log(productFilterList);
+      var dataProduct = htmlProduct(productFilterList);
+      if(productFilterList.length > 0) {
+         for (let i = 0; i < dataProduct.length; i++) {
+            wrapList.innerHTML = dataProduct.join("");
+         }
+      }
+      else {
+         wrapList.innerHTML = dataProduct;
+      }
+   })
+}
+
+
+// for (let i = 0; i < filterLis.length; i++) {
+//    let filterLi = filterLis[i];
+//    filterLi.addEventListener('click', function (e) {
+//       if (filterLi.parentElement.classList.contains('active')) {
+//          filterLi.parentElement.classList.remove('active');
+//          let valueLength = valueOfLi.length;
+//          let itemFilterListLength = itemFilterList.length;
+
+//          for (let i = 0; i < valueLength; i++) {
+//             if (valueOfLi[i] == filterLi.innerText) {
+//                valueOfLi.splice(i, 1);
+//             }
+//          }
+//          for (let i = 0; i < itemFilterListLength; i++) {
+//             if (itemFilterList[i] == filterLi.innerText) {
+//                itemFilterList.splice(i, 1);
+//             }
+//          }
+//          console.log(itemFilterList);
+
+//          filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
+//       } else {
+//          filterLi.parentElement.classList.add('active');
+//          // itemFilterList.push(filterLi.innerText);
+//          // for(let i = 0; i < productList.length; i++) {
+//          //    for(let j = 0; j < itemFilterList.length;j++) {
+//          //       for(let m = 0; m < productList[i].colors.list.length; m++) {
+//          //          if(productList[i].colors.list[m] == itemFilterList[j] && checkId(productList[i],productFilterList)) {
+//          //             productFilterList.push(productList[i])
+//          //          }
+//          //       }
+//          //       for(let n = 0; n < productList[i].size.length; n++) {
+//          //          if(productList[i].size[n] == itemFilterList[j] && checkId(productList[i],productFilterList)) {
+//          //             productFilterList.push(productList[i])
+//          //          }
+//          //       }
+//          //    }
+//          // }
+//          // productFilter(htmlProduct(productFilterList));
+//          // console.log(itemFilterList);
+//          valueOfLi.push(filterLi.innerText);
+
+//          filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
+//       }
+//    });
+// }
+
 function getHTMLtoFilterDesc(valueOfLi) {
    var filterdesc = valueOfLi.map(function (value) {
-      if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
-         return `
-            <div class="price">
-               ${format2(value.minPriceSearch)} - ${format2(value.maxPriceSearch)} đ
-               <i class="fa fa-times-circle"></i>
-            </div>
-         `;
-      } else
-         return `
-            <span data-value="${value}" onclick="">${value}
-            <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-            </span>  
-         `;
+      return `
+         <span class="filter-item" data-value="${value}">${value}
+         <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+         </span>  
+      `;
    });
    return filterdesc;
 }
 
+function getHTMLtoFilterPrice(value) {
+   return `
+      <div class="price" minprice="${value.minPriceSearch}" maxprice="${
+      value.maxPriceSearch
+   }">
+         ${format2(value.minPriceSearch)} - ${format2(value.maxPriceSearch)} đ
+         <i class="fa fa-times-circle"></i>
+      </div>
+   `;
+}
+
 filterDesc.onclick = (e) => {
    console.log(e.target);
-   if(e.target != filterDesc) {
+
+   if (e.target != filterDesc) {
       var valueParent = e.target.parentElement.innerText;
       console.log(valueParent);
       let valueLength1 = valueOfLi.length;
       let minPrice = Number(amount.getAttribute('minpricesearch'));
       let maxPrice = Number(amount.getAttribute('maxpricesearch'));
 
-      for (let i = 0; i < valueLength1; i++) {
-         if (valueOfLi[i] === valueParent || 
-            typeof valueOfLi[i] === 'object' &&
-            !Array.isArray(valueOfLi[i]) &&
-            valueOfLi[i] !== null) {
-            valueOfLi.splice(i, 1);
+      if (e.target.parentElement.classList.contains('price')) {
+         // for (let i = 0; i < valueOfLi.length; i++) {
+         //    if (
+         //       typeof valueOfLi[i] === 'object' &&
+         //       !Array.isArray(valueOfLi[i]) &&
+         //       valueOfLi[i] !== null
+         //    ) {
+         //       valueOfLi.splice(i, 1);
+         //    }
+         // }
+         console.log(valueOfLi);
+         console.log(htmlLi);
+
+         valueOfLi.pop();
+         htmlLi.pop();
+         productFilterList = productList;
+      }
+
+      if (e.target.parentElement.classList.contains('filter-item')) {
+         if(valueOfLi[0]) {
+            for (let i = 0; i < valueOfLi[0].length; i++) {
+               if (valueOfLi[0][i] === valueParent) {
+                  valueOfLi[0].splice(i, 1);
+                  let valueOfColor = getHTMLtoFilterDesc(valueOfLi[0]);
+                  htmlLi[0] = valueOfColor.join("");
+                  if(valueOfLi[0].length > 0) {
+                     productFilterList = searchProductColor(productList, valueOfLi[0]);
+                  } else {
+                     productFilterList = productList;
+                  }
+               }
+            }
+         }
+         if(valueOfLi[1]) {
+            for (let i = 0; i < valueOfLi[1].length; i++) {
+               if (valueOfLi[1][i] === valueParent) {
+                  valueOfLi[1].splice(i, 1);
+                  let valueOfSize = getHTMLtoFilterDesc(valueOfLi[1]);
+                  htmlLi[1] = valueOfSize.join("");
+                  if(valueOfLi[1].length > 0) {
+                  productFilterList = searchProductSize(productList, valueOfLi[1]);
+                  } else {
+                     productFilterList = productList;
+                  }
+               }
+            }
          }
       }
-      
-      filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
+      console.log(valueOfLi);
+      filterDesc.innerHTML = htmlLi.join("");
+      var dataProduct = htmlProduct(productFilterList);
+      if(productFilterList.length > 0) {
+         for (let i = 0; i < dataProduct.length; i++) {
+            wrapList.innerHTML = dataProduct.join("");
+         }
+      }
+      else {
+         wrapList.innerHTML = dataProduct;
+      }
       var filterLiActives = document.querySelectorAll('.checkbox-list li.active');
       for (let filterLiActive of filterLiActives) {
          if (filterLiActive.children[1].innerText === valueParent) {
             filterLiActive.classList.remove('active');
          }
       }
-      
+
       uisliderRange.style.width = '100%';
       uisliderRange.style.left = '0%';
       uisliderHandles[0].style.left = '0%';
@@ -337,40 +550,83 @@ function numberMoney(s) {
    }
    return reverse(newCharecters);
 }
-//Product List
+
+//Product List Lọc
+//Haha
 var localKey = 'Products';
 var productList = JSON.parse(localStorage.getItem(localKey));
-// console.log(productList);
-
-var dataProduct = productList.map(function (element) {
-   let tempNewPrice = Number(element.price.replaceAll(',', ''));
-
-   tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
-   return Product({
-      _id: element._id,
-      name: element.name,
-      price: element.price,
-      color: element.colors,
-      sizes: element.size,
-      promotional_price: numberMoney(tempNewPrice.toString()),
-      promotion_percentage: element.promotions,
-      news: element.newProc,
-   });
-});
-
-var productContainerList = [];
-for (let i = 0; i < dataProduct.length; i++) {
-   let productContainer = document.createElement('div');
-   productContainer.innerHTML = dataProduct[i];
-   productContainerList.push(productContainer);
-}
-
-var flat = 0;
 var wrapList = document.querySelector('.collection-list');
-for (let i = 0; i < 4; i++) {
-   wrapList.appendChild(productContainerList[i]);
-   flat += 1;
+var itemFilterList = [];
+var productFilterList = [];
+
+console.log(productList);
+
+function htmlProduct(arrayProduct) {
+   if(arrayProduct.length == 0) {
+      return `
+         <div class="row listProduct-row listProduct-resize listProduct-filter">
+            <div class="col-md-12 product-noloop">
+               <div class="collection-alert-no">
+                  <p>Không tìm thấy kết quả. Vui lòng thử lại!</p>
+               </div>
+            </div>
+         </div>
+      `
+   }
+   else {
+      var newArrayProduct = arrayProduct.map(function (element) {
+         let tempNewPrice = Number(element.price.replaceAll(',', ''));
+         tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
+         return Product({
+            _id: element._id,
+            name: element.name,
+            price: element.price,
+            color: element.colors,
+            sizes: element.size,
+            promotional_price: numberMoney(tempNewPrice.toString()),
+            promotion_percentage: element.promotions,
+            news: element.newProc,
+         });
+      })
+      return newArrayProduct;
+   }
 }
+
+function checkId(product, productlist) {
+   let check = true;
+   const length = productlist.length;
+   for(let i = 0; i < length; i++) {
+      if(product._id == productlist[i]._id) { 
+         check = false;
+         break;
+      }
+   }
+   return check;
+}
+
+var dataProduct = htmlProduct(productList);
+
+// var productContainerList = [];
+// for (let i = 0; i < dataProduct.length; i++) {
+//    let productContainer = document.createElement('div');
+//    productContainer.innerHTML = dataProduct[i];
+//    productContainerList.push(productContainer);
+// }
+
+// var productContainerList = [];
+for (let i = 0; i < dataProduct.length; i++) {
+   wrapList.innerHTML = dataProduct.join("");
+}
+
+// var flat = 0;
+// var wrapList = document.querySelector('.collection-list');
+// for (let i = 0; i < productContainerList.length; i++) {
+//    if (i == 40) {
+//       break;
+//    }
+//    wrapList.appendChild(productContainerList[i]);
+//    flat += 1;
+// }
 
 var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
 btnLoadMore.onclick = () => {
@@ -416,7 +672,6 @@ uisliderHandles[0].addEventListener('mousedown', (e) => {
       // const uisliderHandle = Math.ceil(uisliderHandles[0].getBoundingClientRect().left);
       // console.log(uisliderHandle);
       const uiRight = Math.ceil(uisliderRange.getBoundingClientRect().right);
-
 
       const width = Math.ceil(uisliderRange.getBoundingClientRect().width);
       //console.log(width);
@@ -524,7 +779,6 @@ uisliderHandles[1].addEventListener('mousedown', (e) => {
    });
 });
 
-var priceArray = [{}];
 document.addEventListener('mouseup', (e) => {
    // isReadytoDrag = false;
    uisliderHandles[0].classList.remove('ui-state-active');
@@ -537,23 +791,40 @@ document.addEventListener('mouseup', (e) => {
          minPriceSearch: Number(minprice),
          maxPriceSearch: Number(maxprice),
       };
-      priceArray[0] = valuePriceSearch;
-      var flag = 0;
-      for (let i = 0; i < valueOfLi.length; i++) {
-         if (
-            typeof valueOfLi[i] === 'object' &&
-            !Array.isArray(valueOfLi[i]) &&
-            valueOfLi[i] !== null
-         ) {
-            flag = i;
+      // let valueOfLilength = valueOfLi.length;
+      // let flag = 0;
+      // for (let i = 0; i < valueOfLilength; i++) {
+      //    if (
+      //       typeof valueOfLi[i] === 'object' &&
+      //       !Array.isArray(valueOfLi[i]) &&
+      //       valueOfLi[i] !== null
+      //    ) {
+      //       valueOfLi[i] = valuePriceSearch;
+      //       flag = 1;
+      //    }
+      // }
+      // if (flag == 0) {
+      //    valueOfLi[valueOfLilength] = valuePriceSearch;
+      // }
+      valueOfLi[2] = valuePriceSearch;
+      let valueOfPrice = getHTMLtoFilterPrice(valueOfLi[2]);
+      htmlLi[2] = valueOfPrice;
+      filterDesc.innerHTML = htmlLi.join("");
+      productFilterList = searchProductPrice(productList,valueOfLi[2]);
+      var dataProduct = htmlProduct(productFilterList);
+      if(productFilterList.length > 0) {
+         for (let i = 0; i < dataProduct.length; i++) {
+            wrapList.innerHTML = dataProduct.join("");
          }
       }
-      valueOfLi[flag] = valuePriceSearch;
-      filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
+      else {
+         wrapList.innerHTML = dataProduct;
+      }
+      console.log(productFilterList);
    }
    // filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
    // console.log(priceArray);
-   
+
    isReadytoDrag = false;
 });
 
@@ -563,12 +834,16 @@ document.addEventListener('mouseover', (e) => {
    }
 });
 
+//đổi thành số tiền vnđ
 function format2(n) {
    return n
       .toFixed(2)
       .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
       .split('.')[0];
 }
+
+//Filter Item
+
 // User action
 
 // Wishlist
