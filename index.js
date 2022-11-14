@@ -13,6 +13,93 @@ const checkNode = (parent, children) => {
    return false;
 };
 
+//check login
+let isLogin = false;
+
+const wrapperActionUser = $(
+   '.header__action-account .header__action-dropdown .header__action-dropdown_content',
+);
+
+let arr_account_local = [],
+   nameUserLogin;
+arr_account_local = JSON.parse(localStorage.getItem('arr_account'));
+function check_login() {
+   const user = JSON.parse(localStorage.getItem('current_account'));
+   if (user) {
+      var val_tk = user.tk;
+      var val_mk = user.mk;
+      for (var i = 0; i < arr_account_local.length; i++) {
+         if (val_tk == arr_account_local[i].tk && val_mk == arr_account_local[i].mk) {
+            isLogin = true;
+            nameUserLogin = arr_account_local[i].ho + arr_account_local[i].ten;
+         }
+      }
+   }
+}
+
+check_login();
+
+if (isLogin) {
+   $('.header__action-account .header__action-dropdown').style.width = '200px';
+   wrapperActionUser.innerHTML = `
+   <div class="site_account sitenav-account  sitenav-account_info " id="siteNav-account">
+      <div class="site_account_panel_list">
+         <div class="site_account_info">
+               <div class="site_account_header">
+               <h2 class="site_account_title size-small heading">Thông tin tài khoản</h2>
+            </div>
+            <div class="site_account_inner">
+               <ul>
+                  <li class="user-name"><span>${nameUserLogin}</span></li>
+                  <li><a href="/account">Tài khoản của tôi</a></li>
+                  <li><a href="/account/index.html?q=logout">Đăng xuất</a></li>
+               </ul>
+            </div>
+         </div>
+         
+      </div>
+   </div>                              
+   `;
+}
+
+//login
+
+const btnLoginForm = $('#form_submit-login');
+if (btnLoginForm) {
+   btnLoginForm.onclick = () => {
+      const formAddCart = $('#customer_login');
+      const data = new FormData(formAddCart);
+      var detail = {};
+      for (const [name, value] of data) {
+         detail[`${name}`] = `${value}`;
+      }
+      dangnhap(detail.customer_email, detail.customer_password);
+   };
+}
+
+function dangnhap(val_tk, val_mk) {
+   if (val_mk == '' || val_tk == '' || checkEmail(val_tk) == false) {
+      $('#account_incorrect').style.display = 'block';
+   } else {
+      for (var i = 0; i < arr_account_local.length; i++) {
+         if (val_tk == arr_account_local[i].tk && val_mk == arr_account_local[i].mk) {
+            localStorage.removeItem('current_account');
+            localStorage.setItem('current_account', JSON.stringify(arr_account_local[i]));
+            window.location.href = '/';
+            return;
+         }
+      }
+      $('#account_incorrect').style.display = 'block';
+   }
+}
+
+function checkEmail(val_tk) {
+   var filter = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+   if (!filter.test(val_tk)) {
+      return false;
+   }
+}
+
 const headerActionCart = $('.header__action-cart');
 const headerActionUser = $('.header__action-account');
 

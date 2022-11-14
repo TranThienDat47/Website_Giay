@@ -1,3 +1,6 @@
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
 function CartView({ namePro, linkTo, img, color, size, price }) {
    return `
         <table id="cart-view">
@@ -45,179 +48,142 @@ function CartView({ namePro, linkTo, img, color, size, price }) {
 }
 
 import ListCart from '../../app/controllers/CartController.js';
-function ViewCart() {
-   const $ = document.querySelector.bind(document);
-   const $$ = document.querySelectorAll.bind(document);
+let btnRemoveCart, btnQtyPlus, btnQtyMinus, inputQty, priceProduc;
 
+function eventCarts() {
+   setTimeout(() => {
+      btnRemoveCart = $$('.mini-cart__remove');
+      btnQtyMinus = $$('.mini-cart__quantity .qty-btn.mnc-minus');
+      btnQtyPlus = $$('.mini-cart__quantity .qty-btn.mnc-plus');
+      inputQty = $$('.mini-cart__quantity .qty-value');
+      priceProduc = $$('.mnc-price');
+      const actionCart = $('.header__action-cart .header__action-item-text');
+
+      for (let index = 0; index < btnRemoveCart.length; index++) {
+         inputQty[index].value = ListCart.getCarts[index].qty;
+
+         btnQtyMinus[index].onclick = function () {
+            ListCart.minusQty(index);
+            if (ListCart.getCarts[index]) {
+               inputQty[index].value = Number(ListCart.getCarts[index].qty);
+            } else {
+               ViewCart();
+            }
+            setTimeout(() => {
+               actionCart.classList.add('show-triangle');
+            }, 0);
+            totalCarts();
+         };
+
+         btnQtyPlus[index].onclick = function () {
+            ListCart.plusQty(index);
+            if (ListCart.getCarts[index]) {
+               inputQty[index].value = Number(ListCart.getCarts[index].qty);
+            }
+            ViewCart();
+            setTimeout(() => {
+               actionCart.classList.add('show-triangle');
+            }, 0);
+         };
+
+         btnRemoveCart[index].onclick = function () {
+            ListCart.delete(index);
+            ViewCart();
+            setTimeout(() => {
+               actionCart.classList.add('show-triangle');
+            }, 0);
+         };
+      }
+   }, 0);
+}
+
+function reverse(s) {
+   var temp = '';
+   for (var i = s.length - 1; i >= 0; i--) temp += s[i];
+   return temp;
+}
+
+function numberMoney(s) {
+   const tempCharacters = reverse(s);
+
+   let newCharecters = '',
+      tempCount = 0;
+   for (let i = 2; i < tempCharacters.length; i += 3) {
+      newCharecters += tempCharacters.substring(i - 2, i + 1) + ',';
+      tempCount++;
+   }
+   if (newCharecters.length - tempCount < tempCharacters.length) {
+      newCharecters += tempCharacters.substring(
+         newCharecters.length - tempCount,
+         tempCharacters.length + 1,
+      );
+      tempCount = 0;
+   }
+   return reverse(newCharecters);
+}
+
+function totalCarts() {
+   const countCart = $('#cartCount');
+   const totelCartView = $('#total-view-cart');
+
+   const totalCarts = ListCart.getCarts.reduce((total, curValue) => {
+      return Number(total + Number(curValue.product.price.replaceAll(',', '') * curValue.qty));
+   }, 0);
+
+   const total = numberMoney(totalCarts.toString());
+
+   totelCartView.innerHTML = `${total[0] === ',' ? total.replace(',', '') : total} ₫`;
+   countCart.innerHTML = ListCart.getCarts.reduce((total, curValue) => {
+      return Number(total + Number(curValue.qty));
+   }, 0);
+}
+
+function ViewCart() {
    // Cart action
    const countCart = $('#cartCount');
    const cartViewScroll = $('.cart-view-scroll');
-   const actionCart = $('.header__action-cart .header__action-item-text');
-   const totelCartView = $('#total-view-cart');
-   let btnRemoveCart, btnQtyPlus, btnQtyMinus, inputQty, priceProduc;
-
-   function eventCarts() {
-      setTimeout(() => {
-         btnRemoveCart = $$('.mini-cart__remove');
-         btnQtyMinus = $$('.mini-cart__quantity .qty-btn.mnc-minus');
-         btnQtyPlus = $$('.mini-cart__quantity .qty-btn.mnc-plus');
-         inputQty = $$('.mini-cart__quantity .qty-value');
-         priceProduc = $$('.mnc-price');
-
-         for (let index = 0; index < btnRemoveCart.length; index++) {
-            inputQty[index].value = ListCart.getCarts[index].qty;
-            btnQtyMinus[index].onclick = function () {
-               ListCart.minusQty(index);
-               if (ListCart.getCarts[index]) {
-                  inputQty[index].value = Number(ListCart.getCarts[index].qty);
-               } else {
-                  cartViewScroll.innerHTML = ListCart.getCarts
-                     .map((element) => {
-                        let tempColorIndex = 0;
-                        element.product.colors.detail.find((element1, index) => {
-                           tempColorIndex = index;
-                           return (
-                              element1.color.toLowerCase() ===
-                              element.detail.option1.trim().toLowerCase()
-                           );
-                        });
-
-                        return CartView({
-                           namePro: element.product.name,
-                           linkTo: '/',
-                           img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
-                           color: element.detail.option1,
-                           size: element.detail.option2,
-                           price: element.product.price,
-                        });
-                     })
-                     .join(',,,,')
-                     .toString()
-                     .replaceAll(',,,,', '');
-
-                  countCart.innerHTML = ListCart.getCarts.length;
-                  setTimeout(() => {
-                     actionCart.classList.add('show-triangle');
-                  }, 0);
-               }
-
-               totalCarts();
-            };
-
-            btnQtyPlus[index].onclick = function () {
-               ListCart.plusQty(index);
-               if (ListCart.getCarts[index]) {
-                  inputQty[index].value = Number(ListCart.getCarts[index].qty);
-               }
-               totalCarts();
-            };
-
-            btnRemoveCart[index].onclick = function () {
-               ListCart.delete(index);
-               cartViewScroll.innerHTML = ListCart.getCarts
-                  .map((element) => {
-                     let tempColorIndex = 0;
-                     element.product.colors.detail.find((element1, index) => {
-                        tempColorIndex = index;
-                        return (
-                           element1.color.toLowerCase() ===
-                           element.detail.option1.trim().toLowerCase()
-                        );
-                     });
-
-                     return CartView({
-                        namePro: element.product.name,
-                        linkTo: '/',
-                        img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
-                        color: element.detail.option1,
-                        size: element.detail.option2,
-                        price: element.product.price,
-                     });
-                  })
-                  .join(',,,,')
-                  .toString()
-                  .replaceAll(',,,,', '');
-
-               setTimeout(() => {
-                  actionCart.classList.add('show-triangle');
-               }, 0);
-
-               countCart.innerHTML = ListCart.getCarts.reduce((total, curValue) => {
-                  return Number(total + Number(curValue.qty));
-               }, 0);
-
-               totalCarts();
-               eventCarts();
-            };
-         }
-      }, 0);
-   }
-   eventCarts();
-
-   function reverse(s) {
-      var temp = '';
-      for (var i = s.length - 1; i >= 0; i--) temp += s[i];
-      return temp;
-   }
-
-   function numberMoney(s) {
-      const tempCharacters = reverse(s);
-
-      let newCharecters = '',
-         tempCount = 0;
-      for (let i = 2; i < tempCharacters.length; i += 3) {
-         newCharecters += tempCharacters.substring(i - 2, i + 1) + ',';
-         tempCount++;
-      }
-      if (newCharecters.length - tempCount < tempCharacters.length) {
-         newCharecters += tempCharacters.substring(
-            newCharecters.length - tempCount,
-            tempCharacters.length + 1,
-         );
-         tempCount = 0;
-      }
-      return reverse(newCharecters);
-   }
-
-   function totalCarts() {
-      const totalCarts = ListCart.getCarts.reduce((total, curValue) => {
-         return Number(total + Number(curValue.product.price.replaceAll(',', '') * curValue.qty));
-      }, 0);
-
-      const total = numberMoney(totalCarts.toString());
-
-      totelCartView.innerHTML = `${total[0] === ',' ? total.replace(',', '') : total} ₫`;
-      countCart.innerHTML = ListCart.getCarts.reduce((total, curValue) => {
-         return Number(total + Number(curValue.qty));
-      }, 0);
-   }
 
    totalCarts();
 
-   cartViewScroll.innerHTML = ListCart.getCarts
-      .map((element) => {
-         let tempColorIndex = 0;
-         element.product.colors.detail.find((element1, index) => {
-            tempColorIndex = index;
-            return element1.color.toLowerCase() === element.detail.option1.trim().toLowerCase();
-         });
+   if (ListCart.getCarts.length > 0) {
+      cartViewScroll.innerHTML = ListCart.getCarts
+         .map((element) => {
+            let tempColorIndex = 0;
+            element.product.colors.detail.find((element1, index) => {
+               tempColorIndex = index;
+               return element1.color.toLowerCase() === element.detail.option1.trim().toLowerCase();
+            });
 
-         return CartView({
-            namePro: element.product.name,
-            linkTo: '/',
-            img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
-            color: element.detail.option1,
-            size: element.detail.option2,
-            price: element.product.price,
-         });
-      })
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+            return CartView({
+               namePro: element.product.name,
+               linkTo: '/',
+               img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
+               color: element.detail.option1,
+               size: element.detail.option2,
+               price: element.product.price,
+            });
+         })
+         .join(',,,,')
+         .toString()
+         .replaceAll(',,,,', '');
+   } else {
+      cartViewScroll.innerHTML = `
+                                    <div class="mini-cart__empty">
+                                       <td>			
+                                          <div class="svgico-mini-cart">
+                                             <svg width="81" height="70" viewBox="0 0 81 70"><g transform="translate(0 2)" stroke-width="4" fill="none" fill-rule="evenodd"><circle stroke-linecap="square" cx="34" cy="60" r="6"></circle><circle stroke-linecap="square" cx="67" cy="60" r="6"></circle><path d="M22.9360352 15h54.8070373l-4.3391876 30H30.3387146L19.6676025 0H.99560547"></path></g></svg>
+                                          </div>					
+                                          Hiện chưa có sản phẩm					
+                                       </td>								
+                                    </div>
+                                 `;
+   }
 
    countCart.innerHTML = ListCart.getCarts.reduce((total, curValue) => {
       return Number(total + Number(curValue.qty));
    }, 0);
+
+   eventCarts();
 }
 
 ViewCart();

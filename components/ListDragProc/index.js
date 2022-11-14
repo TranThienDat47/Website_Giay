@@ -17,6 +17,11 @@ function ListDragProc(id = 'ListDragProc_0', data = []) {
       const btnDragLeft = $(`#ListDragProc_${id} .listDrag__left`);
       const btnDragRight = $(`#ListDragProc_${id} .listDrag__right`);
 
+      if (data.length <= 5) {
+         btnDragLeft.style.display = 'none';
+         btnDragRight.style.display = 'none';
+      }
+
       let flagDrag = false,
          curTranslateX,
          tempDrag = 0,
@@ -30,7 +35,7 @@ function ListDragProc(id = 'ListDragProc_0', data = []) {
          e.preventDefault();
          e.stopPropagation();
       };
-   //ok
+      //ok
       btnDragRight.onclick = function (e) {
          if (listDrag.children.length > 5) {
             listDrag.style.transition = 'all 0.6s ease 0s';

@@ -490,12 +490,7 @@
                                        </p>
                                     </div>
                                     <div class="site_account_inner">
-                                       <form
-                                          accept-charset="UTF-8"
-                                          action="/account/login"
-                                          id="customer_login"
-                                          method="post"
-                                       >
+                                       <form accept-charset="UTF-8" id="customer_login">
                                           <input
                                              name="form_type"
                                              type="hidden"
@@ -509,7 +504,7 @@
                                                 type="email"
                                                 id="login-customer[email]"
                                                 class="form__field form__field--text"
-                                                name="customer[email]"
+                                                name="customer_email"
                                                 required="required"
                                              />
                                              <label
@@ -525,7 +520,7 @@
                                                 type="password"
                                                 id="login-customer[password]"
                                                 class="form__field form__field--text"
-                                                name="customer[password]"
+                                                name="customer_password"
                                                 required="required"
                                                 autocomplete="current-password"
                                              />
@@ -534,6 +529,11 @@
                                                 class="form__floating-label"
                                                 >Mật khẩu</label
                                              >
+                                             <div id="account_incorrect" style="display: none">
+                                                <p style="color: red; margin: 10px 0 18px 4px">
+                                                   Tài khoản hoặc mật khẩu không đúng!
+                                                </p>
+                                             </div>
                                              <div class="sitebox-recaptcha">
                                                 This site is protected by reCAPTCHA and the Google
                                                 <a
@@ -553,7 +553,7 @@
                                              </div>
                                           </div>
                                           <button
-                                             type="submit"
+                                             type="button"
                                              class="form__submit button dark"
                                              id="form_submit-login"
                                           >
