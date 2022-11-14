@@ -587,6 +587,10 @@ formAddCart.addEventListener('submit', function (e) {
       detail,
    });
    ViewCart();
+   $('.notiSuccess-product').style.display = 'flex';
+   setTimeout(() => {
+      $('.notiSuccess-product').style.display = 'none';
+   }, 1500);
 });
 
 btnAddToCart.onclick = function () {
