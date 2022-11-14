@@ -11,7 +11,7 @@ function Product({
    news = false,
 }) {
    return `
-    <div class="product-wrapper">
+    <div class="product-wrapper col-4">
         <div data-id="${_id}" class="product-inner collection product-lists-item">
             <div class="product-box-img">
                 <div class="product-favorite onwishlist_btn_add" data-id="${_id}" data-price="${price}"
