@@ -908,6 +908,8 @@ a.ui-button:active,
    cursor: default;
    -ms-touch-action: none;
    touch-action: none;
+   -webkit-user-drag: none;
+   user-select: none;
 }
 /*  */
 

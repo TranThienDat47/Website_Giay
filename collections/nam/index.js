@@ -399,54 +399,6 @@ for (let i = 0; i < filterSizes.length; i++) {
    })
 }
 
-
-// for (let i = 0; i < filterLis.length; i++) {
-//    let filterLi = filterLis[i];
-//    filterLi.addEventListener('click', function (e) {
-//       if (filterLi.parentElement.classList.contains('active')) {
-//          filterLi.parentElement.classList.remove('active');
-//          let valueLength = valueOfLi.length;
-//          let itemFilterListLength = itemFilterList.length;
-
-//          for (let i = 0; i < valueLength; i++) {
-//             if (valueOfLi[i] == filterLi.innerText) {
-//                valueOfLi.splice(i, 1);
-//             }
-//          }
-//          for (let i = 0; i < itemFilterListLength; i++) {
-//             if (itemFilterList[i] == filterLi.innerText) {
-//                itemFilterList.splice(i, 1);
-//             }
-//          }
-//          console.log(itemFilterList);
-
-//          filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
-//       } else {
-//          filterLi.parentElement.classList.add('active');
-//          // itemFilterList.push(filterLi.innerText);
-//          // for(let i = 0; i < productList.length; i++) {
-//          //    for(let j = 0; j < itemFilterList.length;j++) {
-//          //       for(let m = 0; m < productList[i].colors.list.length; m++) {
-//          //          if(productList[i].colors.list[m] == itemFilterList[j] && checkId(productList[i],productFilterList)) {
-//          //             productFilterList.push(productList[i])
-//          //          }
-//          //       }
-//          //       for(let n = 0; n < productList[i].size.length; n++) {
-//          //          if(productList[i].size[n] == itemFilterList[j] && checkId(productList[i],productFilterList)) {
-//          //             productFilterList.push(productList[i])
-//          //          }
-//          //       }
-//          //    }
-//          // }
-//          // productFilter(htmlProduct(productFilterList));
-//          // console.log(itemFilterList);
-//          valueOfLi.push(filterLi.innerText);
-
-//          filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
-//       }
-//    });
-// }
-
 function getHTMLtoFilterDesc(valueOfLi) {
    var filterdesc = valueOfLi.map(function (value) {
       return `
@@ -480,18 +432,9 @@ filterDesc.onclick = (e) => {
       let maxPrice = Number(amount.getAttribute('maxpricesearch'));
 
       if (e.target.parentElement.classList.contains('price')) {
-         // for (let i = 0; i < valueOfLi.length; i++) {
-         //    if (
-         //       typeof valueOfLi[i] === 'object' &&
-         //       !Array.isArray(valueOfLi[i]) &&
-         //       valueOfLi[i] !== null
-         //    ) {
-         //       valueOfLi.splice(i, 1);
-         //    }
-         // }
          valueOfLi.pop();
          htmlLi.pop();
-         if(valueOfLi[0] == undefined && valueOfLi[1] == undefined) {
+         if(valueOfLi[0] == undefined && valueOfLi[1] == undefined || valueColors.length == 0 && valueSizes.length == 0) {
             productFilterList = productList;
          } else if(valueColors.length > 0 && valueOfLi[1] == undefined) {
             productFilterList = searchProductColor(productList,valueOfLi[0]);
@@ -503,7 +446,6 @@ filterDesc.onclick = (e) => {
             productFilterList = searchProductColorSize(productList,valueOfLi[0],valueOfLi[1]);
          }
       }
-
       if (e.target.parentElement.classList.contains('filter-item')) {
          if(valueOfLi[0]) {
             for (let i = 0; i < valueOfLi[0].length; i++) {
@@ -550,7 +492,6 @@ filterDesc.onclick = (e) => {
             }
          }
       }
-      console.log(valueOfLi);
       filterDesc.innerHTML = htmlLi.join("");
       var dataProduct = htmlProduct(productFilterList);
       if(productFilterList.length > 0) {
@@ -676,27 +617,8 @@ function checkId(product, productlist) {
 
 var dataProduct = htmlProduct(productList);
 
-// var productContainerList = [];
-// for (let i = 0; i < dataProduct.length; i++) {
-//    let productContainer = document.createElement('div');
-//    productContainer.innerHTML = dataProduct[i];
-//    productContainerList.push(productContainer);
-// }
-
-// var productContainerList = [];
-
+//Hiện sản phẩm
 wrapList.innerHTML = dataProduct.join("");
-
-
-// var flat = 0;
-// var wrapList = document.querySelector('.collection-list');
-// for (let i = 0; i < productContainerList.length; i++) {
-//    if (i == 40) {
-//       break;
-//    }
-//    wrapList.appendChild(productContainerList[i]);
-//    flat += 1;
-// }
 
 var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
 btnLoadMore.onclick = () => {
@@ -716,7 +638,7 @@ var amount = document.querySelector('#amount');
 var amountText = document.querySelector('#amount-text');
 
 var isReadytoDrag = false;
-var drop = 0;
+var drop = 0; //Biến kiểm tra chọn handle trái hay phải
 
 sliderRange.addEventListener('mousedown', (e) => {
    isReadytoDrag = true;
@@ -734,23 +656,14 @@ uisliderHandles[0].addEventListener('mousedown', (e) => {
    uisliderHandles[0].classList.add('ui-state-active');
    document.addEventListener('mousemove', (e) => {
       const clientX = e.clientX;
-      //console.log(clientX);
       const left = Math.ceil(sliderRange.getBoundingClientRect().left);
-      //console.log(left);
       const uiLeft = Math.ceil(uisliderRange.getBoundingClientRect().left);
-      // console.log(uiLeft);
-      // const uisliderHandle = Math.ceil(uisliderHandles[0].getBoundingClientRect().left);
-      // console.log(uisliderHandle);
       const uiRight = Math.ceil(uisliderRange.getBoundingClientRect().right);
 
       const width = Math.ceil(uisliderRange.getBoundingClientRect().width);
-      //console.log(width);
 
       const min = left;
       const max = uiRight + 1;
-      // console.log(max);
-
-      //console.log(move);
 
       if (isReadytoDrag && drop == 1 && clientX >= min && clientX <= max) {
          console.log('left');
@@ -758,30 +671,27 @@ uisliderHandles[0].addEventListener('mousedown', (e) => {
          console.log(move);
          var uiStyleLeft = Number(uisliderRange.style.left.split('%')[0]);
          var uiStyleWidth = Number(uisliderRange.style.width.split('%')[0]);
-         const percent = 2.5;
+         const step = 2.5;
          let minPrice = Number(amount.getAttribute('minpricesearch'));
          let maxPrice = Number(amount.getAttribute('maxpricesearch'));
          if (move >= 12) {
-            // const percent = ((clientX - uiLeft) / width) * 100;
-            uiStyleLeft += percent;
+            uiStyleLeft += step;
             uisliderRange.style.left = uiStyleLeft + '%';
-            uiStyleWidth -= percent;
+            uiStyleWidth -= step;
             uisliderRange.style.width = uiStyleWidth + '%';
             uisliderHandles[0].style.left = uiStyleLeft + '%';
             minPrice += 50000;
             amount.setAttribute('minpricesearch', minPrice);
-            console.log(minPrice);
             amountText.innerHTML = `${format2(minPrice)} đ - ${format2(maxPrice)} đ`;
          } else if (move <= -12) {
-            uiStyleLeft -= percent;
+            uiStyleLeft -= step;
             uisliderRange.style.left = uiStyleLeft + '%';
-            uiStyleWidth += percent;
+            uiStyleWidth += step;
             uisliderRange.style.width = uiStyleWidth + '%';
             uisliderHandles[0].style.left = uiStyleLeft + '%';
 
             minPrice -= 50000;
             amount.setAttribute('minpricesearch', minPrice);
-            console.log(maxPrice);
             amountText.innerHTML = `${format2(minPrice)} đ - ${format2(maxPrice)} đ`;
          }
       }
@@ -794,55 +704,39 @@ uisliderHandles[1].addEventListener('mousedown', (e) => {
    uisliderHandles[1].classList.add('ui-state-active');
    document.addEventListener('mousemove', (e) => {
       const clientX = e.clientX;
-      // console.log(clientX);
+      
       const right = Math.ceil(sliderRange.getBoundingClientRect().right);
       const left = Math.ceil(sliderRange.getBoundingClientRect().left);
-      // console.log(left);
       const uiRight = Math.ceil(uisliderRange.getBoundingClientRect().right);
       const uiLeft = Math.ceil(uisliderRange.getBoundingClientRect().left);
-      // console.log(uiLeft);
-      // console.log(uiRight);
-      // const uisliderHandle = Math.ceil(uisliderHandles[0].getBoundingClientRect().left);
-      // console.log(uisliderHandle);
 
       const width = Math.ceil(uisliderRange.getBoundingClientRect().width);
-      //console.log(width);
 
       const max = right;
-      // console.log(max);
       const min = uiLeft;
 
-      // console.log(uiRight - clientX);
-
       if (isReadytoDrag && drop == 2 && clientX <= max && clientX >= min) {
-         console.log('right');
          const move = uiRight - clientX;
-         console.log(move);
          var uiHandleRight = Number(uisliderHandles[1].style.left.split('%')[0]);
          var uiStyleWidth = Number(uisliderRange.style.width.split('%')[0]);
-         const percent = 2.5;
+         const step = 2.5;
          let minPrice = Number(amount.getAttribute('minpricesearch'));
          let maxPrice = Number(amount.getAttribute('maxpricesearch'));
          if (move >= 12) {
-            // const percent = ((clientX - uiLeft) / width) * 100;
-            uiHandleRight -= percent;
-            // uisliderRange.style.left = uiStyleRight + '%';
-            uiStyleWidth -= percent;
+            uiHandleRight -= step;
+            uiStyleWidth -= step;
             uisliderRange.style.width = uiStyleWidth + '%';
             uisliderHandles[1].style.left = uiHandleRight + '%';
             maxPrice -= 50000;
             amount.setAttribute('maxpricesearch', maxPrice);
-            console.log(maxPrice);
             amountText.innerHTML = `${format2(minPrice)} đ - ${format2(maxPrice)} đ`;
          } else if (move <= -12) {
-            uiHandleRight += percent;
-            // uisliderRange.style.left = uiStyleRight + '%';
-            uiStyleWidth += percent;
+            uiHandleRight += step;
+            uiStyleWidth += step;
             uisliderRange.style.width = uiStyleWidth + '%';
             uisliderHandles[1].style.left = uiHandleRight + '%';
             maxPrice += 50000;
             amount.setAttribute('maxpricesearch', maxPrice);
-            console.log(maxPrice);
             amountText.innerHTML = `${format2(minPrice)} đ - ${format2(maxPrice)} đ`;
          }
       }
@@ -850,7 +744,6 @@ uisliderHandles[1].addEventListener('mousedown', (e) => {
 });
 
 document.addEventListener('mouseup', (e) => {
-   // isReadytoDrag = false;
    uisliderHandles[0].classList.remove('ui-state-active');
    uisliderHandles[1].classList.remove('ui-state-active');
 
@@ -861,27 +754,11 @@ document.addEventListener('mouseup', (e) => {
          minPriceSearch: Number(minprice),
          maxPriceSearch: Number(maxprice),
       };
-      // let valueOfLilength = valueOfLi.length;
-      // let flag = 0;
-      // for (let i = 0; i < valueOfLilength; i++) {
-      //    if (
-      //       typeof valueOfLi[i] === 'object' &&
-      //       !Array.isArray(valueOfLi[i]) &&
-      //       valueOfLi[i] !== null
-      //    ) {
-      //       valueOfLi[i] = valuePriceSearch;
-      //       flag = 1;
-      //    }
-      // }
-      // if (flag == 0) {
-      //    valueOfLi[valueOfLilength] = valuePriceSearch;
-      // }
       valueOfLi[2] = valuePriceSearch;
       let valueOfPrice = getHTMLtoFilterPrice(valueOfLi[2]);
       htmlLi[2] = valueOfPrice;
       filterDesc.innerHTML = htmlLi.join("");
       if(valueOfLi[0] == undefined && valueOfLi[1] == undefined) {
-         console.log('haha');
          productFilterList = searchProductPrice(productList,valueOfLi[2]);
       }else if(valueOfLi[0] != undefined || valueOfLi[1] != undefined) {
          productFilterList = searchProductPrice(productFilterList, valueOfLi[2]);
@@ -895,11 +772,7 @@ document.addEventListener('mouseup', (e) => {
       else {
          wrapList.innerHTML = dataProduct;
       }
-      console.log(productFilterList);
    }
-   // filterDesc.innerHTML = getHTMLtoFilterDesc(valueOfLi).join('');
-   // console.log(priceArray);
-
    isReadytoDrag = false;
 });
 

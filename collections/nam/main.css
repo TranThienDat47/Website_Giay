@@ -1306,6 +1306,8 @@
    text-align: center;
    font-size: 14px;
    margin: auto;
+   -webkit-user-drag: none;
+   user-select: none;
 }
 
 #slider-range {
@@ -1319,6 +1321,8 @@
    display: block;
    border: 0;
    background-position: 0 0;
+   -webkit-user-drag: none;
+   user-select: none;
 }
 
 .ui-slider-horizontal .ui-slider-range {
