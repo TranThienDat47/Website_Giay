@@ -9,8 +9,10 @@ function CartView({ namePro, linkTo, img, color, size, price }) {
                     <td class="mini-cart__left">
                         <a class="mnc-link"
                             href="${linkTo}">
-                            <img src="${img}"
-                                alt="${namePro + '(' + color + ')'}">
+                              <img src="${img}"
+                                alt="${namePro + '(' + color + ')'}"
+                                onerror="this.onerror=null;this.src='../../access/img/error-image-generic.png';"
+                                >
                         </a>
                     </td>
                     <td class="mini-cart__right">
@@ -153,10 +155,9 @@ function ViewCart() {
                tempColorIndex = index;
                return element1.color.toLowerCase() === element.detail.option1.trim().toLowerCase();
             });
-
             return CartView({
                namePro: element.product.name,
-               linkTo: '/',
+               linkTo: `/product/index.html?id=${element.product._id}`,
                img: element.product.colors.detail[tempColorIndex].imgs.firstImg,
                color: element.detail.option1,
                size: element.detail.option2,

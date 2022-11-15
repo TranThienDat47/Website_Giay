@@ -4,8 +4,148 @@ import Product from '../../components/Product/index.js';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const actionCart = $('.header__action-cart .header__action-item-text');
-const actionUser = $('.header__action-account .header__action-item-text');
+let listCategory = [
+   {
+      collection: '',
+      title: 'Nam',
+      detail: [
+         {
+            second: 'Hunter',
+            third: [],
+            collection: '/collections/nam/index.html?type=hunter-nam',
+         },
+         {
+            second: 'Sandal',
+            third: [],
+            collection: '/collections/nam/index.html?type=sandal-nam-1',
+         },
+         {
+            second: 'Giày Thể Thao',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-the-thao-nam',
+         },
+         {
+            second: 'Giày Chạy Bộ',
+            third: [],
+            collection: '/collections/nam/index.html?type=hunter-running-nam',
+         },
+         {
+            second: 'Giày Đá Banh',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-da-banh',
+         },
+         {
+            second: 'Giày Tây',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-tay-nam',
+         },
+         { second: 'Dép', third: [], collection: '/collections/nam/index.html?type=dep-nam' },
+         {
+            second: 'Phụ Kiện',
+            third: [],
+            collection: '/collections/nam/index.html?type=phu-kien',
+         },
+      ],
+   },
+   {
+      collection: 'nu',
+      title: 'Nữ',
+      detail: [
+         {
+            second: 'Hunter',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=hunter',
+         },
+         {
+            second: 'GOSTO',
+            third: ['Giày Tao Gót', 'Giày Thời Trang', 'Sandal', 'Dép', 'Túi Xách', 'Ví'],
+            collection: '/',
+         },
+         {
+            second: 'Sandal',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=sandal-nu-1',
+         },
+         {
+            second: 'Giày Búp Bê',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-bup-be-nu',
+         },
+         {
+            second: 'Giày Thời Trang',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-thoi-trang-nu-1',
+         },
+         {
+            second: 'Giày Chạy Bộ - Đi Bộ',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=hunter-running-jogging',
+         },
+         {
+            second: 'Giày Thể Thao Nữ',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-the-thao-nu',
+         },
+         {
+            second: 'Dép',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=dep-nu',
+         },
+         {
+            second: 'Túi xách',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=tui-xach',
+         },
+      ],
+   },
+];
+
+//routing
+const urlParams = new URLSearchParams(window.location.search);
+const titleCategory = $('#collection_title_category');
+const titleCategoryList = $('#collection_list_category');
+
+if (urlParams.get('collection') === null) {
+   listCategory.find((element) => {
+      if (element.title === 'Nam') {
+         if (titleCategory) {
+            titleCategory.innerHTML = `Nam`;
+            titleCategoryList.innerHTML = element.detail
+               .map((tempElement) => {
+                  return `
+                        <li>
+                           <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                        </li>
+                     `;
+               })
+               .join(',,,,')
+               .toString()
+               .replaceAll(',,,,', '');
+         }
+         return true;
+      }
+   });
+} else {
+   listCategory.find((element) => {
+      if (element.collection === urlParams.get('collection')) {
+         if (titleCategory) {
+            titleCategory.innerHTML = `${element.title}`;
+            titleCategoryList.innerHTML = element.detail
+               .map((tempElement) => {
+                  return `
+                        <li>
+                           <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                        </li>
+                     `;
+               })
+               .join(',,,,')
+               .toString()
+               .replaceAll(',,,,', '');
+         }
+         return true;
+      }
+   });
+}
 
 const checkNode = (parent, children) => {
    let node = children.parentNode;
@@ -14,149 +154,6 @@ const checkNode = (parent, children) => {
       node = node.parentNode;
    }
    return false;
-};
-
-const headerActionCart = $('.header__action-cart');
-const headerActionUser = $('.header__action-account');
-
-window.onclick = function (e) {
-   if (actionCart.classList.contains('show-triangle')) {
-      if (!checkNode(headerActionCart, e.target)) {
-         actionCart.classList.remove('show-triangle');
-         document.body.removeEventListener('wheel', preventScroll, { passive: false });
-      }
-   }
-
-   if (actionUser.classList.contains('show-triangle')) {
-      if (!checkNode(headerActionUser, e.target)) {
-         actionUser.classList.remove('show-triangle');
-         document.body.removeEventListener('wheel', preventScroll, { passive: false });
-      }
-   }
-};
-
-const preventScroll = (e) => {
-   e.preventDefault();
-   e.stopPropagation();
-};
-
-const scroll = (e) => {
-   e.stopPropagation();
-
-   return true;
-};
-
-actionCart.onclick = () => {
-   actionCart.classList.toggle('show-triangle');
-
-   if (actionCart.classList.contains('show-triangle')) {
-      document.body.addEventListener('wheel', preventScroll, { passive: false });
-      $('.cart-view-scroll').addEventListener('wheel', scroll);
-   } else {
-      document.body.removeEventListener('wheel', preventScroll, { passive: false });
-      $('.cart-view-scroll').removeEventListener('wheel', scroll, { passive: true });
-   }
-
-   if (actionUser.classList.contains('show-triangle')) {
-      actionUser.classList.remove('show-triangle');
-   }
-};
-
-actionUser.onclick = () => {
-   actionUser.classList.toggle('show-triangle');
-
-   if (actionUser.classList.contains('show-triangle')) {
-      document.body.addEventListener('wheel', preventScroll, { passive: false });
-   } else {
-      document.body.removeEventListener('wheel', preventScroll, { passive: false });
-   }
-
-   if (actionCart.classList.contains('show-triangle')) {
-      actionCart.classList.remove('show-triangle');
-   }
-};
-
-//User
-const inputUser = $$('.form__field.form__field--text');
-for (let i = 0; i < inputUser.length; i++) {
-   inputUser[i].onblur = () => {
-      if (inputUser[i].value.length > 0) {
-         inputUser[i].parentNode.children[1].style.transform = 'translateY(-5px) scale(0.8)';
-      } else {
-         inputUser[i].parentNode.children[1].style.transform = 'scale(1)';
-      }
-   };
-
-   inputUser[i].onfocus = () => {
-      if (inputUser[i].value.length <= 0) {
-         inputUser[i].parentNode.children[1].style.transform = 'translateY(-5px) scale(0.8)';
-      }
-   };
-}
-
-//Header top bar
-const topbar = $('.header__topbar');
-const header = $('.header');
-const headerMain = $('.header__main');
-
-const heightTopbar = topbar.getBoundingClientRect().height;
-const heightHeader = header.getBoundingClientRect().height;
-
-let tempScroll = 0;
-window.onscroll = function () {
-   let curScroll = window.scrollY;
-   if (curScroll <= heightHeader) {
-      header.classList.remove('scroll-show');
-      header.classList.remove('scroll-show-translate');
-      header.style.visibility = `visible`;
-      header.style.transform = `translateY(${-curScroll}px)`;
-
-      headerMain.style.boxShadow = 'none';
-      headerMain.style.transform = `translateY(0)`;
-      headerMain.style.boxShadow = 'none';
-
-      topbar.style.transform = 'translateY(0)';
-   } else if (curScroll < tempScroll) {
-      header.style.transform = `translateY(${-heightTopbar}px)`;
-      header.classList.add('scroll-show-translate');
-      header.style.visibility = `visible`;
-
-      headerMain.style.transform = `translateY(0)`;
-      headerMain.style.boxShadow = '0 0 10px rgb(0 0 0 / 20%)';
-   } else if (curScroll > heightHeader) {
-      header.classList.add('scroll-show');
-      header.style.visibility = `hidden`;
-
-      headerMain.style.transform = `translateY(calc(-100% - ${heightTopbar}px))`;
-      headerMain.style.boxShadow = 'none';
-
-      topbar.style.transform = 'translateY(calc(-100% - 1px))';
-   }
-   tempScroll = curScroll;
-};
-
-//Product
-window.onload = () => {
-   const productSwatch = $$('.product-swatch-loop .swatch-loop-item');
-   const firstImg = $$('.prod-img.first-image picture img');
-   const secondeImg = $$('.prod-img.second-image picture img');
-
-   for (let i = 0; i < productSwatch.length; i++) {
-      const lengthChildren = productSwatch[i].children.length;
-      for (let j = 0; j < lengthChildren; j++) {
-         productSwatch[i].children[j].onclick = (e) => {
-            e.stopPropagation();
-            productSwatch[i].children[j].classList.toggle('active');
-            for (let k = 0; k < lengthChildren; k++) {
-               if (j != k) productSwatch[i].children[k].classList.remove('active');
-            }
-            firstImg[i].src = 'http:' + productSwatch[i].children[j].getAttribute('data-img-first');
-
-            secondeImg[i].src =
-               'http:' + productSwatch[i].children[j].getAttribute('data-img-second');
-         };
-      }
-   }
 };
 
 //Text Slide
@@ -219,11 +216,11 @@ var htmlLi = [];
 
 function searchProductColor(productList, arrayColor) {
    var productFilterList = [];
-   for(let i = 0; i < productList.length; i++) {
-      for(let j = 0; j < arrayColor.length; j++) {
-         for(let m = 0; m < productList[i].colors.list.length; m++) {
-            if(productList[i].colors.list[m] == arrayColor[j]) {
-               productFilterList.push(productList[i]); 
+   for (let i = 0; i < productList.length; i++) {
+      for (let j = 0; j < arrayColor.length; j++) {
+         for (let m = 0; m < productList[i].colors.list.length; m++) {
+            if (productList[i].colors.list[m] == arrayColor[j]) {
+               productFilterList.push(productList[i]);
             }
          }
       }
@@ -233,10 +230,10 @@ function searchProductColor(productList, arrayColor) {
 
 function searchProductSize(productList, arraySize) {
    var productFilterList = [];
-   for(let i = 0; i < productList.length; i++) {
-      for(let j = 0; j < arraySize.length; j++) {
-         for(let m = 0; m < productList[i].size.length; m++) {
-            if(productList[i].size[m] == arraySize[j]) {
+   for (let i = 0; i < productList.length; i++) {
+      for (let j = 0; j < arraySize.length; j++) {
+         for (let m = 0; m < productList[i].size.length; m++) {
+            if (productList[i].size[m] == arraySize[j]) {
                productFilterList.push(productList[i]);
             }
          }
@@ -247,9 +244,9 @@ function searchProductSize(productList, arraySize) {
 
 function searchProductPrice(productList, price) {
    var productFilterList = [];
-   for(let i = 0; i < productList.length; i++) {
+   for (let i = 0; i < productList.length; i++) {
       const productPrice = Number(productList[i].price.split(',').join(''));
-      if(productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
+      if (productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
          productFilterList.push(productList[i]);
       }
    }
@@ -258,12 +255,12 @@ function searchProductPrice(productList, price) {
 
 function searchProductSizePrice(productList, arraySize, price) {
    var productFilterList = [];
-   for(let i = 0; i < productList.length; i++) {
+   for (let i = 0; i < productList.length; i++) {
       const productPrice = Number(productList[i].price.split(',').join(''));
-      if(productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
-         for(let j = 0; j < arraySize.length; j++) {
-            for(let m = 0; m < productList[i].size.length; m++) {
-               if(productList[i].size[m] == arraySize[j]) {
+      if (productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
+         for (let j = 0; j < arraySize.length; j++) {
+            for (let m = 0; m < productList[i].size.length; m++) {
+               if (productList[i].size[m] == arraySize[j]) {
                   productFilterList.push(productList[i]);
                }
             }
@@ -275,12 +272,12 @@ function searchProductSizePrice(productList, arraySize, price) {
 
 function searchProductColorPrice(productList, arrayColor, price) {
    var productFilterList = [];
-   for(let i = 0; i < productList.length; i++) {
+   for (let i = 0; i < productList.length; i++) {
       const productPrice = Number(productList[i].price.split(',').join(''));
-      if(productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
-         for(let j = 0; j < arrayColor.length; j++) {
-            for(let m = 0; m < productList[i].colors.list.length; m++) {
-               if(productList[i].colors.list[m] == arrayColor[j]) {
+      if (productPrice >= price.minPriceSearch && productPrice <= price.maxPriceSearch) {
+         for (let j = 0; j < arrayColor.length; j++) {
+            for (let m = 0; m < productList[i].colors.list.length; m++) {
+               if (productList[i].colors.list[m] == arrayColor[j]) {
                   productFilterList.push(productList[i]);
                }
             }
@@ -293,14 +290,14 @@ function searchProductColorPrice(productList, arrayColor, price) {
 function searchProductColorSize(productList, arrayColor, arraySize) {
    var productFilterList = [];
    productFilterList = searchProductColor(productList, arrayColor);
-   productFilterList = searchProductSize(productFilterList,arraySize);
+   productFilterList = searchProductSize(productFilterList, arraySize);
    return productFilterList;
 }
 
 for (let i = 0; i < filterColors.length; i++) {
    let filterColor = filterColors[i];
    filterColor.addEventListener('click', function (e) {
-      if(filterColor.parentElement.classList.contains('active')) {
+      if (filterColor.parentElement.classList.contains('active')) {
          filterColor.parentElement.classList.remove('active');
          let valueColorLength = valueColors.length;
          for (let i = 0; i < valueColorLength; i++) {
@@ -315,22 +312,25 @@ for (let i = 0; i < filterColors.length; i++) {
       // valueOfLi.splice(0,1,valueColors);
       valueOfLi[0] = valueColors;
       let valueOfColor = getHTMLtoFilterDesc(valueOfLi[0]);
-      htmlLi[0] = valueOfColor.join("");
-      filterDesc.innerHTML = htmlLi.join("");
+      htmlLi[0] = valueOfColor.join('');
+      filterDesc.innerHTML = htmlLi.join('');
       console.log(productFilterList);
-      if(valueColors.length > 0 && valueOfLi[1] == undefined && valueOfLi[2] == undefined) {
+      if (valueColors.length > 0 && valueOfLi[1] == undefined && valueOfLi[2] == undefined) {
          productFilterList = searchProductColor(productList, valueOfLi[0]);
-      }else if(valueOfLi[1] != undefined || valueOfLi[2] != undefined) {
+      } else if (valueOfLi[1] != undefined || valueOfLi[2] != undefined) {
          productFilterList = searchProductColor(productFilterList, valueOfLi[0]);
       } else {
          productFilterList = productList;
       }
-      if(valueColors.length == 0) {
-         if(valueSizes.length == 0 && valueOfLi[2] == undefined) {
+      if (valueColors.length == 0) {
+         if (valueSizes.length == 0 && valueOfLi[2] == undefined) {
             productFilterList = productList;
-         } else if(valueSizes.length > 0 && valueOfLi[2] == undefined) {
+         } else if (valueSizes.length > 0 && valueOfLi[2] == undefined) {
             productFilterList = searchProductSize(productList, valueOfLi[1]);
-         } else if(valueSizes.length == 0 || valueOfLi[1] == undefined && valueOfLi[2] != undefined) {
+         } else if (
+            valueSizes.length == 0 ||
+            (valueOfLi[1] == undefined && valueOfLi[2] != undefined)
+         ) {
             productFilterList = searchProductPrice(productList, valueOfLi[2]);
          } else {
             productFilterList = searchProductSizePrice(productList, valueOfLi[1], valueOfLi[2]);
@@ -338,21 +338,20 @@ for (let i = 0; i < filterColors.length; i++) {
       }
       console.log(productFilterList);
       var dataProduct = htmlProduct(productFilterList);
-      if(productFilterList.length > 0) {
+      if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
-            wrapList.innerHTML = dataProduct.join("");
+            wrapList.innerHTML = dataProduct.join('');
          }
-      }
-      else {
+      } else {
          wrapList.innerHTML = dataProduct;
       }
-   })
+   });
 }
 
 for (let i = 0; i < filterSizes.length; i++) {
    let filterSize = filterSizes[i];
    filterSize.addEventListener('click', function (e) {
-      if(filterSize.parentElement.classList.contains('active')) {
+      if (filterSize.parentElement.classList.contains('active')) {
          filterSize.parentElement.classList.remove('active');
          let valueSizeLength = valueSizes.length;
          for (let i = 0; i < valueSizeLength; i++) {
@@ -366,21 +365,24 @@ for (let i = 0; i < filterSizes.length; i++) {
       }
       valueOfLi[1] = valueSizes;
       let valueOfSize = getHTMLtoFilterDesc(valueOfLi[1]);
-      htmlLi[1] = valueOfSize.join("");
-      filterDesc.innerHTML = htmlLi.join("");
-      if(valueOfLi[1].length > 0 && valueOfLi[0] == undefined && valueOfLi[2] == undefined) {
+      htmlLi[1] = valueOfSize.join('');
+      filterDesc.innerHTML = htmlLi.join('');
+      if (valueOfLi[1].length > 0 && valueOfLi[0] == undefined && valueOfLi[2] == undefined) {
          productFilterList = searchProductSize(productList, valueOfLi[1]);
-      }else if(valueOfLi[0] != undefined || valueOfLi[2] != undefined) {
+      } else if (valueOfLi[0] != undefined || valueOfLi[2] != undefined) {
          productFilterList = searchProductSize(productFilterList, valueOfLi[1]);
       } else {
          productFilterList = productList;
       }
-      if(valueSizes.length == 0) {
-         if(valueColors.length == 0 && valueOfLi[2] == undefined) {
+      if (valueSizes.length == 0) {
+         if (valueColors.length == 0 && valueOfLi[2] == undefined) {
             productFilterList = productList;
-         } else if(valueColors.length > 0 && valueOfLi[2] == undefined) {
+         } else if (valueColors.length > 0 && valueOfLi[2] == undefined) {
             productFilterList = searchProductColor(productList, valueOfLi[0]);
-         } else if(valueColors.length == 0 || valueOfLi[0] == undefined && valueOfLi[2] != undefined) {
+         } else if (
+            valueColors.length == 0 ||
+            (valueOfLi[0] == undefined && valueOfLi[2] != undefined)
+         ) {
             productFilterList = searchProductPrice(productList, valueOfLi[2]);
          } else {
             productFilterList = searchProductColorPrice(productList, valueOfLi[0], valueOfLi[2]);
@@ -388,15 +390,14 @@ for (let i = 0; i < filterSizes.length; i++) {
       }
       console.log(productFilterList);
       var dataProduct = htmlProduct(productFilterList);
-      if(productFilterList.length > 0) {
+      if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
-            wrapList.innerHTML = dataProduct.join("");
+            wrapList.innerHTML = dataProduct.join('');
          }
-      }
-      else {
+      } else {
          wrapList.innerHTML = dataProduct;
       }
-   })
+   });
 }
 
 function getHTMLtoFilterDesc(valueOfLi) {
@@ -412,9 +413,7 @@ function getHTMLtoFilterDesc(valueOfLi) {
 
 function getHTMLtoFilterPrice(value) {
    return `
-      <div class="price" minprice="${value.minPriceSearch}" maxprice="${
-      value.maxPriceSearch
-   }">
+      <div class="price" minprice="${value.minPriceSearch}" maxprice="${value.maxPriceSearch}">
          ${format2(value.minPriceSearch)} - ${format2(value.maxPriceSearch)} đ
          <i class="fa fa-times-circle"></i>
       </div>
@@ -434,72 +433,88 @@ filterDesc.onclick = (e) => {
       if (e.target.parentElement.classList.contains('price')) {
          valueOfLi.pop();
          htmlLi.pop();
-         if(valueOfLi[0] == undefined && valueOfLi[1] == undefined || valueColors.length == 0 && valueSizes.length == 0) {
+         if (
+            (valueOfLi[0] == undefined && valueOfLi[1] == undefined) ||
+            (valueColors.length == 0 && valueSizes.length == 0)
+         ) {
             productFilterList = productList;
-         } else if(valueColors.length > 0 && valueOfLi[1] == undefined) {
-            productFilterList = searchProductColor(productList,valueOfLi[0]);
-         } else if(valueSizes.length > 0 && valueOfLi[0] == undefined) {
+         } else if (valueColors.length > 0 && valueOfLi[1] == undefined) {
+            productFilterList = searchProductColor(productList, valueOfLi[0]);
+         } else if (valueSizes.length > 0 && valueOfLi[0] == undefined) {
             console.log(valueSizes.length);
             console.log(valueSizes);
             productFilterList = searchProductSize(productList, valueOfLi[1]);
          } else {
-            productFilterList = searchProductColorSize(productList,valueOfLi[0],valueOfLi[1]);
+            productFilterList = searchProductColorSize(productList, valueOfLi[0], valueOfLi[1]);
          }
       }
       if (e.target.parentElement.classList.contains('filter-item')) {
-         if(valueOfLi[0]) {
+         if (valueOfLi[0]) {
             for (let i = 0; i < valueOfLi[0].length; i++) {
                if (valueOfLi[0][i] === valueParent) {
                   valueOfLi[0].splice(i, 1);
                   let valueOfColor = getHTMLtoFilterDesc(valueOfLi[0]);
-                  htmlLi[0] = valueOfColor.join("");
-                  if(valueOfLi[0].length > 0) {
+                  htmlLi[0] = valueOfColor.join('');
+                  if (valueOfLi[0].length > 0) {
                      productFilterList = searchProductColor(productList, valueOfLi[0]);
-                  } else if(valueOfLi[0].length == 0) {
-                     if(valueSizes.length == 0 && valueOfLi[2] == undefined) {
+                  } else if (valueOfLi[0].length == 0) {
+                     if (valueSizes.length == 0 && valueOfLi[2] == undefined) {
                         productFilterList = productList;
-                     } else if(valueSizes.length > 0 && valueOfLi[2] == undefined) {
+                     } else if (valueSizes.length > 0 && valueOfLi[2] == undefined) {
                         productFilterList = searchProductSize(productList, valueOfLi[1]);
-                     } else if(valueSizes.length == 0 || valueOfLi[1] == undefined && valueOfLi[2] != undefined) {
+                     } else if (
+                        valueSizes.length == 0 ||
+                        (valueOfLi[1] == undefined && valueOfLi[2] != undefined)
+                     ) {
                         productFilterList = searchProductPrice(productList, valueOfLi[2]);
                      } else {
-                        productFilterList = searchProductSizePrice(productList, valueOfLi[1], valueOfLi[2]);
+                        productFilterList = searchProductSizePrice(
+                           productList,
+                           valueOfLi[1],
+                           valueOfLi[2],
+                        );
                      }
                   }
                }
             }
          }
-         if(valueOfLi[1]) {
+         if (valueOfLi[1]) {
             for (let i = 0; i < valueOfLi[1].length; i++) {
                if (valueOfLi[1][i] === valueParent) {
                   valueOfLi[1].splice(i, 1);
                   let valueOfSize = getHTMLtoFilterDesc(valueOfLi[1]);
-                  htmlLi[1] = valueOfSize.join("");
-                  if(valueOfLi[1].length > 0) {
-                  productFilterList = searchProductSize(productList, valueOfLi[1]);
-                  } else if(valueOfLi[1].length == 0) {
-                     if(valueColors.length == 0 && valueOfLi[2] == undefined) {
+                  htmlLi[1] = valueOfSize.join('');
+                  if (valueOfLi[1].length > 0) {
+                     productFilterList = searchProductSize(productList, valueOfLi[1]);
+                  } else if (valueOfLi[1].length == 0) {
+                     if (valueColors.length == 0 && valueOfLi[2] == undefined) {
                         productFilterList = productList;
-                     } else if(valueColors.length > 0 && valueOfLi[2] == undefined) {
+                     } else if (valueColors.length > 0 && valueOfLi[2] == undefined) {
                         productFilterList = searchProductColor(productList, valueOfLi[0]);
-                     } else if(valueColors.length == 0 || valueOfLi[0] == undefined && valueOfLi[2] != undefined) {
+                     } else if (
+                        valueColors.length == 0 ||
+                        (valueOfLi[0] == undefined && valueOfLi[2] != undefined)
+                     ) {
                         productFilterList = searchProductPrice(productList, valueOfLi[2]);
                      } else {
-                        productFilterList = searchProductColorPrice(productList, valueOfLi[0], valueOfLi[2]);
+                        productFilterList = searchProductColorPrice(
+                           productList,
+                           valueOfLi[0],
+                           valueOfLi[2],
+                        );
                      }
                   }
                }
             }
          }
       }
-      filterDesc.innerHTML = htmlLi.join("");
+      filterDesc.innerHTML = htmlLi.join('');
       var dataProduct = htmlProduct(productFilterList);
-      if(productFilterList.length > 0) {
+      if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
-            wrapList.innerHTML = dataProduct.join("");
+            wrapList.innerHTML = dataProduct.join('');
          }
-      }
-      else {
+      } else {
          wrapList.innerHTML = dataProduct;
       }
       var filterLiActives = document.querySelectorAll('.checkbox-list li.active');
@@ -573,7 +588,7 @@ var productFilterList = [];
 console.log(productList);
 
 function htmlProduct(arrayProduct) {
-   if(arrayProduct.length == 0) {
+   if (arrayProduct.length == 0) {
       return `
          <div class="row listProduct-row listProduct-resize listProduct-filter">
             <div class="col-md-12 product-noloop">
@@ -582,9 +597,8 @@ function htmlProduct(arrayProduct) {
                </div>
             </div>
          </div>
-      `
-   }
-   else {
+      `;
+   } else {
       var newArrayProduct = arrayProduct.map(function (element) {
          let tempNewPrice = Number(element.price.replaceAll(',', ''));
          tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
@@ -598,7 +612,7 @@ function htmlProduct(arrayProduct) {
             promotion_percentage: element.promotions,
             news: element.newProc,
          });
-      })
+      });
       return newArrayProduct;
    }
 }
@@ -606,8 +620,8 @@ function htmlProduct(arrayProduct) {
 function checkId(product, productlist) {
    let check = true;
    const length = productlist.length;
-   for(let i = 0; i < length; i++) {
-      if(product._id == productlist[i]._id) { 
+   for (let i = 0; i < length; i++) {
+      if (product._id == productlist[i]._id) {
          check = false;
          break;
       }
@@ -618,7 +632,7 @@ function checkId(product, productlist) {
 var dataProduct = htmlProduct(productList);
 
 //Hiện sản phẩm
-wrapList.innerHTML = dataProduct.join("");
+wrapList.innerHTML = dataProduct.join('');
 
 var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
 btnLoadMore.onclick = () => {
@@ -704,7 +718,7 @@ uisliderHandles[1].addEventListener('mousedown', (e) => {
    uisliderHandles[1].classList.add('ui-state-active');
    document.addEventListener('mousemove', (e) => {
       const clientX = e.clientX;
-      
+
       const right = Math.ceil(sliderRange.getBoundingClientRect().right);
       const left = Math.ceil(sliderRange.getBoundingClientRect().left);
       const uiRight = Math.ceil(uisliderRange.getBoundingClientRect().right);
@@ -757,19 +771,18 @@ document.addEventListener('mouseup', (e) => {
       valueOfLi[2] = valuePriceSearch;
       let valueOfPrice = getHTMLtoFilterPrice(valueOfLi[2]);
       htmlLi[2] = valueOfPrice;
-      filterDesc.innerHTML = htmlLi.join("");
-      if(valueOfLi[0] == undefined && valueOfLi[1] == undefined) {
-         productFilterList = searchProductPrice(productList,valueOfLi[2]);
-      }else if(valueOfLi[0] != undefined || valueOfLi[1] != undefined) {
+      filterDesc.innerHTML = htmlLi.join('');
+      if (valueOfLi[0] == undefined && valueOfLi[1] == undefined) {
+         productFilterList = searchProductPrice(productList, valueOfLi[2]);
+      } else if (valueOfLi[0] != undefined || valueOfLi[1] != undefined) {
          productFilterList = searchProductPrice(productFilterList, valueOfLi[2]);
       }
       var dataProduct = htmlProduct(productFilterList);
-      if(productFilterList.length > 0) {
+      if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
-            wrapList.innerHTML = dataProduct.join("");
+            wrapList.innerHTML = dataProduct.join('');
          }
-      }
-      else {
+      } else {
          wrapList.innerHTML = dataProduct;
       }
    }

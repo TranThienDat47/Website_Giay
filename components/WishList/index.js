@@ -3,16 +3,18 @@ function WishListItem({ id, img, name, price }) {
             <tr class="wish-item product product-item" data-id="${id}">
                 <td class="wishlist-cell0 customer-wishlist-item-image">
                     <a class="product-image"
-                        href="{linkTo}"
+                        href="/product/index.html?id=${id}"
                         title="${name}">
                         <img class="product_featured_image"
                             src="${img}"
-                            alt="${name}">
+                            alt="${name}"
+                            onerror="this.onerror=null;this.src='../../access/img/error-image-generic.png';"
+                            >
                     </a>
                 </td>
                 <td class="wishlist-cell1 customer-wishlist-item-info">
                     <h3 class="product-name">
-                        <a href="{linkTo}"
+                        <a href="/product/index.html?id=${id}"
                             title="${name}">
                             ${name}
                         </a>

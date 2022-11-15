@@ -3,7 +3,9 @@ function SearchItem({ href = '', img = '', title = '', price = '' }) {
         <a href="${href}" class="search-results__item-ult">
             <div class="search-results__thumbs">
                     <img alt="${title}"
-                        src="${img}">
+                        src="${img}"
+                        onerror="this.onerror=null;this.src='../../access/img/error-image-generic.png';"
+                     >
             </div>
             <div class="search-results_title">
                 <p title="${title}" >${title}</p>

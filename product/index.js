@@ -2,6 +2,23 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 import ListProduct from '../app/controllers/ProductController.js';
 
+//shaer link
+
+const shareLink = $('.sharing__link');
+
+if (shareLink) {
+   shareLink.onclick = function myFunction() {
+      // Get the text field
+      var copyText = document.getElementById('url_copy_product');
+      copyText.value = window.location.href;
+      // Select the text field
+      copyText.select();
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+   };
+}
+
 function ProductGalleryThumb({ img, name }) {
    return `
       <li class="productDetail-gallery__thumb-item 1"
@@ -10,7 +27,9 @@ function ProductGalleryThumb({ img, name }) {
             class="productDetail-gallery__thumb-item-inner"
             href="${img}">
             <img src="${img}"
-               alt="${name}">
+               alt="${name}"
+               onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+               >
          </div>
       </li>
    `;
@@ -145,7 +164,9 @@ function ColorOption(data, checked) {
             for="swatch-0-den">
             <img src="${data.img}"
                   alt="Giày Thể Thao Nam Hunter Street Bloomin' Central DSMH08500DEN (${data.color})"
-                  title="${data.color}">
+                  title="${data.color}"
+                  onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+                  >
             <span>${data.color}</span>
          </label>
       </div>            
@@ -160,7 +181,9 @@ function ColorOption(data, checked) {
          <label class="productDetail__den " for="swatch-0-den">
             <img src="${data.img}"
                   alt="Giày Thể Thao Nam Hunter Street Bloomin' Central DSMH08500DEN (${data.color})"
-                  title="${data.color}">
+                  title="${data.color}"
+                  onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+                  >
             <span>${data.color}</span>
          </label>
       </div>            

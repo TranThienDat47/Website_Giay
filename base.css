@@ -384,8 +384,8 @@ table {
 .product-wrapper .product-inner .product-box-img .product-label {
    z-index: 9;
    position: absolute;
-   top: 8px;
-   left: 8px;
+   top: 4px;
+   left: 4px;
 }
 
 .product-wrapper .product-inner .product-box-img .product-label .pro-new {

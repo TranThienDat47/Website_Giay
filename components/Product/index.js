@@ -1,5 +1,3 @@
-import WishList from '../../app/controllers/WishListController.js';
-
 function Product({
    _id = '',
    name = '',
@@ -35,7 +33,9 @@ function Product({
                       ? `<div class="product-label">
                         <div class="pro-new">Mới</div>
                         <div class="pro-gift"><img alt=""
-                            src="https://file.hstatic.net/1000230642/file/gift_05b25b51e07e421ab8b2ea2969b017bc.png">
+                            src="https://file.hstatic.net/1000230642/file/gift_05b25b51e07e421ab8b2ea2969b017bc.png"
+                            onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+                            >
                         </div>
                     </div>`
                       : ``
@@ -50,7 +50,9 @@ function Product({
                                            color.list ? color.detail[0].imgs.firstImg : ''
                                         }"
                                         src="${color.list ? color.detail[0].imgs.firstImg : ''}"
-                                        alt="${name} (${color.list ? color.list[0] : ''}) ">
+                                        alt="${name} (${color.list ? color.list[0] : ''}) "
+                                        onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+                                        >
                                 </picture>
                             </div>
                             <div class="prod-img second-image">
@@ -60,7 +62,9 @@ function Product({
                                            color.list ? color.detail[0].imgs.secondeImg : ''
                                         }"
                                         src="${color.list ? color.detail[0].imgs.secondeImg : ''}"
-                                        alt="${name} (${color.list ? color.list[0] : ''}) ">
+                                        alt="${name} (${color.list ? color.list[0] : ''}) "
+                                        onerror="this.onerror=null;this.src='https://developers.google.com/static/maps/documentation/maps-static/images/error-image-generic.png';"
+                                        >
                                 </picture>
                             </div>
                         </a>
@@ -128,8 +132,11 @@ function Product({
                         
                     </div>
                     <div class="product-action">
-                        <button class="add-to-cart-loop">
-                            Mua ngay </button>
+                        <a href="/product/index.html?id=${_id}">
+                            <button class="add-to-cart-loop">
+                                Mua ngay 
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -139,14 +146,3 @@ function Product({
 }
 
 export default Product;
-
-// <span data-color="Xám"
-//     style="background: url(//product.hstatic.net/1000230642/product/dsmh07800xam__1__d66f5681d41647c19bc5c1b1c744d44c_small.jpg) !important;background-size: contain !important;"
-//     data-img-first="//product.hstatic.net/1000230642/product/dsmh07800xam__1__d66f5681d41647c19bc5c1b1c744d44c_grande.jpg"
-//     data-img-second="//product.hstatic.net/1000230642/product/dsmh07800xam__3__d632619868fb42b0828a032155c205c9_grande.jpg"
-//     class="item-color active"></span>
-// <span data-color="Đen"
-//     style="background: url(//product.hstatic.net/1000230642/product/dsmh07800den__7__9f22b2507eea4a5fbffa33a7b2b9ef7e_small.jpg) !important;background-size: contain !important;"
-//     data-img-first="//product.hstatic.net/1000230642/product/dsmh07800den__7__9f22b2507eea4a5fbffa33a7b2b9ef7e_grande.jpg"
-//     data-img-second="//product.hstatic.net/1000230642/product/dsmh07800den__7__9f22b2507eea4a5fbffa33a7b2b9ef7e_grande.jpg"
-//     class="item-color "></span>
