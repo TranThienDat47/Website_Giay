@@ -9,7 +9,8 @@ class CartController {
    }
 
    add(cart) {
-      let indexTemp = -1, tempQty = 0;
+      let indexTemp = -1,
+         tempQty = 0;
 
       this.Carts.find((item, index) => {
          if (Number(item.product._id) === Number(cart.product._id)) {
@@ -34,7 +35,7 @@ class CartController {
    plusQty(cartID) {
       let tempQty = this.Carts[cartID].product.qty;
 
-      if (this.Carts[cartID].qty > tempQty) {
+      if (this.Carts[cartID].qty >= tempQty) {
          this.Carts[cartID].qty = tempQty;
       } else this.Carts[cartID].qty++;
       localStorage.setItem('Carts', JSON.stringify(this.Carts));
