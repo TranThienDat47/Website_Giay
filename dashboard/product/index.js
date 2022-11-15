@@ -590,13 +590,14 @@ btnAddProcForm.onclick = function () {
          detail: detailNew,
       };
    });
+
    ListProduct.add(
       new Product(
          $('#id_product').value,
          dataDetail.name_product,
          dataDetail.description_product,
          numberMoney(dataDetail.price_product.toString())[0] !== ','
-            ? numberMoney(dataDetail.price_product.toString())[0]
+            ? numberMoney(dataDetail.price_product.toString())
             : numberMoney(dataDetail.price_product.toString()).replace(',', ''),
          qty,
          true,

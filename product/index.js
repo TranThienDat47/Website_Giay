@@ -18,8 +18,6 @@ function ProductGalleryThumb({ img, name }) {
 
 //routing
 
-//lấy url của trang web đang show
-
 const urlParams = new URLSearchParams(window.location.search);
 
 const checkVetify = ListProduct.find(urlParams.get('id'));
@@ -574,19 +572,22 @@ const btnSubmitForm = $('#btnSubmitForm');
 
 formAddCart.addEventListener('submit', function (e) {
    e.preventDefault();
-   const tempProcID = checkVetify[0]._id;
    const tempqty = valueQty.value;
    const data = new FormData(formAddCart);
    var detail = {};
+
    for (const [name, value] of data) {
       detail[`${name}`] = `${value}`;
    }
+
    ListCart.add({
       product: checkVetify[0],
       qty: tempqty,
       detail,
    });
+
    ViewCart();
+
    $('.notiSuccess-product').style.display = 'flex';
    setTimeout(() => {
       $('.notiSuccess-product').style.display = 'none';

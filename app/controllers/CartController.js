@@ -9,16 +9,20 @@ class CartController {
    }
 
    add(cart) {
-      let indexTemp = -1;
-      const temp = this.Carts.find((item, index) => {
-         if (Number(item.product._id) === Number(cart.product._id)) indexTemp = index;
+      let indexTemp = -1, tempQty = 0;
+
+      this.Carts.find((item, index) => {
+         if (Number(item.product._id) === Number(cart.product._id)) {
+            indexTemp = index;
+            tempQty = cart.product.qty;
+         }
          return Number(item.product._id) === Number(cart.product._id);
       });
 
       if (indexTemp != -1) {
          this.Carts[indexTemp].qty = Number(this.Carts[indexTemp].qty) + Number(cart.qty);
-         if (this.Carts[indexTemp].qty > 10) {
-            this.Carts[indexTemp].qty = 10;
+         if (this.Carts[indexTemp].qty > tempQty) {
+            this.Carts[indexTemp].qty = tempQty;
          }
          this.Carts[indexTemp].detail = cart.detail;
       } else {
@@ -28,10 +32,11 @@ class CartController {
    }
 
    plusQty(cartID) {
-      this.Carts[cartID].qty++;
-      if (this.Carts[cartID].qty > 10) {
-         this.Carts[cartID].qty--;
-      }
+      let tempQty = this.Carts[cartID].product.qty;
+
+      if (this.Carts[cartID].qty > tempQty) {
+         this.Carts[cartID].qty = tempQty;
+      } else this.Carts[cartID].qty++;
       localStorage.setItem('Carts', JSON.stringify(this.Carts));
    }
 

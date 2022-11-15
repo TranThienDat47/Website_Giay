@@ -482,6 +482,7 @@ table {
    margin: 0 0 5px 0;
    color: var(--shop-color-title);
    line-height: 1.2;
+   text-align: initial;
 }
 
 .product-inner.collection .product-box-price {
@@ -894,7 +895,7 @@ img {
 }
 
 .new-arrival-block {
-   margin: 52px 0;
+   margin: 52px 0 0 0;
    text-align: center;
 }
 
@@ -910,6 +911,11 @@ img {
 
 .product-slide {
    padding: 0px 70px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   max-width: 1550px;
+   margin: auto;
 }
 
 .slide-zone {
@@ -1042,6 +1048,8 @@ img {
 .collection-container {
    padding: 65px 120px;
    position: relative;
+   max-width: 1550px;
+   margin: auto;
 }
 
 .head-collection {
