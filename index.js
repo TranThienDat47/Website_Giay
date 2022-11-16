@@ -480,11 +480,7 @@ const listMainBanner = [
 ];
 
 if ($('.ads-banner-block')) {
-   $('.ads-banner-block').innerHTML = listBanner
-      .map((element) => ImgAnimation(element))
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+   $('.ads-banner-block').innerHTML = listBanner.map((element) => ImgAnimation(element)).join('');
 }
 
 if ($('.new-img-block')) {
@@ -496,9 +492,7 @@ if ($('.new-img-block')) {
                      </a>
                      `,
       )
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+      .join('');
 }
 
 import SlideInfinit from './components/InfiniteSlide/index.js';
@@ -558,11 +552,13 @@ if (wapperListRecom) {
 //collection nam
 const collectionMan = $('#prdZone__man');
 if (collectionMan) {
-   collectionMan.innerHTML = ListProduct.getProducts.slice(0, 20).map((element) => {
-      let tempNewPrice = Number(element.price.replaceAll(',', ''));
+   collectionMan.innerHTML = ListProduct.getProducts
+      .slice(0, 20)
+      .map((element) => {
+         let tempNewPrice = Number(element.price.replaceAll(',', ''));
 
-      tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
-      return `
+         tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
+         return `
          <div class="prd-zone__item">
             ${Product({
                _id: element._id,
@@ -576,17 +572,20 @@ if (collectionMan) {
             })}
          </div>
       `;
-   });
+      })
+      .join('');
 }
 
 //collection nu
 const collectionWoman = $('#prdZone__woman');
 if (collectionWoman) {
-   collectionWoman.innerHTML = ListProduct.getProducts.slice(0, 20).map((element) => {
-      let tempNewPrice = Number(element.price.replaceAll(',', ''));
+   collectionWoman.innerHTML = ListProduct.getProducts
+      .slice(0, 20)
+      .map((element) => {
+         let tempNewPrice = Number(element.price.replaceAll(',', ''));
 
-      tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
-      return `
+         tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
+         return `
          <div class="prd-zone__item">
             ${Product({
                _id: element._id,
@@ -600,11 +599,48 @@ if (collectionWoman) {
             })}
          </div>
       `;
-   });
+      })
+      .join('');
 }
 
 if ($('.footer-banner')) {
    $('.footer-banner').innerHTML = ImgAnimation(
       'https://file.hstatic.net/200000522597/file/2_1920x750_8d8ae5ef81364f288889339c63147dbb.jpg',
    );
+}
+
+//scroll to top
+const btnToTop = $('#bttop.has-item');
+if (btnToTop) {
+   let toTop = false,
+      tempScrollToTop = -1;
+   const t = 6;
+
+   const handWindow = () => {
+      tempScrollToTop = window.scrollY;
+      toTop = true;
+      let q = window.scrollY,
+         v = q / t;
+      window.scrollTo(0, q - v);
+   };
+
+   btnToTop.onclick = handWindow;
+
+   const vlue_Show_Scroll = (document.body.scrollHeight * 1) / 8;
+
+   const handleScroll = () => {
+      let flag = false;
+      window.scrollY >= vlue_Show_Scroll ? (flag = true) : (flag = false);
+      flag ? btnToTop.classList.add('open') : btnToTop.classList.remove('open');
+      if (toTop) {
+         let q = window.scrollY,
+            v = q / t;
+         if (q > tempScrollToTop) toTop = false;
+         window.scrollTo(0, q - v);
+         tempScrollToTop = window.scrollY;
+         if (tempScrollToTop <= 0) toTop = false;
+      }
+   };
+
+   window.addEventListener('scroll', handleScroll);
 }

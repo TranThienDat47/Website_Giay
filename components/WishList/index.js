@@ -34,8 +34,8 @@ function WishListItem({ id, img, name, price }) {
             </tr>
         `;
 }
-import WishList from '../../app/controllers/WishListController.js';
 import ListProduct from '../../app/controllers/ProductController.js';
+import WishList from '../../app/controllers/WishListController.js';
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -107,9 +107,7 @@ function showItemWishList() {
          });
       })
       .slice(0, tempShowWishList)
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+      .join('');
 
    countWishList.innerHTML = WishList.getWishLists.length;
 
@@ -213,3 +211,5 @@ function showItemWishList() {
 }
 
 showItemWishList();
+
+export { showItemWishList };

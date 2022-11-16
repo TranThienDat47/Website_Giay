@@ -77,28 +77,19 @@ function InfiniteSlide(id = $('.InfiniteSlide__wrapper').length) {
           <li class="InfiniteSlide__item">
               <div class="InfiniteSlide__inner">
                 <strong class='InfiniteSlide__inner-first'>
-                  <img src="https://file.hstatic.net/1000230642/file/refund_f62cdfe39d9f4b3a8a873fb4a8065303.png" alt="Hỗ trợ đổi size">
-							    Hỗ trợ đổi size
+                  <img src="https://file.hstatic.net/1000230642/file/refund_f62cdfe39d9f4b3a8a873fb4a8065303.png" alt="Miễn phí vận chuyển">
+							    Miễn phí vận chuyển
                 </strong>
-                <span>Tại tất cả cửa hàng trong vòng 1 tuần!</span>
+                <span>Với hoá đơn trên 1 triệu ở Hồ Chí Minh</span>
               </div>
           </li>
           <li class="InfiniteSlide__item">
               <div class="InfiniteSlide__inner">
                 <strong class='InfiniteSlide__inner-first'>
-                  <img src="https://file.hstatic.net/1000230642/file/refund_f62cdfe39d9f4b3a8a873fb4a8065303.png" alt="Hỗ trợ đổi size">
-							    Hỗ trợ đổi size
+                  <img src="https://file.hstatic.net/1000230642/file/refund_f62cdfe39d9f4b3a8a873fb4a8065303.png" alt="Miễn phí vận chuyển">
+							    Miễn phí vận chuyển
                 </strong>
-                <span>Tại tất cả cửa hàng trong vòng 1 tuần!</span>
-              </div>
-          </li>
-          <li class="InfiniteSlide__item">
-              <div class="InfiniteSlide__inner">
-                <strong class='InfiniteSlide__inner-first'>
-                  <img src="https://file.hstatic.net/1000230642/file/refund_f62cdfe39d9f4b3a8a873fb4a8065303.png" alt="Hỗ trợ đổi size">
-							    Hỗ trợ đổi size
-                </strong>
-                <span>Tại tất cả cửa hàng trong vòng 1 tuần!</span>
+                <span>Với hoá đơn trên 1,5 triệu tại các tỉnh thành khác</span>
               </div>
           </li>
         </ul>

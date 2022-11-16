@@ -484,6 +484,13 @@ table {
    line-height: 1.2;
    text-align: initial;
 }
+.product-wrapper .product-inner .product-box-info .product-box-title h4 > a {
+   -webkit-line-clamp: 2;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   text-overflow: ellipsis;
+   overflow: hidden;
+}
 
 .product-inner.collection .product-box-price {
    justify-content: space-between;
@@ -1202,4 +1209,19 @@ img {
 .footer-banner > div > img {
    width: 100% !important;
    height: auto !important;
+}
+
+/* to top */
+
+#bttop.has-item {
+   position: fixed;
+   bottom: 54px;
+   z-index: 100;
+   right: 0px;
+   cursor: pointer;
+   transform: translateX(100px);
+}
+
+#bttop.has-item.open {
+   transform: translateX(0px);
 }

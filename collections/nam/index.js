@@ -58,7 +58,25 @@ let listCategory = [
          },
          {
             second: 'GOSTO',
-            third: ['Giày Tao Gót', 'Giày Thời Trang', 'Sandal', 'Dép', 'Túi Xách', 'Ví'],
+            third: [
+               {
+                  name: 'Giày Tao Gót',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=giay-cao-got',
+               },
+               {
+                  name: 'Giày Thời Trang',
+                  collection:
+                     '/collections/nam/index.html?collection=nu&floor=3&type=giay-the-thao-gosto',
+               },
+               {
+                  name: 'Sandal',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=sandal-gosto',
+               },
+               {
+                  name: 'Dép',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=dep-gosto',
+               },
+            ],
             collection: '/',
          },
          {
@@ -104,47 +122,136 @@ let listCategory = [
 const urlParams = new URLSearchParams(window.location.search);
 const titleCategory = $('#collection_title_category');
 const titleCategoryList = $('#collection_list_category');
+const categoryLocation = $('#category__loaction');
 
 if (urlParams.get('collection') === null) {
-   listCategory.find((element) => {
-      if (element.title === 'Nam') {
-         if (titleCategory) {
-            titleCategory.innerHTML = `Nam`;
-            titleCategoryList.innerHTML = element.detail
-               .map((tempElement) => {
-                  return `
-                        <li>
-                           <a class="" href="${tempElement.collection}">${tempElement.second}</a>
-                        </li>
-                     `;
-               })
-               .join(',,,,')
-               .toString()
-               .replaceAll(',,,,', '');
+   if (urlParams.get('type') !== null) {
+      listCategory.find((element) => {
+         if (element.title === 'Nam') {
+            if (titleCategory) {
+               titleCategory.innerHTML = `Nam`;
+               titleCategoryList.innerHTML = element.detail
+                  .map((tempElement) => {
+                     return `
+                           <li>
+                              <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                           </li>
+                        `;
+                  })
+                  .join('');
+
+               element.detail.find((elementFind) => {
+                  if (elementFind.collection.split('type=')[1] === urlParams.get('type').trim()) {
+                     categoryLocation.innerHTML =
+                        elementFind.second + ` <strong style="font-weight: bold;">Nam</strong>`;
+
+                     return true;
+                  }
+               });
+            }
+            return true;
          }
-         return true;
-      }
-   });
+      });
+   } else {
+      listCategory.find((element) => {
+         if (element.title === 'Nam') {
+            if (titleCategory) {
+               titleCategory.innerHTML = `Nam`;
+               titleCategoryList.innerHTML = element.detail
+                  .map((tempElement) => {
+                     return `
+                           <li>
+                              <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                           </li>
+                        `;
+                  })
+                  .join('');
+               categoryLocation.innerHTML = 'Nam';
+            }
+            return true;
+         }
+      });
+   }
 } else {
-   listCategory.find((element) => {
-      if (element.collection === urlParams.get('collection')) {
-         if (titleCategory) {
-            titleCategory.innerHTML = `${element.title}`;
-            titleCategoryList.innerHTML = element.detail
-               .map((tempElement) => {
-                  return `
-                        <li>
-                           <a class="" href="${tempElement.collection}">${tempElement.second}</a>
-                        </li>
+   if (urlParams.get('type') !== null) {
+      if (urlParams.get('floor') === '3') {
+         listCategory.find((element) => {
+            if (element.collection === urlParams.get('collection')) {
+               if (titleCategory) {
+                  titleCategory.innerHTML = `${element.title}`;
+                  titleCategoryList.innerHTML = element.detail
+                     .map((tempElement) => {
+                        return `
+                     <li>
+                     <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                     </li>
                      `;
-               })
-               .join(',,,,')
-               .toString()
-               .replaceAll(',,,,', '');
-         }
-         return true;
+                     })
+                     .join('');
+                  element.detail[1].third.find((elementFind) => {
+                     if (
+                        elementFind.collection.split('type=')[1] === urlParams.get('type').trim()
+                     ) {
+                        categoryLocation.innerHTML =
+                           elementFind.name +
+                           ` <strong style="font-weight: bold;">${element.title}</strong>`;
+
+                        return true;
+                     }
+                  });
+               }
+               return true;
+            }
+         });
+      } else {
+         listCategory.find((element) => {
+            if (element.collection === urlParams.get('collection')) {
+               if (titleCategory) {
+                  titleCategory.innerHTML = `${element.title}`;
+                  titleCategoryList.innerHTML = element.detail
+                     .map((tempElement) => {
+                        return `
+                              <li>
+                                 <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                              </li>
+                           `;
+                     })
+                     .join('');
+                  element.detail.find((elementFind) => {
+                     if (
+                        elementFind.collection.split('type=')[1] === urlParams.get('type').trim()
+                     ) {
+                        categoryLocation.innerHTML =
+                           elementFind.second +
+                           ` <strong style="font-weight: bold;">${element.title}</strong>`;
+
+                        return true;
+                     }
+                  });
+               }
+               return true;
+            }
+         });
       }
-   });
+   } else {
+      listCategory.find((element) => {
+         if (element.collection === urlParams.get('collection')) {
+            if (titleCategory) {
+               titleCategory.innerHTML = `${element.title}`;
+               titleCategoryList.innerHTML = element.detail
+                  .map((tempElement) => {
+                     return `
+                           <li>
+                              <a class="" href="${tempElement.collection}">${tempElement.second}</a>
+                           </li>
+                        `;
+                  })
+                  .join('');
+            }
+            return true;
+         }
+      });
+   }
 }
 
 const checkNode = (parent, children) => {
@@ -158,7 +265,7 @@ const checkNode = (parent, children) => {
 
 //Text Slide
 var textSlide = document.querySelector('.text-slide');
-textSlide.innerHTML = InfiniteSlide(1);
+textSlide.innerHTML = InfiniteSlide(10);
 
 //Filter Desktop
 var filterItems = document.querySelectorAll('.filter-desktop-item');
@@ -314,7 +421,6 @@ for (let i = 0; i < filterColors.length; i++) {
       let valueOfColor = getHTMLtoFilterDesc(valueOfLi[0]);
       htmlLi[0] = valueOfColor.join('');
       filterDesc.innerHTML = htmlLi.join('');
-      console.log(productFilterList);
       if (valueColors.length > 0 && valueOfLi[1] == undefined && valueOfLi[2] == undefined) {
          productFilterList = searchProductColor(productList, valueOfLi[0]);
       } else if (valueOfLi[1] != undefined || valueOfLi[2] != undefined) {
@@ -336,7 +442,7 @@ for (let i = 0; i < filterColors.length; i++) {
             productFilterList = searchProductSizePrice(productList, valueOfLi[1], valueOfLi[2]);
          }
       }
-      console.log(productFilterList);
+      // console.log(productFilterList);
       var dataProduct = htmlProduct(productFilterList);
       if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
@@ -388,7 +494,7 @@ for (let i = 0; i < filterSizes.length; i++) {
             productFilterList = searchProductColorPrice(productList, valueOfLi[0], valueOfLi[2]);
          }
       }
-      console.log(productFilterList);
+      // console.log(productFilterList);
       var dataProduct = htmlProduct(productFilterList);
       if (productFilterList.length > 0) {
          for (let i = 0; i < dataProduct.length; i++) {
@@ -421,11 +527,8 @@ function getHTMLtoFilterPrice(value) {
 }
 
 filterDesc.onclick = (e) => {
-   console.log(e.target);
-
    if (e.target != filterDesc) {
       var valueParent = e.target.parentElement.innerText;
-      console.log(valueParent);
       let valueLength1 = valueOfLi.length;
       let minPrice = Number(amount.getAttribute('minpricesearch'));
       let maxPrice = Number(amount.getAttribute('maxpricesearch'));
@@ -441,8 +544,6 @@ filterDesc.onclick = (e) => {
          } else if (valueColors.length > 0 && valueOfLi[1] == undefined) {
             productFilterList = searchProductColor(productList, valueOfLi[0]);
          } else if (valueSizes.length > 0 && valueOfLi[0] == undefined) {
-            console.log(valueSizes.length);
-            console.log(valueSizes);
             productFilterList = searchProductSize(productList, valueOfLi[1]);
          } else {
             productFilterList = searchProductColorSize(productList, valueOfLi[0], valueOfLi[1]);
@@ -585,8 +686,6 @@ var wrapList = document.querySelector('.collection-list');
 var itemFilterList = [];
 var productFilterList = [];
 
-console.log(productList);
-
 function htmlProduct(arrayProduct) {
    if (arrayProduct.length == 0) {
       return `
@@ -638,7 +737,6 @@ var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
 btnLoadMore.onclick = () => {
    var productMoreAmout = productContainerList.length - flat;
    for (let i = 0; i < productMoreAmout; i++) {
-      console.log(productContainerList[flat]);
       wrapList.appendChild(productContainerList[flat]);
       flat += 1;
    }
@@ -680,9 +778,7 @@ uisliderHandles[0].addEventListener('mousedown', (e) => {
       const max = uiRight + 1;
 
       if (isReadytoDrag && drop == 1 && clientX >= min && clientX <= max) {
-         console.log('left');
          const move = clientX - uiLeft;
-         console.log(move);
          var uiStyleLeft = Number(uisliderRange.style.left.split('%')[0]);
          var uiStyleWidth = Number(uisliderRange.style.width.split('%')[0]);
          const step = 2.5;

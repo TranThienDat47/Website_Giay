@@ -164,9 +164,7 @@ function ViewCart() {
                price: element.product.price,
             });
          })
-         .join(',,,,')
-         .toString()
-         .replaceAll(',,,,', '');
+         .join('');
    } else {
       cartViewScroll.innerHTML = `
                                     <div class="mini-cart__empty">

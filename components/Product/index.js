@@ -1,3 +1,5 @@
+import { showItemWishList } from '../WishList/index.js';
+
 function Product({
    _id = '',
    name = '',
@@ -8,13 +10,19 @@ function Product({
    promotion_percentage = '',
    news = false,
 }) {
+   setTimeout(() => {
+      showItemWishList();
+   });
+
    return `
     <div class="product-wrapper col-4">
         <div data-id="${_id}" class="product-inner collection product-lists-item">
             <div class="product-box-img">
                 <div class="product-favorite onwishlist_btn_add" data-id="${_id}" data-price="${price}"
                     data-title="${name}"
-                    data-img="${color.list ? color.detail[0].imgs.firstImg : ''}">
+                    data-img="${
+                       color.list && color.detail[0] ? color.detail[0].imgs.firstImg : ''
+                    }">
                     <svg class="svg-ico-wishlist" xmlns="http://www.w3.org/2000/svg" version="1.1"
                         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
                         width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
@@ -104,7 +112,7 @@ function Product({
                     <div data-swatch="color"
                         class="w-100 swatch-loop-item d-flex align-items-center justify-content-center flex-wrap">
                         ${
-                           color.list
+                           color.list && color.list.length > 1
                               ? color.detail
                                    .map((element, index) => {
                                       if (index != 0)
@@ -124,9 +132,7 @@ function Product({
                                  class="item-color active"></span>
                                  `;
                                    })
-                                   .join(',,,,')
-                                   .toString()
-                                   .replaceAll(',,,,', '')
+                                   .join('')
                               : ''
                         }
                         

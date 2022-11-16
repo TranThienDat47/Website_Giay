@@ -18,7 +18,6 @@ function check_login() {
 check_login();
 if (isLogin) {
    var acc_now = JSON.parse(localStorage.getItem('current_account'));
-   // console.log(acc_now);
 
    var ui_hoten_left = document.querySelector('.AccountSidebar .AccountTitle span');
    var ui_hoten_right = document.querySelector('.col-12  .name_account .infor_detail');

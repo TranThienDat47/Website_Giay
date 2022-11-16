@@ -29,9 +29,7 @@ function ItemCategory({ title, detail }) {
                                              </div>
                               `,
                                  )
-                                 .join(',,,,')
-                                 .toString()
-                                 .replaceAll(',,,,', '')}
+                                 .join('')}
                               <button class="btn button btn__add">
                                  Thêm
                                  <i class="fa-solid fa-circle-plus"></i>
@@ -40,9 +38,7 @@ function ItemCategory({ title, detail }) {
                         </div>
                `,
                   )
-                  .join(',,,,')
-                  .toString()
-                  .replaceAll(',,,,', '')}
+                  .join('')}
                <button class="btn button btn__add">
                   Thêm
                   <i class="fa-solid fa-circle-plus"></i>
@@ -76,11 +72,7 @@ let listCategory = [
 
 function renderList() {
    $('.list-category').innerHTML =
-      listCategory
-         .map((element) => ItemCategory(element))
-         .join(',,,,')
-         .toString()
-         .replaceAll(',,,,', '') +
+      listCategory.map((element) => ItemCategory(element)).join('') +
       `<li class="item-category item-category__add"><h3>Thêm danh mục</h3>
          <i class="fa-solid fa-circle-plus"></i></li>`;
 }

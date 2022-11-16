@@ -170,9 +170,7 @@ function ListDragProc(id = 'ListDragProc_0', data = []) {
                                     </div>
                                     `,
                    )
-                   .join(',,,,')
-                   .toString()
-                   .replaceAll(',,,,', '')}
+                   .join('')}
             </div>
             <div class ="listDrag__controls">
                 <button class ="listDrag__left"><i class="fa-solid fa-chevron-left"></i></button>

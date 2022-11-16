@@ -217,21 +217,12 @@ listColor.innerHTML = checkVetify[0].colors.list
             );
       }
    })
-   .join(',,,,')
-   .toString()
-   .replaceAll(',,,,', '');
+   .join('');
 
 // Recommend Product
 import Product from '../components/Product/index.js';
 
 const listRecommedPro = $('#owlProduct-related');
-
-// listRecommedPro.innerHTML = dataRecommendProc
-//    .slice(0, 6)
-//    .map((element) => Product(element))
-//    .join(',,,,')
-//    .toString()
-//    .replaceAll(',,,,', '');
 
 import ListDragProc from '../components/ListDragProc/index.js';
 const wapperListRecom = $('#listViewed');
@@ -280,9 +271,7 @@ let dataRecommendProc = ListProduct.getProducts.map((element) => {
 listRecommedPro.innerHTML = dataRecommendProc
    .slice(0, 6)
    .map((element) => element)
-   .join(',,,,')
-   .toString()
-   .replaceAll(',,,,', '');
+   .join('');
 
 wapperListRecom.innerHTML = ListDragProc(1, dataRecommendProc);
 
@@ -467,9 +456,7 @@ function renderGallery() {
                else return SizeOption(element, false);
             }
          })
-         .join(',,,,')
-         .toString()
-         .replaceAll(',,,,', '');
+         .join('');
 
       listImgGallery = [
          checkVetify[0].colors.detail[tempIndex].imgs.firstImg,
@@ -483,18 +470,14 @@ function renderGallery() {
       ]
          .concat(checkVetify[0].colors.detail[tempIndex].imgs.orthers)
          .map((element) => ProductGalleryThumb({ img: element, name: checkVetify[0].name }))
-         .join(',,,,')
-         .toString()
-         .replaceAll(',,,,', '');
+         .join('');
    } else {
       mainImgGallery.src = checkVetify[0].colors.detail[0].imgs.firstImg;
 
       mainWrapperListGalleryThumb.innerHTML = [checkVetify[0].colors.detail[0].imgs.secondeImg]
          .concat(checkVetify[0].colors.detail[0].imgs.orthers)
          .map((element, index) => ProductGalleryThumb({ img: element, name: checkVetify[0].name }))
-         .join(',,,,')
-         .toString()
-         .replaceAll(',,,,', '');
+         .join('');
    }
 }
 

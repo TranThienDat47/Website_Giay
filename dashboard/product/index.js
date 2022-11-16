@@ -54,9 +54,7 @@ function ItemColorSize(tempClass = 2, listColor = []) {
                   </div>
                   `,
             )
-            .join(',,,,')
-            .toString()
-            .replaceAll(',,,,', '')}
+            .join('')}
       </div>
       <div class="dasboard-product-add__size">
          <div>

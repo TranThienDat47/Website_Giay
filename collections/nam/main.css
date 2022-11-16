@@ -1043,7 +1043,6 @@
    max-width: 1430px;
    width: 100%;
    padding: 0 80px;
-   margin: 0 35px 0 35px;
 }
 
 .breadcrumb-list {
@@ -1317,7 +1316,7 @@
 .ui-slider .ui-slider-range {
    position: absolute;
    z-index: 1;
-   font-size: .7em;
+   font-size: 0.7em;
    display: block;
    border: 0;
    background-position: 0 0;
@@ -1462,7 +1461,7 @@
    border-radius: 3px;
    border: 1px solid #ccc;
    border-top: 0;
-   transition: all .3s ease;
+   transition: all 0.3s ease;
 }
 
 .collection-sortbyfilter-container:hover .collection-sortby-option {
@@ -1484,7 +1483,7 @@
 }
 
 .collection-sortbyfilter-container .collection-sortby-option ul.sort-by li:before {
-   content: "";
+   content: '';
    position: absolute;
    left: 5px;
    top: 10px;
@@ -1496,7 +1495,7 @@
    border-top-style: none;
    border-right-style: none;
    transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
-   transform: rotate(-45deg) scale(0,0);
+   transform: rotate(-45deg) scale(0, 0);
 }
 
 .collection-sortbyfilter-container .collection-sortby-option ul.sort-by li.active:before {
@@ -1513,7 +1512,8 @@
    flex-wrap: wrap;
 }
 
-.active-filter span, .active-filter .price {
+.active-filter span,
+.active-filter .price {
    display: flex;
    border: 1px solid #1b4ea0;
    border-radius: 10px;
@@ -1525,7 +1525,7 @@
    cursor: pointer;
 }
 
-.active-filter span .fa-circle-xmark, 
+.active-filter span .fa-circle-xmark,
 .active-filter .price .fa {
    margin-left: 5px;
    color: #1b4ea0;
@@ -1549,8 +1549,7 @@
    margin: 0 -5px;
 }
 
-.collection-list .product-container{   
-   
+.collection-list .product-container {
 }
 
 .collection-list .collection-loadmore {
@@ -1586,7 +1585,7 @@
    border-radius: 50%;
    border: 2px solid #ccc;
    border-top-color: #fff;
-   animation: spinner .6s linear infinite;
+   animation: spinner 0.6s linear infinite;
    opacity: 0;
    transition: opacity 1s ease;
 }

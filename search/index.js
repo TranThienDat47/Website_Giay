@@ -81,9 +81,7 @@ function showMoreSearch() {
          });
       })
       .slice(0, tempPage)
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+      .join('');
 }
 
 if (urlParams.get('value').trim() !== '') {

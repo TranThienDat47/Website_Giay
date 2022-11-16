@@ -49,9 +49,7 @@ function SearchResults(data = []) {
                price: element.price,
             });
       })
-      .join(',,,,')
-      .toString()
-      .replaceAll(',,,,', '');
+      .join('');
 
    return `
     ${searchItems}
