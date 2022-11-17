@@ -82,16 +82,25 @@ function return_login() {
 function dangnhap() {
    var val_tk = tk.value;
    var val_mk = mk.value;
+   erro_login[0].style.display = 'none';
+
    if (val_mk == '' || val_tk == '' || checkEmail() == false) {
+      erro_login[0].children[0].innerHTML = 'Thông tin đăng nhập không hợp lệ.';
       erro_login[0].style.display = 'block';
       document.querySelector('.content-center').scrollIntoView();
    } else {
+      var check_sure = false;
       for (var i = 0; i < arr_account_local.length; i++) {
          if (val_tk == arr_account_local[i].tk && val_mk == arr_account_local[i].mk) {
             localStorage.removeItem('current_account');
             localStorage.setItem('current_account', JSON.stringify(arr_account_local[i]));
             window.location.href = '/';
+            check_sure = true;
          }
+      }
+      if (check_sure == false) {
+         erro_login[0].children[0].innerHTML = 'Tài khoản hoặc mật khẩu không chính xác';
+         erro_login[0].style.display = 'block';
       }
    }
 }
@@ -112,7 +121,7 @@ function check_login() {
 check_login();
 
 function checkEmail() {
-   var filter = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+   var filter = /^[A-Z0-9]+@(gmail+\.)+(com)$/i;
    if (!filter.test(tk.value)) {
       return false;
    }
