@@ -39,16 +39,24 @@ function account(tk, mk, sex, ho, ten, sdt, diachi) {
 if (arr_account_local == null) {
    // acc mặc định
    arr_account_local = [];
-   var p1 = new account('minelady92@gmail.com', 1, 'Nam', 'Minh', 'Khoa', '0909090909', '456');
+   var p1 = new account('admin@gmail.com', 1, 'Nam', 'Minh', 'Khoa', '0795858555', '4 bể là nhà');
    arr_account_local.push(p1);
    localStorage.setItem('arr_account', JSON.stringify(arr_account_local));
 }
 
 active_re_pass[0].onclick = () => {
+   var check = false;
    for (var i = 0; i < arr_account_local.length; i++) {
       if (tf_email_repass.value == arr_account_local[i].tk) {
+         check = true;
          alert('MẬT KHẨU CỦA BẠN LÀ : ' + arr_account_local[i].mk);
       }
+   }
+   if (check == false && tf_email_repass.value != '') {
+      alert('TÀI KHOẢN CHƯA ĐƯỢC ĐĂNG KÍ');
+   }
+   if (tf_email_repass.value == '') {
+      alert('VUI LÒNG NHẬP TÀI KHOẢN EMAIL');
    }
 };
 

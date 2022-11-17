@@ -59,7 +59,7 @@ function account(tk, mk, sex, ho, ten, sdt, diachi) {
 if (arr_acc == null) {
    // acc mặc định
    arr_acc = [];
-   var p1 = new account('minelady92@gmail.com', 1, 'Nam', 'Minh', 'Khoa', '0909090909', '456');
+   var p1 = new account('admin@gmail.com', 1, 'Nam', 'Minh', 'Khoa', '0795858555', '4 bể là nhà');
    arr_acc.push(p1);
    localStorage.setItem('arr_account', JSON.stringify(arr_acc));
 }
