@@ -72,8 +72,10 @@ class CartController {
    update() {}
 
    delete(cartID) {
-      if (cartID === 0) this.Carts.splice(0, 1);
-      else this.Carts.splice(cartID, cartID);
+      if (cartID === 0) 
+         this.Carts.splice(0, 1);
+      else 
+         this.Carts.splice(cartID, cartID);
       localStorage.setItem('Carts', JSON.stringify(this.Carts));
    }
 

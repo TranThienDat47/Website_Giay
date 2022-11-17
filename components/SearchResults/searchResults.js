@@ -36,9 +36,12 @@ inputSearch.onclick = () => {
    }, 0);
 };
 
+const formSearch = $('.searchform-categoris');
+
 inputSearch.onkeydown = () => {
    setTimeout(() => {
       searchValue = inputSearch.value;
+      formSearch.action = `/search/index.html?value=${searchValue.trim()}`;
       if (searchValue.trim().length > 0) {
          dataSearchResult = ListProduct.findAll(searchValue.trim());
          searhresult.innerHTML = SearchResults(dataSearchResult);

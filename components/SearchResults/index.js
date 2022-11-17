@@ -43,7 +43,7 @@ function SearchResults(data = []) {
             });
          else
             return SearchItem({
-               href: `/product/index.html?q=${element._id}`,
+               href: `/product/index.html?id=${element._id}`,
                img: '',
                title: element.name,
                price: element.price,

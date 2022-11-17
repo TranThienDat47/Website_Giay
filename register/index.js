@@ -18,6 +18,7 @@ var arr_acc = [];
 arr_acc = arr_local;
 
 const btnHideShowPassword = document.querySelector('#btnShowHidePassword');
+
 btnHideShowPassword.onclick = function () {
    var x = document.getElementById('matkhau');
    if (x.type === 'password') {

@@ -84,8 +84,13 @@ function showMoreSearch() {
       .join('');
 }
 
-if (urlParams.get('value').trim() !== '') {
-   showMoreSearch();
-} else {
-   txtNoSearch.innerHTML = 'Không thấy kết quả cần tìm kiếm!';
+function checkKeySearch() {
+   if (urlParams.get('value').trim() !== '') {
+      showMoreSearch();
+   } else {
+      txtNoSearch.innerHTML = 'Không thấy kết quả cần tìm kiếm!';
+      $('.searchPage__subtext-result').innerHTML = '';
+   }
 }
+
+checkKeySearch();

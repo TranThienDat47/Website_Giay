@@ -11,8 +11,10 @@ class WishListController {
    add(wishlist) {
       let flag = false;
       this.WishLists.find((element) => {
-         if (Number(element._id) === Number(wishlist._id)) flag = true;
-         return Number(element._id) === Number(wishlist._id);
+         if (Number(element._id) === Number(wishlist._id)) {
+            flag = true;
+            return true;
+         }
       });
 
       if (!flag) {

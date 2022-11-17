@@ -7,7 +7,8 @@ const actionUser = $('.header__action-account .header__action-item-text');
 const checkNode = (parent, children) => {
    let node = children.parentNode;
    while (node !== null) {
-      if (node === parent) return true;
+      if (node === parent) 
+         return true;
       node = node.parentNode;
    }
    return false;
