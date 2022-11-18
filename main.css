@@ -431,7 +431,7 @@
 .search-results-dataEmpty {
    text-align: center;
    padding: 20px 0;
-   padding-bottom: 0px;
+   padding-bottom: 18px;
    line-height: 1.25rem;
 }
 
