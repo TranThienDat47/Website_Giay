@@ -67,6 +67,7 @@ document.onscroll = (e) => {
 
 const actionCart = $('.header__action-cart .header__action-item-text');
 const actionUser = $('.header__action-account .header__action-item-text');
+
 inputSearch.onfocus = (e) => {
    if (dataSearchResult.length > 0 && searchValue.length > 0) {
       searhresult.style.display = 'block';
