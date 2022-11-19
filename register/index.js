@@ -150,6 +150,7 @@ btn_res.onclick = () => {
       localStorage.setItem('arr_account', JSON.stringify(arr_acc));
       label_correct[0].style.display = 'block';
       clear_tf();
+      window.location.href = '/login';
    } else {
       label_error[0].style.display = 'block';
       document.querySelector('.content-center').scrollIntoView();

@@ -45,6 +45,9 @@ if (checkVetify.length <= 0) {
    window.location.href = '/';
 }
 
+const titleNameProcduct = $('.breadcrumb-list__inner.breadcrumb-arrows .active > span > strong');
+titleNameProcduct.textContent = checkVetify[0].name;
+
 //name and orthers
 const headingName = $('.productDetail__heading>h1');
 const priceProc = $('.productDetail-price>span');
