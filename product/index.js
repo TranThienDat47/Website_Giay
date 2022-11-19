@@ -52,7 +52,7 @@ const soldold = $('.productDetail-soldold strong > strong');
 
 headingName.innerHTML = checkVetify[0].name;
 priceProc.innerHTML = checkVetify[0].price;
-soldold.innerHTML = checkVetify[0].qty;
+soldold.innerHTML = checkVetify[0].colors.detail[0].detail[0].qty;
 
 //share
 const productSharing = $('.product-sharing');
@@ -510,6 +510,24 @@ function handleListGallery() {
       for (let i = 0; i < itemSize.length; i++) {
          itemSize[i].onclick = function () {
             itemSize[i].children[0].click();
+
+            const data = new FormData(formAddCart);
+            var detail = {};
+
+            for (const [name, value] of data) {
+               detail[`${name}`] = `${value}`;
+            }
+
+            checkVetify[0].colors.detail.find((element, index) => {
+               if (element.color === detail.option1) {
+                  element.detail.find((element1, index1) => {
+                     if (Number(element1.size) === Number(detail.option2)) {
+                        soldold.innerHTML = element1.qty;
+                     }
+                  });
+               }
+            });
+
             for (let i = 0; i < itemSize.length; i++) {
                itemSize[i].children[1].className = '';
             }
@@ -617,6 +635,22 @@ const itemColor = $$(
 for (let i = 0; i < itemColor.length; i++) {
    itemColor[i].onclick = function () {
       itemColor[i].children[0].click();
+      const data = new FormData(formAddCart);
+      var detail = {};
+
+      for (const [name, value] of data) {
+         detail[`${name}`] = `${value}`;
+      }
+
+      checkVetify[0].colors.detail.find((element, index) => {
+         if (element.color === detail.option1) {
+            element.detail.find((element1, index1) => {
+               if (Number(element1.size) === Number(detail.option2)) {
+                  soldold.innerHTML = element1.qty;
+               }
+            });
+         }
+      });
       for (let i = 0; i < itemColor.length; i++) {
          itemColor[i].children[1].classList.remove('productDetail__sd');
       }

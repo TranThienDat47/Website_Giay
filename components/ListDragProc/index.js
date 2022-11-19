@@ -48,10 +48,7 @@ function ListDragProc(id = 'ListDragProc_0', data = []) {
                .replace(')', '')
                .replace('px', '');
             const curTranslateX = tempTranslateX - itemProc;
-            tempRightLastItem =
-               itemSlideDrag[itemSlideDrag.length - 1].getBoundingClientRect().right;
-
-            if (curTranslateX - itemProc * 4 < -tempRightLastItem) {
+            if (-curTranslateX > itemProc * (itemSlideDrag.length - 5)) {
                listDrag.style.transform = `translateX(${-itemProc * (itemSlideDrag.length - 5)}px)`;
             } else listDrag.style.transform = `translateX(${curTranslateX}px)`;
          }
