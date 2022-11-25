@@ -7,13 +7,13 @@ const btnDel = $('.main-dashboard__promotion-item-delete');
 btnPlayPause.onclick = function () {
    if (
       btnPlayPause.classList.contains('play') &&
-      confirm('Bạn có muốn dừng chương trình khuyến mãi?')
+      confirm('Bạn có muốn bắt đầu chương trình khuyến mãi?')
    ) {
       btnPlayPause.classList.remove('play');
       btnPlayPause.classList.add('pause');
    } else if (
       btnPlayPause.classList.contains('pause') &&
-      confirm('Bạn có muốn bắt đầu chương trình khuyến mãi?')
+      confirm('Bạn có muốn dừng chương trình khuyến mãi?')
    ) {
       btnPlayPause.classList.remove('pause');
       btnPlayPause.classList.add('play');

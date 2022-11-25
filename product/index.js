@@ -74,8 +74,26 @@ qtyMinus.onclick = function () {
 };
 
 qtyPlus.onclick = function () {
+   let tempQty = 0;
+   const data = new FormData(formAddCart);
+   var detail = {};
+
+   for (const [name, value] of data) {
+      detail[`${name}`] = `${value}`;
+   }
+
+   checkVetify[0].colors.detail.find((element, index) => {
+      if (element.color === detail.option1) {
+         element.detail.find((element1) => {
+            if (Number(element1.size) === Number(detail.option2)) {
+               tempQty = Number(element1.qty);
+            }
+         });
+      }
+   });
+
    valueQty.value++;
-   if (valueQty.value > 10) valueQty.value--;
+   if (valueQty.value > tempQty) valueQty.value--;
 };
 //wishlist
 

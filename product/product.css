@@ -894,3 +894,16 @@
    margin: 16px;
    padding: 0;
 }
+
+.fancybox-button--arrow_close {
+   position: absolute;
+   color: #fff;
+   top: 8px;
+   right: 0;
+   display: flex;
+}
+
+.fancybox-button--arrow_close div > i {
+   font-size: 30px;
+   text-align: center;
+}
