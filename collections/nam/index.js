@@ -698,6 +698,11 @@ function htmlProduct(arrayProduct) {
          </div>
       `;
    } else {
+      const btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
+      if (arrayProduct.length > 20) {
+         btnLoadMore.style.display = 'inline-block';
+      } else btnLoadMore.style.display = 'none';
+
       var newArrayProduct = arrayProduct.map(function (element) {
          let tempNewPrice = Number(element.price.replaceAll(',', ''));
          tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
@@ -728,18 +733,42 @@ function checkId(product, productlist) {
    return check;
 }
 
-var dataProduct = htmlProduct(productList);
+var dataProduct;
+
+if (urlParams.get('collection') !== null) {
+   dataProduct = htmlProduct(
+      productList.filter((element) => element.shoeTypes.gender === 'Nữ'),
+   ).slice(0, 20);
+} else {
+   dataProduct = htmlProduct(
+      productList.filter((element) => element.shoeTypes.gender === 'Nam'),
+   ).slice(0, 20);
+}
 
 //Hiện sản phẩm
 wrapList.innerHTML = dataProduct.join('');
 
 var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
 btnLoadMore.onclick = () => {
-   var productMoreAmout = productContainerList.length - flat;
-   for (let i = 0; i < productMoreAmout; i++) {
-      wrapList.appendChild(productContainerList[flat]);
-      flat += 1;
+   const tempLength = dataProduct.length + 8;
+   if (urlParams.get('collection') !== null) {
+      dataProduct = htmlProduct(
+         productList.filter((element) => element.shoeTypes.gender === 'Nữ'),
+      ).slice(0, tempLength);
+   } else {
+      dataProduct = htmlProduct(
+         productList.filter((element) => element.shoeTypes.gender === 'Nam'),
+      ).slice(0, tempLength);
    }
+
+   wrapList.innerHTML = dataProduct.join('');
+   setTimeout(() => {
+      var btnLoadMore = document.querySelector('.collection-loadmore .btn-loadmore');
+      if (productList.filter((element) => element.shoeTypes.gender === 'Nam').length > tempLength) {
+         console.log('kkk');
+         btnLoadMore.style.display = 'inline-block';
+      } else btnLoadMore.style.display = 'none';
+   });
 };
 
 //Drag and drop

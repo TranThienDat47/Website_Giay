@@ -2167,6 +2167,718 @@ class ProductController {
                },
                promotions: 0,
             },
+            {
+               _id: '41',
+               name: 'Giày Thể Thao Nam Hunter X',
+               description:
+                  '- Đế: IP/Cao su \n- Quai: Knits/ si Nubucks \n\n- Điểm nhấn nổi bật : Quai knits thông thoáng. Đế IP/Cao su nhẹ, uốn gấp đàn hồi tốt. \n\n- Ý tưởng thiết kế: từ những góc cắt mạnh mẽ liên kết từ thành đế tạo sự đồng nhất sản phẩm\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '1,050,000',
+               qty: 338,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
+               colors: {
+                  list: ['Xám', 'Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Xám',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__2__4d84d50f5d9741f6b6d74dcd716f4176.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__5__113fd43149a74ead82897abb58b78cf9.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__7__aa3b3ad4ee1d423b858e9cf8fc652756.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__6__5d70fee9e27a44c2aa845c298cb7fd8d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c8077d78927047d397b6eb8bb1da6a48.jpg',
+                           ],
+                        },
+                        qty: 172,
+                        detail: [
+                           { size: '35', qty: '8' },
+                           { size: '36', qty: '7' },
+                           { size: '37', qty: '8' },
+                           { size: '38', qty: '7' },
+                           { size: '39', qty: '35' },
+                           { size: '40', qty: '54' },
+                           { size: '41', qty: '21' },
+                           { size: '42', qty: '11' },
+                           { size: '43', qty: '21' },
+                        ],
+                     },
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__2__876e6ceee0bc4f4688dc0479beed3f30.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__5__70792867b9754641810abe461efb97de.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__3__b420481103274d29b8b250efb3f972e8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__7__b9f6abd2e6ee4c04a758f460f337335d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__6__343b6e824bc746e2b92de5d3321845d9.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__4__9d4a4f3d42d546ce930795846422a7a0.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_96b654dc2f84462bbbbd43fb42dea813.jpg',
+                           ],
+                        },
+                        qty: 110,
+                        detail: [
+                           { size: '37', qty: '12' },
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '13' },
+                           { size: '40', qty: '12' },
+                           { size: '41', qty: '41' },
+                           { size: '42', qty: '11' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__2__6ea6f065d44f4e1285017c2ad763b201.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__5__ea0cda5998a642b29c279d6025ab5155.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__3__25a02f3c98b9477e96fd991c4a65192f.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__6__dd0f265a69d246eca51fbfe6a409326a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__7__7a9052a534d0401c8ce404add08046b6.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__4__c2145f5f02aa490594fb506b8c431325.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_80ba72f18dff4409908e45862d1d779e.jpg',
+                           ],
+                        },
+                        qty: 56,
+                        detail: [
+                           { size: '35', qty: '12' },
+                           { size: '39', qty: '31' },
+                           { size: '41', qty: '13' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '42',
+               name: 'Giày Thể Thao Nam DSM076000TRG',
+               description:
+                  '- Đế: Cao su mới \n- Quai: Si Nubucks \n\n- Lót trong: Lưới \n\n- Điểm nhấn nổi bật: \n\n+ Giày thông dụng mới sử dụng đế cao su mới tăng tính ma sát, chống trơn trượt tạo cảm giác thoải mái khi di chuyển. \n\n+ Kiểu dáng trẻ trung, năng động phù họp với các đối tượng học sinh và khách hàng trẻ tuổi với các hoạt động như đi học, đi chơi\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '519,000',
+               qty: 300,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['36', '37', '38', '39', '40', '41'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0153_2149393560ad4d06bfc742b4b41d8447.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0156_4f9a6c68babb4e379bd51d2627854266.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0154_bd89004adf52457ca0c74edda2c8b5d8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0157_f824e655e4ff40bb903fa6fc88bc432a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0158_72a5b377b6bf48bb9090e14c8941d026.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0155_65f2df4c3d8a49089274bca8819de082.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c4b8f138e3a64272bb006635828aa9bb.jpg',
+                           ],
+                        },
+                        qty: 226,
+                        detail: [
+                           { size: '36', qty: '21' },
+                           { size: '37', qty: '41' },
+                           { size: '38', qty: '51' },
+                           { size: '39', qty: '71' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0160_7ab44233ce6144bab31be87383c510fc.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0161_9a99c7099c3a4580bbca6084e2bc75fe.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0164_07924db5b7ec4ec193b558c0488c2fd2.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0166_be2518c5d9c6443cb6c8ac17a483e938.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0165_196d05cc33fe4fe5b7a2e17b2e1f4851.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0162_ca7607ad29b44474b4ecf63ca8b5ad98.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_16c4d8b40f3046a684f55e683d29c479.jpg',
+                           ],
+                        },
+                        qty: 74,
+                        detail: [
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '11' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '43',
+               name: 'Giày Thể Thao Nam DSM075200',
+               description:
+                  '* Giày dùng đế bằng, ít ngóc mũi. \n* Sản phẩm thiết kế lưỡi gà liền, có 2 bản thun 2 bên hông trong ngoài. \n\n* Chất liệu quai : Lưới thun, Si \n\n* Chất liệu đế : EVA phun\n\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '417,000',
+               qty: 448,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['38', '39', '40', '41', '42', '35', '36', '37'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__2__7d998132e03240d9990820877a4fd9e4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__5__91c2d72dbd144e1fa665852e80515dde.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__3__bba5c19e05134e74acfd033cd0650ec3.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__1__86a336ae57374333820176a3df050a83.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__6__0c89d3bbb1514ff4b96f0e7aac83cc99.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__4__953bea7061fc42688a18c2cda5c5fa38.jpg',
+                           ],
+                        },
+                        qty: 313,
+                        detail: [
+                           { size: '38', qty: '133' },
+                           { size: '39', qty: '133' },
+                           { size: '40', qty: '21' },
+                           { size: '41', qty: '14' },
+                           { size: '42', qty: '12' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__2__b4816996fec840c680d9cf5f5fd840b4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__5__1497907f3d8f40e987845a4643166576.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__3__b17010f05d3d4aa4aad824a7d1ed30c5.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__1__8ef1bccc156f4bd3be73f4efc5bf22fa.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__4__6f660dfe026549fb8089650fb62be520.jpg',
+                           ],
+                        },
+                        qty: 135,
+                        detail: [
+                           { size: '35', qty: '13' },
+                           { size: '36', qty: '41' },
+                           { size: '37', qty: '31' },
+                           { size: '38', qty: '12' },
+                           { size: '39', qty: '12' },
+                           { size: '40', qty: '14' },
+                           { size: '41', qty: '12' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '44',
+               name: 'Giày Thể Thao Nam Hunter X',
+               description:
+                  '- Đế: IP/Cao su \n- Quai: Knits/ si Nubucks \n\n- Điểm nhấn nổi bật : Quai knits thông thoáng. Đế IP/Cao su nhẹ, uốn gấp đàn hồi tốt. \n\n- Ý tưởng thiết kế: từ những góc cắt mạnh mẽ liên kết từ thành đế tạo sự đồng nhất sản phẩm\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '1,050,000',
+               qty: 338,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
+               colors: {
+                  list: ['Xám', 'Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Xám',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__2__4d84d50f5d9741f6b6d74dcd716f4176.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__5__113fd43149a74ead82897abb58b78cf9.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__7__aa3b3ad4ee1d423b858e9cf8fc652756.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__6__5d70fee9e27a44c2aa845c298cb7fd8d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c8077d78927047d397b6eb8bb1da6a48.jpg',
+                           ],
+                        },
+                        qty: 172,
+                        detail: [
+                           { size: '35', qty: '8' },
+                           { size: '36', qty: '7' },
+                           { size: '37', qty: '8' },
+                           { size: '38', qty: '7' },
+                           { size: '39', qty: '35' },
+                           { size: '40', qty: '54' },
+                           { size: '41', qty: '21' },
+                           { size: '42', qty: '11' },
+                           { size: '43', qty: '21' },
+                        ],
+                     },
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__2__876e6ceee0bc4f4688dc0479beed3f30.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__5__70792867b9754641810abe461efb97de.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__3__b420481103274d29b8b250efb3f972e8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__7__b9f6abd2e6ee4c04a758f460f337335d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__6__343b6e824bc746e2b92de5d3321845d9.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__4__9d4a4f3d42d546ce930795846422a7a0.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_96b654dc2f84462bbbbd43fb42dea813.jpg',
+                           ],
+                        },
+                        qty: 110,
+                        detail: [
+                           { size: '37', qty: '12' },
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '13' },
+                           { size: '40', qty: '12' },
+                           { size: '41', qty: '41' },
+                           { size: '42', qty: '11' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__2__6ea6f065d44f4e1285017c2ad763b201.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__5__ea0cda5998a642b29c279d6025ab5155.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__3__25a02f3c98b9477e96fd991c4a65192f.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__6__dd0f265a69d246eca51fbfe6a409326a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__7__7a9052a534d0401c8ce404add08046b6.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__4__c2145f5f02aa490594fb506b8c431325.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_80ba72f18dff4409908e45862d1d779e.jpg',
+                           ],
+                        },
+                        qty: 56,
+                        detail: [
+                           { size: '35', qty: '12' },
+                           { size: '39', qty: '31' },
+                           { size: '41', qty: '13' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '45',
+               name: 'Giày Thể Thao Nam DSM076000TRG',
+               description:
+                  '- Đế: Cao su mới \n- Quai: Si Nubucks \n\n- Lót trong: Lưới \n\n- Điểm nhấn nổi bật: \n\n+ Giày thông dụng mới sử dụng đế cao su mới tăng tính ma sát, chống trơn trượt tạo cảm giác thoải mái khi di chuyển. \n\n+ Kiểu dáng trẻ trung, năng động phù họp với các đối tượng học sinh và khách hàng trẻ tuổi với các hoạt động như đi học, đi chơi\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '519,000',
+               qty: 300,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['36', '37', '38', '39', '40', '41'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0153_2149393560ad4d06bfc742b4b41d8447.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0156_4f9a6c68babb4e379bd51d2627854266.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0154_bd89004adf52457ca0c74edda2c8b5d8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0157_f824e655e4ff40bb903fa6fc88bc432a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0158_72a5b377b6bf48bb9090e14c8941d026.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0155_65f2df4c3d8a49089274bca8819de082.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c4b8f138e3a64272bb006635828aa9bb.jpg',
+                           ],
+                        },
+                        qty: 226,
+                        detail: [
+                           { size: '36', qty: '21' },
+                           { size: '37', qty: '41' },
+                           { size: '38', qty: '51' },
+                           { size: '39', qty: '71' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0160_7ab44233ce6144bab31be87383c510fc.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0161_9a99c7099c3a4580bbca6084e2bc75fe.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0164_07924db5b7ec4ec193b558c0488c2fd2.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0166_be2518c5d9c6443cb6c8ac17a483e938.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0165_196d05cc33fe4fe5b7a2e17b2e1f4851.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0162_ca7607ad29b44474b4ecf63ca8b5ad98.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_16c4d8b40f3046a684f55e683d29c479.jpg',
+                           ],
+                        },
+                        qty: 74,
+                        detail: [
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '11' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '46',
+               name: 'Giày Thể Thao Nam DSM075200',
+               description:
+                  '* Giày dùng đế bằng, ít ngóc mũi. \n* Sản phẩm thiết kế lưỡi gà liền, có 2 bản thun 2 bên hông trong ngoài. \n\n* Chất liệu quai : Lưới thun, Si \n\n* Chất liệu đế : EVA phun\n\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '417,000',
+               qty: 448,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['38', '39', '40', '41', '42', '35', '36', '37'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__2__7d998132e03240d9990820877a4fd9e4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__5__91c2d72dbd144e1fa665852e80515dde.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__3__bba5c19e05134e74acfd033cd0650ec3.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__1__86a336ae57374333820176a3df050a83.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__6__0c89d3bbb1514ff4b96f0e7aac83cc99.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__4__953bea7061fc42688a18c2cda5c5fa38.jpg',
+                           ],
+                        },
+                        qty: 313,
+                        detail: [
+                           { size: '38', qty: '133' },
+                           { size: '39', qty: '133' },
+                           { size: '40', qty: '21' },
+                           { size: '41', qty: '14' },
+                           { size: '42', qty: '12' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__2__b4816996fec840c680d9cf5f5fd840b4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__5__1497907f3d8f40e987845a4643166576.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__3__b17010f05d3d4aa4aad824a7d1ed30c5.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__1__8ef1bccc156f4bd3be73f4efc5bf22fa.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__4__6f660dfe026549fb8089650fb62be520.jpg',
+                           ],
+                        },
+                        qty: 135,
+                        detail: [
+                           { size: '35', qty: '13' },
+                           { size: '36', qty: '41' },
+                           { size: '37', qty: '31' },
+                           { size: '38', qty: '12' },
+                           { size: '39', qty: '12' },
+                           { size: '40', qty: '14' },
+                           { size: '41', qty: '12' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '47',
+               name: 'Giày Thể Thao Nam Hunter X',
+               description:
+                  '- Đế: IP/Cao su \n- Quai: Knits/ si Nubucks \n\n- Điểm nhấn nổi bật : Quai knits thông thoáng. Đế IP/Cao su nhẹ, uốn gấp đàn hồi tốt. \n\n- Ý tưởng thiết kế: từ những góc cắt mạnh mẽ liên kết từ thành đế tạo sự đồng nhất sản phẩm\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '1,050,000',
+               qty: 338,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
+               colors: {
+                  list: ['Xám', 'Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Xám',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__2__4d84d50f5d9741f6b6d74dcd716f4176.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__5__113fd43149a74ead82897abb58b78cf9.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__7__aa3b3ad4ee1d423b858e9cf8fc652756.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__6__5d70fee9e27a44c2aa845c298cb7fd8d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c8077d78927047d397b6eb8bb1da6a48.jpg',
+                           ],
+                        },
+                        qty: 172,
+                        detail: [
+                           { size: '35', qty: '8' },
+                           { size: '36', qty: '7' },
+                           { size: '37', qty: '8' },
+                           { size: '38', qty: '7' },
+                           { size: '39', qty: '35' },
+                           { size: '40', qty: '54' },
+                           { size: '41', qty: '21' },
+                           { size: '42', qty: '11' },
+                           { size: '43', qty: '21' },
+                        ],
+                     },
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__2__876e6ceee0bc4f4688dc0479beed3f30.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__5__70792867b9754641810abe461efb97de.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__3__b420481103274d29b8b250efb3f972e8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__7__b9f6abd2e6ee4c04a758f460f337335d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__6__343b6e824bc746e2b92de5d3321845d9.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500den__4__9d4a4f3d42d546ce930795846422a7a0.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_96b654dc2f84462bbbbd43fb42dea813.jpg',
+                           ],
+                        },
+                        qty: 110,
+                        detail: [
+                           { size: '37', qty: '12' },
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '13' },
+                           { size: '40', qty: '12' },
+                           { size: '41', qty: '41' },
+                           { size: '42', qty: '11' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__2__6ea6f065d44f4e1285017c2ad763b201.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__5__ea0cda5998a642b29c279d6025ab5155.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__3__25a02f3c98b9477e96fd991c4a65192f.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__6__dd0f265a69d246eca51fbfe6a409326a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__7__7a9052a534d0401c8ce404add08046b6.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__4__c2145f5f02aa490594fb506b8c431325.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_80ba72f18dff4409908e45862d1d779e.jpg',
+                           ],
+                        },
+                        qty: 56,
+                        detail: [
+                           { size: '35', qty: '12' },
+                           { size: '39', qty: '31' },
+                           { size: '41', qty: '13' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '48',
+               name: 'Giày Thể Thao Nam DSM076000TRG',
+               description:
+                  '- Đế: Cao su mới \n- Quai: Si Nubucks \n\n- Lót trong: Lưới \n\n- Điểm nhấn nổi bật: \n\n+ Giày thông dụng mới sử dụng đế cao su mới tăng tính ma sát, chống trơn trượt tạo cảm giác thoải mái khi di chuyển. \n\n+ Kiểu dáng trẻ trung, năng động phù họp với các đối tượng học sinh và khách hàng trẻ tuổi với các hoạt động như đi học, đi chơi\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '519,000',
+               qty: 300,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['36', '37', '38', '39', '40', '41'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0153_2149393560ad4d06bfc742b4b41d8447.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0156_4f9a6c68babb4e379bd51d2627854266.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0154_bd89004adf52457ca0c74edda2c8b5d8.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0157_f824e655e4ff40bb903fa6fc88bc432a.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0158_72a5b377b6bf48bb9090e14c8941d026.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0155_65f2df4c3d8a49089274bca8819de082.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_c4b8f138e3a64272bb006635828aa9bb.jpg',
+                           ],
+                        },
+                        qty: 226,
+                        detail: [
+                           { size: '36', qty: '21' },
+                           { size: '37', qty: '41' },
+                           { size: '38', qty: '51' },
+                           { size: '39', qty: '71' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0160_7ab44233ce6144bab31be87383c510fc.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsc_0161_9a99c7099c3a4580bbca6084e2bc75fe.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsc_0164_07924db5b7ec4ec193b558c0488c2fd2.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0166_be2518c5d9c6443cb6c8ac17a483e938.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0165_196d05cc33fe4fe5b7a2e17b2e1f4851.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsc_0162_ca7607ad29b44474b4ecf63ca8b5ad98.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_16c4d8b40f3046a684f55e683d29c479.jpg',
+                           ],
+                        },
+                        qty: 74,
+                        detail: [
+                           { size: '38', qty: '21' },
+                           { size: '39', qty: '11' },
+                           { size: '40', qty: '11' },
+                           { size: '41', qty: '31' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '49',
+               name: 'Giày Thể Thao Nam DSM075200',
+               description:
+                  '* Giày dùng đế bằng, ít ngóc mũi. \n* Sản phẩm thiết kế lưỡi gà liền, có 2 bản thun 2 bên hông trong ngoài. \n\n* Chất liệu quai : Lưới thun, Si \n\n* Chất liệu đế : EVA phun\n\nDo màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '417,000',
+               qty: 448,
+               newProc: true,
+               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               size: ['38', '39', '40', '41', '42', '35', '36', '37'],
+               colors: {
+                  list: ['Trắng', 'Đen'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__2__7d998132e03240d9990820877a4fd9e4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__5__91c2d72dbd144e1fa665852e80515dde.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__3__bba5c19e05134e74acfd033cd0650ec3.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__1__86a336ae57374333820176a3df050a83.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__6__0c89d3bbb1514ff4b96f0e7aac83cc99.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200trg__4__953bea7061fc42688a18c2cda5c5fa38.jpg',
+                           ],
+                        },
+                        qty: 313,
+                        detail: [
+                           { size: '38', qty: '133' },
+                           { size: '39', qty: '133' },
+                           { size: '40', qty: '21' },
+                           { size: '41', qty: '14' },
+                           { size: '42', qty: '12' },
+                        ],
+                     },
+                     {
+                        color: 'Đen',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__2__b4816996fec840c680d9cf5f5fd840b4.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__5__1497907f3d8f40e987845a4643166576.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__3__b17010f05d3d4aa4aad824a7d1ed30c5.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__1__8ef1bccc156f4bd3be73f4efc5bf22fa.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__6__339fef067fce4a3ab87b30624d426cb4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsm075200den__4__6f660dfe026549fb8089650fb62be520.jpg',
+                           ],
+                        },
+                        qty: 135,
+                        detail: [
+                           { size: '35', qty: '13' },
+                           { size: '36', qty: '41' },
+                           { size: '37', qty: '31' },
+                           { size: '38', qty: '12' },
+                           { size: '39', qty: '12' },
+                           { size: '40', qty: '14' },
+                           { size: '41', qty: '12' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
+            {
+               _id: '50',
+               name: 'Giày Thể Thao Nữ Hunter X',
+               description:
+                  '- Đế: IP/Cao su \n- Quai: Knits/ si Nubucks \n\n- Điểm nhấn nổi bật : Quai knits thông thoáng. Đế IP/Cao su nhẹ, uốn gấp đàn hồi tốt. \n\n- Ý tưởng thiết kế: từ những góc cắt mạnh mẽ liên kết từ thành đế tạo sự đồng nhất sản phẩm\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
+               price: '1,000,000',
+               qty: 120,
+               newProc: true,
+               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               size: ['35', '36', '37', '38', '39', '40', '41'],
+               colors: {
+                  list: ['Trắng'],
+                  detail: [
+                     {
+                        color: 'Trắng',
+                        imgs: {
+                           firstImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__2__2d0991d8535b4312ab1f699d96c09872.jpg',
+                           secondeImg:
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__5__2a79f5a2a361402087a7c706f0281355.jpg',
+                           orthers: [
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__3__cc54860128134c3f8dac038650a52dc6.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__7__9265153907604d37baa5744ed5a2d20d.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__6__da00b3f212db48adbb92a90cd46e51c4.jpg',
+                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__4__0e65e8bf80ec433c9b97a5df6ac0f449.jpg',
+                              'https://product.hstatic.net/1000230642/product/do_size_giay_d03943379669476e9cb448422811d16d.jpg',
+                           ],
+                        },
+                        qty: 120,
+                        detail: [
+                           { size: '35', qty: '31' },
+                           { size: '36', qty: '21' },
+                           { size: '37', qty: '13' },
+                           { size: '38', qty: '14' },
+                           { size: '39', qty: '15' },
+                           { size: '40', qty: '12' },
+                           { size: '41', qty: '14' },
+                        ],
+                     },
+                  ],
+               },
+               promotions: 0,
+            },
          ];
          localStorage.setItem('Products', JSON.stringify(Products));
       }

@@ -65,16 +65,31 @@ function eventCarts() {
          inputQty[index].value = ListCart.getCarts[index].qty;
 
          btnQtyMinus[index].onclick = function () {
-            ListCart.minusQty(index);
-            if (ListCart.getCarts[index]) {
-               inputQty[index].value = Number(ListCart.getCarts[index].qty);
+            if ($('.mini-cart__quantity > input').value - 1 <= 0) {
+               if (confirm('Bạn chắc chắc muốn xoá sản phẩm này?')) {
+                  ListCart.minusQty(index);
+                  if (ListCart.getCarts[index]) {
+                     inputQty[index].value = Number(ListCart.getCarts[index].qty);
+                  } else {
+                     ViewCart();
+                  }
+                  setTimeout(() => {
+                     actionCart.classList.add('show-triangle');
+                  }, 0);
+                  totalCarts();
+               }
             } else {
-               ViewCart();
+               ListCart.minusQty(index);
+               if (ListCart.getCarts[index]) {
+                  inputQty[index].value = Number(ListCart.getCarts[index].qty);
+               } else {
+                  ViewCart();
+               }
+               setTimeout(() => {
+                  actionCart.classList.add('show-triangle');
+               }, 0);
+               totalCarts();
             }
-            setTimeout(() => {
-               actionCart.classList.add('show-triangle');
-            }, 0);
-            totalCarts();
          };
 
          btnQtyPlus[index].onclick = function () {
@@ -89,11 +104,13 @@ function eventCarts() {
          };
 
          btnRemoveCart[index].onclick = function () {
-            ListCart.delete(index);
-            ViewCart();
-            setTimeout(() => {
-               actionCart.classList.add('show-triangle');
-            }, 0);
+            if (confirm('Bạn chắc chắ muốn xoá sản phẩm này?')) {
+               ListCart.delete(index);
+               ViewCart();
+               setTimeout(() => {
+                  actionCart.classList.add('show-triangle');
+               }, 0);
+            }
          };
       }
    }, 0);

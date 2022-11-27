@@ -7,8 +7,7 @@ const actionUser = $('.header__action-account .header__action-item-text');
 const checkNode = (parent, children) => {
    let node = children.parentNode;
    while (node !== null) {
-      if (node === parent) 
-         return true;
+      if (node === parent) return true;
       node = node.parentNode;
    }
    return false;
@@ -553,26 +552,32 @@ if (wapperListRecom) {
 //collection nam
 const collectionMan = $('#prdZone__man');
 if (collectionMan) {
+   let tempCountMan = 0;
    collectionMan.innerHTML = ListProduct.getProducts
-      .slice(0, 20)
       .map((element) => {
-         let tempNewPrice = Number(element.price.replaceAll(',', ''));
+         if (element.shoeTypes.gender === 'Nam') {
+            tempCountMan++;
+            if (tempCountMan > 15) return;
+            else {
+               let tempNewPrice = Number(element.price.replaceAll(',', ''));
 
-         tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
-         return `
-         <div class="prd-zone__item">
-            ${Product({
-               _id: element._id,
-               name: element.name,
-               price: element.price,
-               color: element.colors,
-               sizes: element.size,
-               promotional_price: numberMoney(tempNewPrice.toString()),
-               promotion_percentage: element.promotions,
-               news: element.newProc,
-            })}
-         </div>
-      `;
+               tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
+               return `
+                  <div class="prd-zone__item">
+                     ${Product({
+                        _id: element._id,
+                        name: element.name,
+                        price: element.price,
+                        color: element.colors,
+                        sizes: element.size,
+                        promotional_price: numberMoney(tempNewPrice.toString()),
+                        promotion_percentage: element.promotions,
+                        news: element.newProc,
+                     })}
+                  </div>
+               `;
+            }
+         }
       })
       .join('');
 }
@@ -580,26 +585,32 @@ if (collectionMan) {
 //collection nu
 const collectionWoman = $('#prdZone__woman');
 if (collectionWoman) {
+   let tempCountWoman = 0;
    collectionWoman.innerHTML = ListProduct.getProducts
-      .slice(0, 20)
       .map((element) => {
-         let tempNewPrice = Number(element.price.replaceAll(',', ''));
+         if (element.shoeTypes.gender === 'Nữ') {
+            tempCountWoman++;
+            if (tempCountWoman > 15) return;
+            else {
+               let tempNewPrice = Number(element.price.replaceAll(',', ''));
 
-         tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
-         return `
-         <div class="prd-zone__item">
-            ${Product({
-               _id: element._id,
-               name: element.name,
-               price: element.price,
-               color: element.colors,
-               sizes: element.size,
-               promotional_price: numberMoney(tempNewPrice.toString()),
-               promotion_percentage: element.promotions,
-               news: element.newProc,
-            })}
-         </div>
-      `;
+               tempNewPrice = tempNewPrice * (100 - Number(element.promotions));
+               return `
+                     <div class="prd-zone__item">
+                        ${Product({
+                           _id: element._id,
+                           name: element.name,
+                           price: element.price,
+                           color: element.colors,
+                           sizes: element.size,
+                           promotional_price: numberMoney(tempNewPrice.toString()),
+                           promotion_percentage: element.promotions,
+                           news: element.newProc,
+                        })}
+                     </div>
+                  `;
+            }
+         }
       })
       .join('');
 }
