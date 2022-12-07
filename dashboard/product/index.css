@@ -160,6 +160,7 @@
    background-color: #fff;
    border-radius: 4px;
    overflow: auto;
+   overscroll-behavior: none;
 }
 
 .dasboard-product-add__wrapper h4 {

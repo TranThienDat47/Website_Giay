@@ -242,12 +242,7 @@ window.onload = () => {
    }
 };
 
-//handle wish list
-
-// test product
-
 import ListProduct from './app/controllers/ProductController.js';
-// import Product from './app/models/Product.js';
 
 // ListProduct.add(
 //    new Product(

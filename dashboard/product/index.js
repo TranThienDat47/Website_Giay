@@ -4,6 +4,114 @@ import Product from '../../app/models/Product.js';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+let curPage = 10;
+
+function ViewProc({
+   _id = '',
+   img = '',
+   name = '',
+   color_sizes_qty = { color: ['None'], detail: { size: '-1', qty: -1 } },
+   qty = '-1',
+   price = '-1',
+   category = { gender: 'None', type: 'None' },
+}) {
+   return `
+         <tr class="main-dashboard__product-item">
+            <td class="main-dashboard__product-item-proc">
+               <div>
+                  <div class="main-dashboard__product-item-img">
+                     <img
+                        src="${img}"
+                        alt="${name})"
+                     />
+                  </div>
+                  <h4 class="main-dashboard__product-item-title">
+                     ${name}})
+                  </h4>
+               </div>
+            </td>
+            <td class="main-dashboard__product-item-id">
+               <p>${_id}</p>
+            </td>
+            <td class="main-dashboard__product-item-color">
+               <p>${color_sizes_qty.color
+                  .map((element) => {
+                     const tempSize_Qty = color_sizes_qty.detail
+                        .map((element1) => {
+                           return `${element1.size} - ${element1.qty}`;
+                        })
+                        .join(';<br>&emsp;&emsp;&nbsp;');
+                     return `${element} (${tempSize_Qty})`;
+                  })
+                  .join(`<br>`)}</p>
+            </td>
+            <td class="main-dashboard__product-item-qty">
+               <p>${qty}</p>
+            </td>
+            <td class="main-dashboard__product-item-price">
+               <p>${price} ₫</p>
+            </td>
+            <td class="main-dashboard__product-item-type">
+               <p>${category.gender + ' - ' + category.type}</p>
+            </td>
+            <td class="main-dashboard__product-item-control">
+               <div>
+                  <div
+                     class="main-dasboard__product-item-icon main-dasboard__product-item-update"
+                  >
+                     <i class="fa-solid fa-file-pen"></i>
+                  </div>
+                  <div
+                     class="main-dasboard__product-item-icon main-dasboard__product-item-delete"
+                  >
+                     <i class="fa-regular fa-trash-can"></i>
+                  </div>
+               </div>
+            </td>
+         </tr>
+         `;
+}
+
+const innerProc = $('.main-dashboard__product-item-wrapper');
+
+const filterViewProc = (listProc) => {
+   return listProc
+      .map((element, index) => {
+         const imgTemp = element.colors.detail[0].imgs.firstImg || '';
+
+         let detailSize_Qty;
+
+         element.colors.list.forEach((element1, index1) => {
+            detailSize_Qty = element.colors.detail[index1].detail;
+         });
+
+         return ViewProc({
+            _id: element._id,
+            img: imgTemp,
+            name: element.name,
+            color_sizes_qty: { color: element.colors.list, detail: detailSize_Qty },
+            qty: element.qty,
+            price: element.price,
+            category: element.shoeTypes,
+         });
+      })
+      .join('');
+};
+
+innerProc.innerHTML = filterViewProc(ListProduct.getProducts.slice(0, curPage));
+
+const btnMore = $('#nextPageWishList');
+if (ListProduct.getProducts.length > curPage) btnMore.style.display = 'flex';
+
+btnMore.onclick = function () {
+   curPage += 10;
+   if (ListProduct.getProducts.length <= curPage) {
+      btnMore.style.display = 'none';
+      curPage = ListProduct.getProducts.length;
+   }
+   innerProc.innerHTML = filterViewProc(ListProduct.getProducts.slice(0, curPage));
+};
+
 const btnMainProc = $('.dasboard-product-add');
 const btnCancle = $('.dasboard-product-add__form-submit.cancle');
 const btnAddWrapper = $('.main-dashboard__product-add');

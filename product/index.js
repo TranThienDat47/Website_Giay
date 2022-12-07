@@ -317,7 +317,7 @@ viewProductMain.onclick = function (e) {
          if (viewProductMain.classList.contains('zoom-2')) {
             viewProductMain.classList.remove('zoom-2');
             viewProductMain.classList.add('zoom-4');
-
+            viewProductMain.style.cursor = 'zoom-out';
             const topViewProc = viewProductMain.getBoundingClientRect().top;
 
             if (topViewProc < 0) {
@@ -326,9 +326,12 @@ viewProductMain.onclick = function (e) {
                   .querySelector('.modalViewed-product')
                   .scrollTo(0, document.body.clientHeight / 4);
             }
-         } else if (viewProductMain.classList.contains('zoom-4'))
+         } else if (viewProductMain.classList.contains('zoom-4')) {
             viewProductMain.classList.remove('zoom-4');
-         else {
+            viewProductMain.style.cursor = 'zoom-in';
+         } else {
+            viewProductMain.style.cursor = 'zoom-in';
+
             viewProductMain.classList.add('zoom-2');
             const topViewProc = viewProductMain.getBoundingClientRect().top;
 
@@ -387,6 +390,7 @@ viewProductMain.onmousemove = function (e) {
       if (flagDragViewModal) {
          mouseMoveViewProc = true;
          handleDragViewModal(e);
+         viewProductMain.style.cursor = 'ew-resize';
       }
 };
 
@@ -406,6 +410,10 @@ viewProductMain.onmouseup = function (e) {
          } else if (rightViewProc <= document.body.clientWidth) {
             viewProductMain.style.transform = `translateX(${-widthTranslateX}px)`;
          }
+
+         if (viewProductMain.classList.contains('zoom-4')) {
+            viewProductMain.style.cursor = 'zoom-out';
+         } else viewProductMain.style.cursor = 'zoom-in';
 
          flagDragViewModal = false;
       }
@@ -590,7 +598,9 @@ btnRightGrallery.onclick = function (e) {
    indexGallrery++;
 
    if (indexGallrery > listImgGallery.length - 1) indexGallrery = 0;
-
+   if (viewProductMain.classList.contains('zoom-4')) {
+      viewProductMain.style.cursor = 'zoom-out';
+   } else viewProductMain.style.cursor = 'zoom-in';
    imgViewProc.src = listImgGallery[indexGallrery];
 };
 
@@ -604,7 +614,9 @@ btnLeftGrallery.onclick = function (e) {
    indexGallrery--;
 
    if (indexGallrery < 0) indexGallrery = listImgGallery.length - 1;
-
+   if (viewProductMain.classList.contains('zoom-4')) {
+      viewProductMain.style.cursor = 'zoom-out';
+   } else viewProductMain.style.cursor = 'zoom-in';
    imgViewProc.src = listImgGallery[indexGallrery];
 };
 
