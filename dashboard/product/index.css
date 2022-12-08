@@ -159,18 +159,29 @@
    height: 600px;
    background-color: #fff;
    border-radius: 4px;
-   overflow: auto;
+   overflow-y: auto;
    overscroll-behavior: none;
+}
+
+.dasboard-product-add__wrapper hr {
+   position: absolute;
+   width: 800px;
+   margin-top: 66px;
 }
 
 .dasboard-product-add__wrapper h4 {
    font-size: 22px;
    padding: 20px 14px;
    margin: 0;
+   position: absolute;
+   width: 800px;
+   background-color: #fff;
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
 }
 
 .dasboard-product-add__form {
-   margin-top: 8px;
+   margin-top: 70px;
 }
 
 .dasboard-product-add__wrapper-text {
@@ -265,7 +276,8 @@ textarea {
    margin-left: 4px;
 }
 
-.dasboard-product-add__form-submit {
+.dasboard-product-add__form-submit,
+.dasboard-product-update__form-submit {
    border-radius: 4px;
    margin: 16px 14px;
    background-color: rgba(0, 0, 255, 0.7);
@@ -273,7 +285,8 @@ textarea {
    font-weight: 600;
 }
 
-.dasboard-product-add__form-submit.cancle {
+.dasboard-product-add__form-submit.cancle,
+.dasboard-product-update__form-submit.cancle {
    background-color: #fff;
    color: #000;
    border: 1px solid #000;

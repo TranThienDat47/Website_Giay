@@ -2890,11 +2890,18 @@ class ProductController {
    }
 
    add(product) {
-      this.Products.push(product);
+      const flagAdd = this.Products.find((element) => element._id === product._id);
+      if (!flagAdd) {
+         this.Products.push(product);
+      } else {
+         this.Products = this.Products.map((element) => {
+            if (element._id === flagAdd._id) {
+               return product;
+            } else return element;
+         });
+      }
       localStorage.setItem('Products', JSON.stringify(this.Products));
    }
-
-   update() {}
 
    delete(productID) {
       this.Products = this.Products.filter((item) => Number(item._id) !== Number(productID));

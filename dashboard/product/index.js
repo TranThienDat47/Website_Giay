@@ -6,6 +6,127 @@ const $$ = document.querySelectorAll.bind(document);
 
 let curPage = 10;
 
+let listCategory = [
+   {
+      collection: '',
+      title: 'Nam',
+      detail: [
+         {
+            second: 'Hunter',
+            third: [],
+            collection: '/collections/nam/index.html?type=hunter-nam',
+         },
+         {
+            second: 'Sandal',
+            third: [],
+            collection: '/collections/nam/index.html?type=sandal-nam-1',
+         },
+         {
+            second: 'Giày Thể Thao',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-the-thao-nam',
+         },
+         {
+            second: 'Giày Chạy Bộ',
+            third: [],
+            collection: '/collections/nam/index.html?type=hunter-running-nam',
+         },
+         {
+            second: 'Giày Đá Banh',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-da-banh',
+         },
+         {
+            second: 'Giày Tây',
+            third: [],
+            collection: '/collections/nam/index.html?type=giay-tay-nam',
+         },
+         { second: 'Dép', third: [], collection: '/collections/nam/index.html?type=dep-nam' },
+         {
+            second: 'Phụ Kiện',
+            third: [],
+            collection: '/collections/nam/index.html?type=phu-kien',
+         },
+      ],
+   },
+   {
+      collection: 'nu',
+      title: 'Nữ',
+      detail: [
+         {
+            second: 'Hunter',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=hunter',
+         },
+         {
+            second: 'GOSTO',
+            third: [
+               {
+                  name: 'Giày Tao Gót',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=giay-cao-got',
+               },
+               {
+                  name: 'Giày Thời Trang',
+                  collection:
+                     '/collections/nam/index.html?collection=nu&floor=3&type=giay-the-thao-gosto',
+               },
+               {
+                  name: 'Sandal',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=sandal-gosto',
+               },
+               {
+                  name: 'Dép',
+                  collection: '/collections/nam/index.html?collection=nu&floor=3&type=dep-gosto',
+               },
+            ],
+            collection: '/',
+         },
+         {
+            second: 'Sandal',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=sandal-nu-1',
+         },
+         {
+            second: 'Giày Búp Bê',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-bup-be-nu',
+         },
+         {
+            second: 'Giày Thời Trang',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-thoi-trang-nu-1',
+         },
+         {
+            second: 'Giày Chạy Bộ - Đi Bộ',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=hunter-running-jogging',
+         },
+         {
+            second: 'Giày Thể Thao Nữ',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=giay-the-thao-nu',
+         },
+         {
+            second: 'Dép',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=dep-nu',
+         },
+         {
+            second: 'Túi xách',
+            third: [],
+            collection: '/collections/nam/index.html?collection=nu&type=tui-xach',
+         },
+      ],
+   },
+];
+
+function renderList() {
+   $('.list-category').innerHTML =
+      listCategory.map((element) => ItemCategory(element)).join('') +
+      `<li class="item-category item-category__add"><h3>Thêm danh mục</h3>
+         <i class="fa-solid fa-circle-plus"></i></li>`;
+}
+
 function ViewProc({
    _id = '',
    img = '',
@@ -100,18 +221,6 @@ const filterViewProc = (listProc) => {
 
 innerProc.innerHTML = filterViewProc(ListProduct.getProducts.slice(0, curPage));
 
-const btnMore = $('#nextPageWishList');
-if (ListProduct.getProducts.length > curPage) btnMore.style.display = 'flex';
-
-btnMore.onclick = function () {
-   curPage += 10;
-   if (ListProduct.getProducts.length <= curPage) {
-      btnMore.style.display = 'none';
-      curPage = ListProduct.getProducts.length;
-   }
-   innerProc.innerHTML = filterViewProc(ListProduct.getProducts.slice(0, curPage));
-};
-
 const btnMainProc = $('.dasboard-product-add');
 const btnCancle = $('.dasboard-product-add__form-submit.cancle');
 const btnAddWrapper = $('.main-dashboard__product-add');
@@ -130,6 +239,14 @@ const temp_data = getFormData();
 btnAddWrapper.onclick = function () {
    btnMainProc.style.display = 'flex';
 
+   $('#category_product').innerHTML = listCategory[0].detail
+      .map((element) => {
+         return `
+            <option value="${element.value}">${element.second}</option>
+            `;
+      })
+      .join('');
+
    $('#id_product').value = ListProduct.getProducts.length + 1;
 };
 
@@ -146,6 +263,55 @@ btnCancle.onclick = function () {
       btnMainProc.style.display = 'none';
       location.reload();
    }
+};
+
+const btnMale = $('#male');
+const btnFemale = $('#female');
+
+btnMale.onchange = () => {
+   let tempThird = [];
+   $('#category_product').innerHTML =
+      listCategory[0].detail
+         .map((element) => {
+            if (element.third.length > 0) {
+               tempThird.concat(
+                  element.third
+                     .map(
+                        (element1) => `
+                           <option value="${element1.value}">${element1.name}</option>
+                           `,
+                     )
+                     .join(''),
+               );
+            } else
+               return `
+            <option value="${element.value}">${element.second}</option>
+            `;
+         })
+         .join('') + tempThird;
+};
+
+btnFemale.onchange = () => {
+   let tempThird = [];
+   $('#category_product').innerHTML =
+      listCategory[1].detail
+         .map((element) => {
+            if (element.third.length > 0) {
+               tempThird.concat(
+                  element.third
+                     .map(
+                        (element1) => `
+                           <option value="${element1.value}">${element1.name}</option>
+                           `,
+                     )
+                     .join(''),
+               );
+            } else
+               return `
+            <option value="${element.value}">${element.second}</option>
+            `;
+         })
+         .join('') + tempThird;
 };
 
 function ItemColorSize(tempClass = 2, listColor = []) {
@@ -385,6 +551,8 @@ function handleSizeCheck() {
 
 handleSizeCheck();
 
+let tempError = false;
+
 let countSize = 0;
 btnAddListColorSize.onclick = function () {
    const lengthColor = listColorSize.children.length;
@@ -562,8 +730,17 @@ btnAddListColorSize.onclick = function () {
 
       countSize = 0;
    } else {
-      if (templistColor.length !== tempClassItemColorSize - 1) alert('Bạn chưa chọn màu sắc!');
-      else alert('Bạn chưa chọn kích thước!');
+      if (templistColor.length !== tempClassItemColorSize - 1) {
+         alert('Dữ liệu không hợp lệ (thiếu màu sắc). Vui lòng nhập lại từ đầu!');
+         tempError = true;
+         $('.dasboard-product-add__form').reset();
+         return;
+      } else {
+         alert('Dữ liệu không hợp lệ (thiếu kích thước). Vui lòng nhập lại từ đầu!');
+         tempError = true;
+         $('.dasboard-product-add__form').reset();
+         return;
+      }
    }
 };
 
@@ -622,98 +799,238 @@ function unique(arr) {
    return newArr;
 }
 
-btnAddProcForm.onclick = function () {
-   const data = new FormData($('.dasboard-product-add__form'));
-   var dataDetail = {};
+function handleUpdate() {
+   const listUpdate = $$('.main-dasboard__product-item-update');
 
-   for (const [name, value] of data) {
-      dataDetail[`${name}`] = `${value}`;
-   }
+   for (let i = 0; i < listUpdate.length; i++) {
+      listUpdate[i].onclick = () => {
+         btnMainProc.style.display = 'flex';
 
-   btnAddListColorSize.onclick();
+         const tempProc = ListProduct.getProducts[i];
 
-   let listSize = tempCheckSize.map((element) => element.size);
-   listSize = unique(listSize);
+         $('#id_product').value = tempProc._id;
+         $('#name_product').value = tempProc.name;
+         $('#description_product').value = tempProc.description;
+         $('#price_product').value = Number(tempProc.price.replaceAll(',', ''));
 
-   const listColor = templistColor.map((element) => element.color);
-   let i = -1;
-   const qty = tempCheckSize.reduce(
-      (previousValue, currentValue) => Number(Number(previousValue) + Number(currentValue.qty)),
-      0,
-   );
-   const detail = templistColor.map((element) => {
-      i++;
-      let detailNew = [];
-      let detailTemp = tempCheckSize.map((element1) => {
-         if (Number(element.tempName[2]) === Number(element1.tempName[2])) {
-            return {
-               size: element1.size,
-               qty: element1.qty,
-            };
+         if (tempProc.shoeTypes.gender === 'Nam') {
+            $('#male').checked = true;
+         } else $('#female').checked = true;
+
+         const listColor = [
+            { tempName: 'white', color: 'Trắng' },
+            { tempName: 'black', color: 'Đen' },
+            { tempName: 'green', color: 'Xanh lá' },
+            { tempName: 'blue', color: 'Xanh dương' },
+            { tempName: 'pink', color: 'Hồng' },
+            { tempName: 'grey', color: 'Xám' },
+            { tempName: 'yellow', color: 'Vàng' },
+            { tempName: 'violet', color: 'Tím' },
+         ];
+
+         let tempColor = tempProc.colors.list[0];
+
+         const nameColor = listColor.find((element) => element.color === tempColor);
+
+         let listSize_Qty = tempProc.colors.detail[0].detail;
+
+         $(`#c_1-${nameColor.tempName}`).checked = true;
+
+         for (let i = 0; i < listSize_Qty.length; i++) {
+            const tempElement = $(`#s_1-size-${listSize_Qty[i].size}`);
+            tempElement.click();
+            setTimeout(() => {
+               tempElement.parentNode.children[2].value = listSize_Qty[i].qty;
+            });
          }
-         return;
-      });
-
-      detailTemp.forEach((elementSize) => {
-         if (elementSize) {
-            detailNew.push(elementSize);
+         let tempImg = tempProc.colors.detail[0].imgs;
+         $(`#img_1-first_img`).value = tempImg.firstImg;
+         $(`#img_1-second_img`).value = tempImg.secondeImg;
+         for (let i = 0; i < tempImg.orthers.length; i++) {
+            $(`#img_1-orther_${i + 1}`).value = tempImg.orthers[i];
          }
-      });
 
-      detailNew = uniqueSize(detailNew);
+         for (let index = 1; index < tempProc.colors.detail.length; index++) {
+            setTimeout(() => {
+               $('#btnAddColor_Size').click();
 
-      const listOther = [];
+               setTimeout(() => {
+                  tempColor = tempProc.colors.list[index];
 
-      const tenpListOther = [
-         tempOther_1_Img[i].img || '',
-         tempOther_2_Img[i].img || '',
-         tempOther_3_Img[i].img || '',
-         tempOther_4_Img[i].img || '',
-         tempOther_5_Img[i].img || '',
-      ];
+                  const nameColor = listColor.find((element) => element.color === tempColor);
+                  let listSize_Qty = tempProc.colors.detail[index].detail;
+                  $(`#c_${index + 1}-${nameColor.tempName}`).checked = true;
 
-      tenpListOther.forEach((elementOther) => {
-         if (elementOther.trim() !== '') {
-            listOther.push(elementOther);
+                  for (let i = 0; i < listSize_Qty.length; i++) {
+                     const tempElement = $(`#s_${index + 1}-size-${listSize_Qty[i].size}`);
+                     tempElement.click();
+                     setTimeout(() => {
+                        tempElement.parentNode.children[2].value = listSize_Qty[i].qty;
+                     });
+                  }
+                  let tempImg = tempProc.colors.detail[index].imgs;
+                  $(`#img_${index + 1}-first_img`).value = tempImg.firstImg;
+                  $(`#img_${index + 1}-second_img`).value = tempImg.secondeImg;
+                  for (let i = 0; i < tempImg.orthers.length; i++) {
+                     $(`#img_${index + 1}-orther_${i + 1}`).value = tempImg.orthers[i];
+                  }
+               }, 10);
+            }, index * 50);
          }
-      });
-
-      const sl = tempCheckSize.reduce((previousValue, currentValue) => {
-         if (Number(element.tempName[2]) === Number(currentValue.tempName[2])) {
-            return Number(Number(previousValue) + Number(currentValue.qty));
-         }
-         return Number(previousValue);
-      }, 0);
-
-      return {
-         color: element.color,
-         imgs: {
-            firstImg: tempFirstImg[i].img || '',
-            secondeImg: tempSecondImg[i].img || '',
-            orthers: listOther,
-         },
-         qty: sl,
-         detail: detailNew,
       };
-   });
+   }
+}
 
-   ListProduct.add(
-      new Product(
-         $('#id_product').value,
-         dataDetail.name_product,
-         dataDetail.description_product,
-         numberMoney(dataDetail.price_product.toString())[0] !== ','
-            ? numberMoney(dataDetail.price_product.toString())
-            : numberMoney(dataDetail.price_product.toString()).replace(',', ''),
-         qty,
-         true,
-         { gender: dataDetail.gender_product, type: dataDetail.category_product.split(' (')[0] },
-         listSize,
-         {
-            list: listColor,
-            detail,
-         },
+handleUpdate();
+
+function handleUpload() {
+   btnAddProcForm.onclick = function () {
+      tempError = false;
+      const data = new FormData($('.dasboard-product-add__form'));
+      var dataDetail = {};
+
+      let tempColor = [];
+      for (const [name, value] of data) {
+         if (name.includes('-color')) {
+            if (tempColor.includes(value)) {
+               alert('Màu sắc không thể trùng nhau. Vui lòng thao tác lại!');
+               return;
+            }
+            tempColor.push(value);
+         }
+         dataDetail[`${name}`] = `${value}`;
+      }
+      // console.log();
+
+      btnAddListColorSize.onclick();
+
+      if (tempError) {
+         return;
+      }
+
+      let listSize = tempCheckSize.map((element) => element.size);
+      listSize = unique(listSize);
+
+      const listColor = templistColor.map((element) => element.color);
+      let i = -1;
+      const qty = tempCheckSize.reduce(
+         (previousValue, currentValue) => Number(Number(previousValue) + Number(currentValue.qty)),
          0,
-      ),
-   );
+      );
+      const detail = templistColor.map((element) => {
+         i++;
+         let detailNew = [];
+         let detailTemp = tempCheckSize.map((element1) => {
+            if (Number(element.tempName[2]) === Number(element1.tempName[2])) {
+               return {
+                  size: element1.size,
+                  qty: element1.qty,
+               };
+            }
+            return;
+         });
+
+         detailTemp.forEach((elementSize) => {
+            if (elementSize) {
+               detailNew.push(elementSize);
+            }
+         });
+
+         detailNew = uniqueSize(detailNew);
+
+         const listOther = [];
+
+         const tenpListOther = [
+            tempOther_1_Img[i].img || '',
+            tempOther_2_Img[i].img || '',
+            tempOther_3_Img[i].img || '',
+            tempOther_4_Img[i].img || '',
+            tempOther_5_Img[i].img || '',
+         ];
+
+         tenpListOther.forEach((elementOther) => {
+            if (elementOther.trim() !== '') {
+               listOther.push(elementOther);
+            }
+         });
+
+         const sl = tempCheckSize.reduce((previousValue, currentValue) => {
+            if (Number(element.tempName[2]) === Number(currentValue.tempName[2])) {
+               return Number(Number(previousValue) + Number(currentValue.qty));
+            }
+            return Number(previousValue);
+         }, 0);
+
+         return {
+            color: element.color,
+            imgs: {
+               firstImg: tempFirstImg[i].img || '',
+               secondeImg: tempSecondImg[i].img || '',
+               orthers: listOther,
+            },
+            qty: sl,
+            detail: detailNew,
+         };
+      });
+      setTimeout(() => {
+         ListProduct.add(
+            new Product(
+               $('#id_product').value,
+               dataDetail.name_product,
+               dataDetail.description_product,
+               numberMoney(dataDetail.price_product.toString())[0] !== ','
+                  ? numberMoney(dataDetail.price_product.toString())
+                  : numberMoney(dataDetail.price_product.toString()).replace(',', ''),
+               qty,
+               true,
+               {
+                  gender: dataDetail.gender_product,
+                  type: $('#category_product').options[$('#category_product').selectedIndex].text,
+               },
+               listSize,
+               {
+                  list: listColor,
+                  detail,
+               },
+               0,
+            ),
+         );
+      });
+   };
+}
+
+setTimeout(() => {
+   handleUpload();
+}, 10);
+
+function handleDel() {
+   const btnDel = $$('.main-dasboard__product-item-delete');
+
+   for (let element of btnDel) {
+      element.onclick = function () {
+         const parrentElement = element.parentNode.parentNode.parentNode.children[1];
+         const tempText = prompt('Nhập "Ok" để đồng ý xoá!');
+         if (tempText === 'Ok') {
+            ListProduct.delete(parrentElement.innerText);
+            alert('Xoá sản phẩm thành công!');
+            document.location.reload();
+         } else alert('Xoá sản phẩm thất bại!');
+      };
+   }
+}
+
+handleDel();
+
+const btnMore = $('#nextPageWishList');
+if (ListProduct.getProducts.length > curPage) btnMore.style.display = 'flex';
+
+btnMore.onclick = function () {
+   curPage += 10;
+   if (ListProduct.getProducts.length <= curPage) {
+      btnMore.style.display = 'none';
+      curPage = ListProduct.getProducts.length;
+   }
+   innerProc.innerHTML = filterViewProc(ListProduct.getProducts.slice(0, curPage));
+   handleUpdate();
+   handleDel();
 };
