@@ -114,10 +114,17 @@ if (urlParams.get('view')) {
    $('.content__bill').style.display = 'block';
    $('.wrap_content_account').style.display = 'none';
 
+   const curUser = JSON.parse(localStorage.getItem('current_account'));
    const listBills = JSON.parse(localStorage.getItem('Bill'));
+   let bill = [];
+   for (let element of listBills) {
+      if (element.user_id === curUser.tk) {
+         bill.push(element);
+      }
+   }
 
-   if (listBills.length > 0) {
-      content.innerHTML = ShowBill(listBills);
+   if (bill.length > 0) {
+      content.innerHTML = ShowBill(bill);
    } else {
       content.innerHTML = 'Bạn chưa có đơn hàng nào!';
    }
