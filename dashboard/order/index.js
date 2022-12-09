@@ -25,9 +25,12 @@ function ItemPoc({ name = ' ', color = '', size = '', qty = '', price = '', img 
      `;
 }
 
-function ViewBill({ bill_id = '', total = '', listIem = [] }) {
+function ViewBill({ user = '', bill_id = '', total = '', listIem = [] }) {
    return `
      <tr class="main-dashboard__order-item">
+         <td class="main-dashboard__order-item-user">
+            <p>${user}</p>
+         </td>
         <td class="main-dashboard__order-item-id">
             <p>${bill_id}</p>
         </td>
@@ -84,6 +87,7 @@ function ShowBill(listBill) {
       });
 
       return ViewBill({
+         user: element.user_id,
          bill_id: element._id,
          total: numberMoney(totalTemp.toString()),
          listIem: element.cart,
