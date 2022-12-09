@@ -232,3 +232,15 @@ let listCategory = [
       },
    });
 })();
+
+const countUser = $('.main__card-item.main__card-item-custommer > h1');
+const countProc = $('.main__card-item.main__card-item-product > h1');
+const countOrder = $('.main__card-item.main__card-item-order > h1');
+
+const conutUsers = JSON.parse(localStorage.getItem('arr_account'));
+const conutProducts = JSON.parse(localStorage.getItem('Products'));
+const countOrders = JSON.parse(localStorage.getItem('Bill'));
+
+countProc.innerHTML = conutProducts.length;
+countUser.innerHTML = conutUsers.length;
+countOrder.innerHTML = countOrders.length;
