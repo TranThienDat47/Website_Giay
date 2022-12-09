@@ -62,7 +62,7 @@ let listCategory = [
             second: 'GOSTO',
             third: [
                {
-                  name: 'Giày Tao Gót',
+                  name: 'Giày Cao Gót',
                   collection: '/collections/nam/index.html?collection=nu&floor=3&type=giay-cao-got',
                },
                {
@@ -147,7 +147,7 @@ function ViewProc({
                      />
                   </div>
                   <h4 class="main-dashboard__product-item-title">
-                     ${name}})
+                     ${name}
                   </h4>
                </div>
             </td>

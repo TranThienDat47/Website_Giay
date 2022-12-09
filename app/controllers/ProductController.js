@@ -4,98 +4,6 @@ class ProductController {
       if (Products.length <= 0) {
          Products = [
             {
-               _id: '1',
-               name: 'Giày Thể Thao Nam Hunter X',
-               description:
-                  '- Đế: IP/Cao su \n- Quai: Knits/ si Nubucks \n\n- Điểm nhấn nổi bật : Quai knits thông thoáng. Đế IP/Cao su nhẹ, uốn gấp đàn hồi tốt. \n\n- Ý tưởng thiết kế: từ những góc cắt mạnh mẽ liên kết từ thành đế tạo sự đồng nhất sản phẩm\n\n- Có dây buộc \n\n- Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%.',
-               price: '1,050,000',
-               qty: 338,
-               newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
-               size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
-               colors: {
-                  list: ['Xám', 'Trắng', 'Đen'],
-                  detail: [
-                     {
-                        color: 'Xám',
-                        imgs: {
-                           firstImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__2__4d84d50f5d9741f6b6d74dcd716f4176.jpg',
-                           secondeImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__5__113fd43149a74ead82897abb58b78cf9.jpg',
-                           orthers: [
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__7__aa3b3ad4ee1d423b858e9cf8fc652756.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__6__5d70fee9e27a44c2aa845c298cb7fd8d.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500xam__4__7918383faa5840749c4d1fd6a7bede3a.jpg',
-                              'https://product.hstatic.net/1000230642/product/do_size_giay_c8077d78927047d397b6eb8bb1da6a48.jpg',
-                           ],
-                        },
-                        qty: 172,
-                        detail: [
-                           { size: '35', qty: '8' },
-                           { size: '36', qty: '7' },
-                           { size: '37', qty: '8' },
-                           { size: '38', qty: '7' },
-                           { size: '39', qty: '35' },
-                           { size: '40', qty: '54' },
-                           { size: '41', qty: '21' },
-                           { size: '42', qty: '11' },
-                           { size: '43', qty: '21' },
-                        ],
-                     },
-                     {
-                        color: 'Trắng',
-                        imgs: {
-                           firstImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__2__876e6ceee0bc4f4688dc0479beed3f30.jpg',
-                           secondeImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__5__70792867b9754641810abe461efb97de.jpg',
-                           orthers: [
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__3__b420481103274d29b8b250efb3f972e8.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__7__b9f6abd2e6ee4c04a758f460f337335d.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__6__343b6e824bc746e2b92de5d3321845d9.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500den__4__9d4a4f3d42d546ce930795846422a7a0.jpg',
-                              'https://product.hstatic.net/1000230642/product/do_size_giay_96b654dc2f84462bbbbd43fb42dea813.jpg',
-                           ],
-                        },
-                        qty: 110,
-                        detail: [
-                           { size: '37', qty: '12' },
-                           { size: '38', qty: '21' },
-                           { size: '39', qty: '13' },
-                           { size: '40', qty: '12' },
-                           { size: '41', qty: '41' },
-                           { size: '42', qty: '11' },
-                        ],
-                     },
-                     {
-                        color: 'Đen',
-                        imgs: {
-                           firstImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__2__6ea6f065d44f4e1285017c2ad763b201.jpg',
-                           secondeImg:
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__5__ea0cda5998a642b29c279d6025ab5155.jpg',
-                           orthers: [
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__3__25a02f3c98b9477e96fd991c4a65192f.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__6__dd0f265a69d246eca51fbfe6a409326a.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__7__7a9052a534d0401c8ce404add08046b6.jpg',
-                              'https://product.hstatic.net/1000230642/product/dsmh10500trg__4__c2145f5f02aa490594fb506b8c431325.jpg',
-                              'https://product.hstatic.net/1000230642/product/do_size_giay_80ba72f18dff4409908e45862d1d779e.jpg',
-                           ],
-                        },
-                        qty: 56,
-                        detail: [
-                           { size: '35', qty: '12' },
-                           { size: '39', qty: '31' },
-                           { size: '41', qty: '13' },
-                        ],
-                     },
-                  ],
-               },
-               promotions: 0,
-            },
-            {
                _id: '2',
                name: 'Giày Thể Thao Nam DSM076000TRG',
                description:
@@ -103,7 +11,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Hunter' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -168,7 +76,7 @@ class ProductController {
                price: '1,000,000',
                qty: 120,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Giày tây' },
                size: ['35', '36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -211,7 +119,7 @@ class ProductController {
                price: '1,547,000',
                qty: 324,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Giày thời trang' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Trắng'],
@@ -256,7 +164,7 @@ class ProductController {
                price: '1,000,000',
                qty: 527,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['36', '38', '39', '40', '41', '44'],
                colors: {
                   list: ['Đen', 'Trắng'],
@@ -320,7 +228,7 @@ class ProductController {
                price: '781,000',
                qty: 245,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Sandal' },
                size: ['37', '38', '39', '40', '41', '42'],
                colors: {
                   list: ['Hồng'],
@@ -362,7 +270,7 @@ class ProductController {
                price: '1,354,000',
                qty: 82,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Giày chạy bộ' },
                size: ['35', '36', '37', '38', '39', '40'],
                colors: {
                   list: ['Đen'],
@@ -404,7 +312,7 @@ class ProductController {
                price: '781,000',
                qty: 175,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['36', '37', '38', '40', '41', '42'],
                colors: {
                   list: ['Đen'],
@@ -446,7 +354,7 @@ class ProductController {
                price: '781,000',
                qty: 228,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'sandal(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Sandal' },
                size: ['38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -486,7 +394,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -552,7 +460,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Giày tây' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -644,7 +552,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Sandal' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -709,7 +617,7 @@ class ProductController {
                price: '1,000,000',
                qty: 120,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -752,7 +660,7 @@ class ProductController {
                price: '1,547,000',
                qty: 324,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Trắng'],
@@ -797,7 +705,7 @@ class ProductController {
                price: '1,000,000',
                qty: 527,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Giày tây' },
                size: ['36', '38', '39', '40', '41', '44'],
                colors: {
                   list: ['Đen', 'Trắng'],
@@ -861,7 +769,7 @@ class ProductController {
                price: '781,000',
                qty: 245,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['37', '38', '39', '40', '41', '42'],
                colors: {
                   list: ['Hồng'],
@@ -903,7 +811,7 @@ class ProductController {
                price: '1,354,000',
                qty: 82,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40'],
                colors: {
                   list: ['Đen'],
@@ -945,7 +853,7 @@ class ProductController {
                price: '781,000',
                qty: 175,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['36', '37', '38', '40', '41', '42'],
                colors: {
                   list: ['Đen'],
@@ -987,7 +895,7 @@ class ProductController {
                price: '781,000',
                qty: 228,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'sandal(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Sandal' },
                size: ['38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -1027,7 +935,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -1093,7 +1001,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -1185,7 +1093,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -1250,7 +1158,7 @@ class ProductController {
                price: '1,000,000',
                qty: 120,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -1293,7 +1201,7 @@ class ProductController {
                price: '1,547,000',
                qty: 324,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Trắng'],
@@ -1338,7 +1246,7 @@ class ProductController {
                price: '1,000,000',
                qty: 527,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['36', '38', '39', '40', '41', '44'],
                colors: {
                   list: ['Đen', 'Trắng'],
@@ -1402,7 +1310,7 @@ class ProductController {
                price: '781,000',
                qty: 245,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['37', '38', '39', '40', '41', '42'],
                colors: {
                   list: ['Hồng'],
@@ -1444,7 +1352,7 @@ class ProductController {
                price: '1,354,000',
                qty: 82,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40'],
                colors: {
                   list: ['Đen'],
@@ -1486,7 +1394,7 @@ class ProductController {
                price: '781,000',
                qty: 175,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['36', '37', '38', '40', '41', '42'],
                colors: {
                   list: ['Đen'],
@@ -1528,7 +1436,7 @@ class ProductController {
                price: '781,000',
                qty: 228,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'sandal(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -1568,7 +1476,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -1634,7 +1542,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -1726,7 +1634,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -1791,7 +1699,7 @@ class ProductController {
                price: '1,000,000',
                qty: 120,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Giày Búp Bê' },
                size: ['35', '36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -1834,7 +1742,7 @@ class ProductController {
                price: '1,547,000',
                qty: 324,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Trắng'],
@@ -1879,7 +1787,7 @@ class ProductController {
                price: '1,000,000',
                qty: 527,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['36', '38', '39', '40', '41', '44'],
                colors: {
                   list: ['Đen', 'Trắng'],
@@ -1943,7 +1851,7 @@ class ProductController {
                price: '781,000',
                qty: 245,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['37', '38', '39', '40', '41', '42'],
                colors: {
                   list: ['Hồng'],
@@ -1985,7 +1893,7 @@ class ProductController {
                price: '1,354,000',
                qty: 82,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40'],
                colors: {
                   list: ['Đen'],
@@ -2027,7 +1935,7 @@ class ProductController {
                price: '781,000',
                qty: 175,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['36', '37', '38', '40', '41', '42'],
                colors: {
                   list: ['Đen'],
@@ -2069,7 +1977,7 @@ class ProductController {
                price: '781,000',
                qty: 228,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'sandal(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -2109,7 +2017,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2175,7 +2083,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -2267,7 +2175,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2332,7 +2240,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2398,7 +2306,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -2490,7 +2398,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2555,7 +2463,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2621,7 +2529,7 @@ class ProductController {
                price: '1,050,000',
                qty: 338,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
                colors: {
                   list: ['Xám', 'Trắng', 'Đen'],
@@ -2713,7 +2621,7 @@ class ProductController {
                price: '519,000',
                qty: 300,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2778,7 +2686,7 @@ class ProductController {
                price: '417,000',
                qty: 448,
                newProc: true,
-               shoeTypes: { gender: 'Nam', type: 'the_thao(nam)' },
+               shoeTypes: { gender: 'Nam', type: 'Thể thao' },
                size: ['38', '39', '40', '41', '42', '35', '36', '37'],
                colors: {
                   list: ['Trắng', 'Đen'],
@@ -2844,7 +2752,7 @@ class ProductController {
                price: '1,000,000',
                qty: 120,
                newProc: true,
-               shoeTypes: { gender: 'Nữ', type: 'hunter(nu)' },
+               shoeTypes: { gender: 'Nữ', type: 'Hunter' },
                size: ['35', '36', '37', '38', '39', '40', '41'],
                colors: {
                   list: ['Trắng'],
@@ -2880,6 +2788,7 @@ class ProductController {
                promotions: 0,
             },
          ];
+
          localStorage.setItem('Products', JSON.stringify(Products));
       }
       this.Products = Products;

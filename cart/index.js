@@ -117,3 +117,15 @@ innerProc.innerHTML = ListCart.getCarts
       });
    })
    .join('');
+
+function totalCarts(totelCartView) {
+   const totalCarts = ListCart.getCarts.reduce((total, curValue) => {
+      return Number(total + Number(curValue.product.price.replaceAll(',', '') * curValue.qty));
+   }, 0);
+
+   const total = numberMoney(totalCarts.toString());
+
+   totelCartView.innerHTML = `${total[0] === ',' ? total.replace(',', '') : total} ₫`;
+}
+
+totalCarts($('.summary-total > p > span'));

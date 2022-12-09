@@ -31,7 +31,7 @@ function check_login() {
       for (var i = 0; i < arr_account_local.length; i++) {
          if (val_tk == arr_account_local[i].tk && val_mk == arr_account_local[i].mk) {
             isLogin = true;
-            nameUserLogin = arr_account_local[i].ho + arr_account_local[i].ten;
+            nameUserLogin = arr_account_local[i].ho + ' ' + arr_account_local[i].ten;
          }
       }
    }
