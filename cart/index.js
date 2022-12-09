@@ -43,9 +43,9 @@ function ProcView({
                     <span>${size}</span>
                 </div>
                 <div class="item-sl">
-                    <button id="giam_sl">-</button>
-                    <h2 id="count_sl">${qty}</h2>
-                    <button id="tang_sl">+</button>
+                    <button class="giam_sl" data-id = '${_id}'>-</button>
+                    <h2 class="count_sl">${qty}</h2>
+                    <button class="tang_sl" data-id = '${_id}'>+</button>
                 </div>
                 <div class="item-total-price">
                     <div class="price">
@@ -129,3 +129,24 @@ function totalCarts(totelCartView) {
 }
 
 totalCarts($('.summary-total > p > span'));
+
+setTimeout(() => {
+   const listPlus = $$('.tang_sl');
+   const listMinus = $$('.giam_sl');
+   const listRemove = $$('.item-remove');
+   for (let i = 0; i < listPlus.length; i++) {
+      listPlus[i].onclick = () => {
+         ListCart.plusQty(i);
+         window.location.reload();
+      };
+      listMinus[i].onclick = () => {
+         ListCart.minusQty(i);
+         window.location.reload();
+      };
+
+      listRemove[i].onclick = () => {
+         ListCart.delete(i);
+         window.location.reload();
+      };
+   }
+});
