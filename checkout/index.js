@@ -345,7 +345,7 @@ if (btnFinishPayment) {
             localStorage.setItem('Bill', JSON.stringify(bill));
          }
          localStorage.removeItem('Carts');
-         window.location.href = '/';
+         window.location.href = '/account/index.html?view=list-order';
       }
    };
 }
